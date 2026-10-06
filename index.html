@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ru" class="theme-gothic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Craft | Imperial Crimson & Dark Luxury</title>
+    <!-- Tailwind CSS через CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/arimels" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;750;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Cinzel', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                        mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                        industrial: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .brand-logo {
+            font-family: 'Arimels', 'Cinzel', serif !important;
+            letter-spacing: 0.15em !important;
+        }
+
+        @keyframes logo-shimmer {
+            0% { filter: brightness(1) drop-shadow(0 0 0px rgba(236, 200, 128, 0)); }
+            50% { filter: brightness(1.25) drop-shadow(0 0 8px currentColor); }
+            100% { filter: brightness(1) drop-shadow(0 0 0px rgba(236, 200, 128, 0)); }
+        }
+        .shimmer-logo {
+            animation: logo-shimmer 4s ease-in-out infinite;
+        }
+
+        /* Тема 1: Готика */
+        html.theme-gothic {
+            background-color: #090A0C;
+            background-image: radial-gradient(circle at 50% 0%, #15181F 0%, #090A0C 75%);
+            color: #EAE6DF;
+        }
+        html.theme-gothic .current-glass {
+            background: rgba(18, 20, 24, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(184, 142, 75, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        html.theme-gothic .current-accent-text, html.theme-gothic .tg-icon-color {
+            background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #ECC880;
+            color: #ECC880;
+        }
+        html.theme-gothic .current-accent-bg {
+            background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
+            color: #090A0C;
+        }
+        html.theme-gothic .current-hotspot {
+            background: radial-gradient(circle, #ECC880 0%, #B88E4B 60%, #7A5B28 100%);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
+            animation: luxury-pulse 2s infinite;
+        }
+        html.theme-gothic .current-font-title { font-family: 'Cormorant Garamond', serif; }
+
+        /* Тема 2: Постап */
+        html.theme-postap {
+            background-color: #120C09;
+            background-image: radial-gradient(circle at 50% 0%, #241711 0%, #120C09 75%);
+            color: #D6C7B2;
+        }
+        html.theme-postap .current-glass {
+            background: rgba(24, 17, 13, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 54, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        }
+        html.theme-postap .current-accent-text, html.theme-postap .tg-icon-color {
+            background: linear-gradient(135deg, #FF9933 0%, #D9531E 50%, #8C2303 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #FF9933;
+            color: #FF9933;
+        }
+        html.theme-postap .current-accent-bg {
+            background: linear-gradient(135deg, #FF9933 0%, #D9531E 50%, #8C2303 100%);
+            color: #120C09;
+        }
+        html.theme-postap .current-hotspot {
+            background: radial-gradient(circle, #FF9933 0%, #D9531E 60%, #8C2303 100%);
+            box-shadow: 0 0 22px rgba(217, 83, 30, 0.9);
+            animation: postap-pulse 2s infinite;
+        }
+        html.theme-postap .current-font-title { font-family: 'Oswald', sans-serif; letter-spacing: 0.1em; }
+
+        /* Тема 3: Хоррор */
+        html.theme-horror {
+            background-color: #0A0608;
+            background-image: radial-gradient(circle at 50% 0%, #160B0E 0%, #0A0608 75%);
+            color: #EDE6E7;
+        }
+        html.theme-horror .current-glass {
+            background: rgba(22, 11, 14, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(162, 155, 158, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        }
+        html.theme-horror .current-accent-text, html.theme-horror .tg-icon-color {
+            background: linear-gradient(135deg, #A82038 0%, #6E0E22 50%, #3B0510 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #A82038;
+            color: #A82038;
+        }
+        html.theme-horror .current-accent-bg {
+            background: linear-gradient(135deg, #A82038 0%, #6E0E22 50%, #3B0510 100%);
+            color: #EDE6E7;
+        }
+        html.theme-horror .current-hotspot {
+            background: radial-gradient(circle, #A82038 0%, #6E0E22 60%, #3B0510 100%);
+            box-shadow: 0 0 20px rgba(168, 32, 56, 0.8);
+            animation: horror-pulse 2s infinite;
+        }
+        html.theme-horror .current-font-title { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
+
+        /* Компактный стиль кнопок без обрезки текста (4 в ряд) */
+        .world-btn {
+            font-family: 'Cinzel', 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            transform: scaleX(0.92);
+            transform-origin: center;
+        }
+        html.theme-arcane {
+            background-color: #050B08;
+            background-image: radial-gradient(circle at 50% 0%, #0C120E 0%, #050B08 75%);
+            color: #E8E4D9;
+        }
+        html.theme-arcane .current-glass {
+            background: rgba(8, 17, 13, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        }
+        html.theme-arcane .current-accent-text, html.theme-arcane .tg-icon-color {
+            background: linear-gradient(135deg, #10B981 0%, #056143 50%, #022C1E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #10B981;
+            color: #10B981;
+        }
+        html.theme-arcane .current-accent-bg {
+            background: linear-gradient(135deg, #10B981 0%, #056143 50%, #022C1E 100%);
+            color: #E8E4D9;
+        }
+        html.theme-arcane .current-hotspot {
+            background: radial-gradient(circle, #10B981 0%, #056143 60%, #022C1E 100%);
+            box-shadow: 0 0 22px rgba(16, 185, 129, 0.45);
+            animation: arcane-pulse 2s infinite;
+        }
+        html.theme-arcane .current-font-title { 
+            font-family: 'Cinzel', serif; 
+            letter-spacing: 0.18em; 
+            text-transform: uppercase;
+        }
+
+        @keyframes luxury-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 200, 128, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(184, 142, 75, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 200, 128, 0); }
+        }
+
+        @keyframes postap-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(217, 83, 30, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 153, 51, 0); }
+        }
+
+        @keyframes horror-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 32, 56, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(110, 14, 34, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 32, 56, 0); }
+        }
+
+        @keyframes arcane-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(5, 97, 67, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        body { transition: background-color 0.4s ease, color 0.4s ease; font-family: 'Inter', sans-serif; min-height: 100vh; }
+        .current-glass { transition: background 0.4s ease, border-color 0.4s ease; }
+
+        #auction-modal.is-open { display: flex !important; }
+        #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
+    </style>
+</head>
+<body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
+
+    <!-- Верхняя премиальная шапка -->
+    <header class="sticky top-0 z-50 current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl px-4 py-3.5 flex justify-between items-center shadow-2xl" id="site-header">
+        <div class="flex items-center space-x-2">
+            <span class="brand-logo shimmer-logo text-base sm:text-lg font-black uppercase current-accent-text cursor-pointer select-none active:scale-95 transition-transform" onclick="playSecretSound()" title="Нажмите для звукового резонанса">COSMIC CRAFT</span>
+        </div>
+        <div class="flex items-center space-x-2.5">
+            <!-- Кнопка VK с точной векторной буквой из референса -->
+            <a href="https://vk.ru/cosmiccraft21" target="_blank" class="w-10 h-10 rounded-full current-glass flex items-center justify-center tg-icon-color border border-current hover:scale-105 transition shadow-lg shrink-0" title="Группа ВКонтакте">
+                <svg class="w-4 h-4 fill-current translate-y-[0.5px]" viewBox="0 0 512 512"><path d="M447.01 113.56c3.42-11.41 0-19.8-16.27-19.8h-53.84c-13.68 0-20 7.21-23.47 15.17 0 0-27.42 66.45-66.27 109.34-12.56 12.56-18.29 16.53-25.13 16.53-3.43 0-8.3-3.97-8.3-15.31V113.56c0-13.68-3.98-19.8-15.42-19.8H187.3c-8.58 0-13.73 6.32-13.73 12.28 0 12.92 19.34 15.98 21.32 52.48v79.43c0 17.41-3.14 20.61-10 20.61-18.29 0-62.74-67.14-89.04-143.86-5.22-15.02-11.08-21.05-24.97-21.05H26.31c-15.24 0-18.3 7.21-18.3 15.17 0 14.19 18.29 84.44 85.2 177.53 44.66 62.17 107.6 95.84 165.04 95.84 34.28 0 38.53-7.71 38.53-21.05v-48.65c0-15.31 3.25-18.3 14.07-18.3 7.97 0 21.6 4.02 53.4 34.56 36.38 36.38 42.3 52.66 62.66 52.66h53.84c15.24 0 22.86-7.61 18.47-22.65-4.81-14.9-22.02-36.63-44.86-62.4-12.56-14.54-31.42-30.2-37.15-37.99-8.02-10.28-5.74-14.86 0-24.12 0 0 65.65-92.42 72.48-123.86z"/></path></svg>
+            </a>
+            <!-- Кнопка Telegram -->
+            <a href="https://t.me/cosmiccraft21" target="_blank" class="w-10 h-10 rounded-full current-glass flex items-center justify-center tg-icon-color border border-current hover:scale-105 transition shadow-lg shrink-0" title="Связаться в Telegram">
+                <svg class="w-4 h-4 fill-current translate-x-[-0.5px] translate-y-[0.5px]" viewBox="0 0 512 512"><path d="M470.334 39.847c-5.915-4.834-14.397-5.321-20.852-1.222L41.34 233.003c-7.391 4.671-10.22 13.987-6.524 21.602 3.696 7.616 12.35 11.238 20.366 8.784l99.389-30.29 252.122-167.31c4.542-3.013 10.669 1.624 7.234 5.922L204.604 316.36l-9.155 83.179c-1.127 10.237 5.999 15.651 11.536 19.866 5.538 4.215 12.029 2.502 16.486-.334l59.569-38.319 96.115 70.908c6.772 4.996 16.275 1.656 18.232-6.586L501.076 56.402c2.083-8.795-3.664-15.918-10.742-16.555z"/></path></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Переключатель миров -->
+    <div class="sticky z-30 current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl py-2.5 px-3 shadow-2xl" id="switcher-bar" style="top: 79px;">
+        <div class="grid grid-cols-4 gap-1 max-w-lg mx-auto">
+            <!-- Готика -->
+            <button type="button" onclick="setTheme('gothic')" id="btn-gothic" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center">
+                <span class="w-full text-center whitespace-nowrap translate-x-[1.5px]">Готика</span>
+            </button>
+            <!-- Постап -->
+            <button type="button" onclick="setTheme('postap')" id="btn-postap" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/60 text-[#7E848D] cursor-pointer flex items-center justify-center">
+                <span class="w-full text-center whitespace-nowrap">Постап</span>
+            </button>
+            <!-- Хоррор -->
+            <button type="button" onclick="setTheme('horror')" id="btn-horror" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#160B0E]/60 text-[#8F8387] cursor-pointer flex items-center justify-center">
+                <span class="w-full text-center whitespace-nowrap translate-x-[3px]">Хоррор</span>
+            </button>
+            <!-- HP Крафт -->
+            <button type="button" onclick="setTheme('arcane')" id="btn-arcane" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#050B08]/60 text-[#7F8A82] cursor-pointer flex items-center justify-center">
+                <span class="w-full text-center whitespace-nowrap translate-x-[-4.5px]">HP Крафт</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Главный экран (Hero) -->
+    <section class="px-4 pt-10 pb-6 text-center max-w-lg mx-auto">
+        <div class="inline-block px-3.5 py-1 rounded-full text-[10px] font-mono tracking-[0.25em] uppercase current-glass current-accent-text mb-4 border border-white/10" id="badge-theme">
+            CATALOGUE № 01 // GOTHIC CRYPT
+        </div>
+        <h1 class="current-font-title text-3xl sm:text-4xl uppercase tracking-[0.15em] mb-3 leading-tight" id="hero-title">
+            Артефакты темной эстетики
+        </h1>
+        <p class="text-xs font-light max-w-sm mx-auto tracking-wide leading-relaxed text-[#8E8B85]" id="hero-subtitle">
+            Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.
+        </p>
+    </section>
+
+    <!-- Основной контент: Витрина -->
+    <main class="px-4 max-w-lg mx-auto space-y-6">
+        
+        <div class="current-glass rounded-2xl overflow-hidden shadow-2xl relative">
+            <div class="relative h-96 bg-black overflow-hidden flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+                
+                <img id="scene-img" src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" alt="Vitrine" class="w-full h-full object-cover opacity-75 filter contrast-125 transition-all duration-700">
+                
+                <!-- Хотспоты -->
+                <div id="hotspots-container" class="absolute inset-0 z-25 pointer-events-none"></div>
+
+                <!-- Музейная табличка -->
+                <div class="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span id="scene-code" class="text-[9px] font-mono uppercase tracking-[0.25em] current-accent-text">SCENE 01 // EXPOSITION</span>
+                    </div>
+                    <h3 id="scene-title" class="current-font-title text-xl uppercase tracking-[0.1em]">Crypt & Cyber-Goth Set</h3>
+                    <p id="scene-desc" class="text-[11px] font-light text-[#8E8B85]">Коснитесь меток для изучения лота.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок «Мастерская за кулисами» -->
+        <div class="current-glass rounded-2xl p-6">
+            <div class="flex items-center space-x-2 mb-3">
+                <span class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">PHILOSOPHY // CRAFT</span>
+            </div>
+            <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mb-2">Архитектура ручной работы</h3>
+            <p class="text-xs font-light text-[#8E8B85] leading-relaxed mb-4">
+                Никакого потокового литья. Каждый артефакт создается с вниманием к текстуре, весу и деталям, объединяя цифровую точность и теплоту ручного труда.
+            </p>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="current-glass p-3.5 rounded-xl border border-white/5">
+                    <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">3D Скульпт</div>
+                    <div class="text-[10px] font-mono tracking-wider text-[#8E8B85]">ПРЕЦИЗИОННАЯ ПЕЧАТЬ</div>
+                </div>
+                <div class="current-glass p-3.5 rounded-xl border border-white/5">
+                    <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">Фактурный хэндмейд</div>
+                    <div class="text-[10px] font-mono tracking-wider text-[#8E8B85]">ПАТИНА И СБОРКА</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Премиальный подвал / CTA -->
+        <div class="current-glass rounded-2xl p-6 text-center space-y-4">
+            <h3 class="current-font-title text-xl uppercase tracking-[0.1em]">Приобрести или заказать кастом</h3>
+            <p class="text-xs font-light text-[#8E8B85] leading-relaxed">Для приобретения выставленных экспонатов или обсуждения индивидуальной работы свяжитесь с нами напрямую.</p>
+            <a href="https://t.me/cosmiccraft21" target="_blank" class="block w-full py-3.5 rounded-xl font-mono text-xs uppercase tracking-[0.25em] current-accent-bg font-bold shadow-xl hover:opacity-95 transition text-center">
+                Связаться в Telegram
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Полноэкранный просмотрщик (Лайтбокс) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-2 sm:p-6" onclick="closeLightbox()">
+        <button type="button" onclick="closeLightbox(event)" class="absolute top-6 right-6 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+            ✕
+        </button>
+        <button type="button" onclick="prevLightboxImg(event)" class="absolute left-4 sm:left-8 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+            ‹
+        </button>
+        <button type="button" onclick="nextLightboxImg(event)" class="absolute right-4 sm:right-8 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+            ›
+        </button>
+        <img id="lightbox-img" src="" alt="Artifact Zoom" class="max-w-[92vw] max-h-[88vh] object-contain rounded-xl shadow-2xl border border-white/10" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="auction-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-end justify-center p-0 sm:p-4">
+        <div class="current-glass w-full max-w-md rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 border-t sm:border border-white/20 shadow-2xl modal-slide-up relative">
+            
+            <div id="modal-img-container" class="mb-4 h-52 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 relative group">
+                <img id="modal-img" src="" alt="Artifact" class="w-full h-full object-cover filter contrast-110 transition-all duration-300">
+                
+                <!-- Градиент снизу -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                <!-- Кнопки стрелочки переключения ракурсов -->
+                <button type="button" onclick="prevModalImg(event)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-sm cursor-pointer opacity-80 hover:opacity-100 transition shadow-lg">
+                    ‹
+                </button>
+                <button type="button" onclick="nextModalImg(event)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center text-sm cursor-pointer opacity-80 hover:opacity-100 transition shadow-lg">
+                    ›
+                </button>
+
+                <!-- Кнопка полноэкранного просмотра (Лупа) -->
+                <button type="button" onclick="openLightbox()" class="absolute top-3 right-3 bg-black/60 backdrop-blur-md border border-white/20 text-white rounded-lg p-2 opacity-80 hover:opacity-100 transition flex items-center space-x-1 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                </button>
+
+                <!-- Индикатор ракурса (например, 1 / 3) и точки -->
+                <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center px-1">
+                    <span id="modal-angle-label" class="text-[10px] font-mono uppercase tracking-widest text-white/90 bg-black/60 px-2 py-0.5 rounded border border-white/10">АНФАС</span>
+                    <div id="modal-dots" class="flex space-x-1.5"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <span id="modal-badge" class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">LOT DETAILS</span>
+                    <h3 id="modal-title" class="current-font-title text-2xl uppercase tracking-[0.1em] mt-1">Название лота</h3>
+                </div>
+                <button type="button" onclick="closeModal()" class="text-[#8E8B85] hover:text-white p-2 text-xl cursor-pointer">
+                    ✕
+                </button>
+            </div>
+            <p id="modal-desc" class="text-xs font-light text-[#8E8B85] mb-6 leading-relaxed">Описание артефакта в музейном стиле.</p>
+            <div class="flex items-center justify-between pt-4 border-t border-[#B88E4B]/20">
+                <span id="modal-price" class="current-font-title text-2xl font-bold current-accent-text">0 ₽</span>
+                <a href="https://t.me/your_telegram" target="_blank" class="px-6 py-3 rounded-xl font-mono text-xs uppercase tracking-[0.2em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition">
+                    Приобрести в ТГ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script>
+        const scenes = {
+            gothic: {
+                badge: "CATALOGUE № 01 // GOTHIC CRYPT",
+                title: "Артефакты темной эстетики",
+                subtitle: "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+                code: "SCENE 01 // EXPOSITION",
+                sceneTitle: "Crypt & Cyber-Goth Set",
+                sceneDesc: "Коснитесь золотых меток для изучения лота.",
+                hotspots: [
+                    {
+                        top: "38%", left: "32%",
+                        title: "Коллекционная горгулья",
+                        desc: "Эксклюзивный арт-объект ручной работы. Полимерный скульпт, патинирование под античную бронзу.",
+                        price: "3 500 ₽",
+                        badge: "1 / 10 EXCLUSIVE",
+                        img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
+                    },
+                    {
+                        bottom: "35%", right: "38%",
+                        title: "Кожаный чокер с руной",
+                        desc: "Натуральная галантерейная кожа растительного дубления, латунное литье, ручное тиснение.",
+                        price: "1 200 ₽",
+                        badge: "HANDMADE ARCHIVE",
+                        img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
+                    }
+                ]
+            },
+            postap: {
+                badge: "CATALOGUE № 02 // WASTELAND",
+                title: "Лут из пустошей и кастом",
+                subtitle: "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop",
+                code: "SECTOR 04 // OUTPOST_MK-IV",
+                sceneTitle: "Wasteland Survival Rig",
+                sceneDesc: "Изучите элементы защитного снаряжения и лут.",
+                hotspots: [
+                    {
+                        top: "42%", left: "45%",
+                        title: "Тактическая балаклава-сетка",
+                        desc: "Дистресс-трикотаж ручной работы, имитация радиационного износа и потертостей.",
+                        price: "1 800 ₽",
+                        badge: "LIMITED GEAR",
+                        img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+                    },
+                    {
+                        bottom: "30%", left: "28%",
+                        title: "Артефакт в колбе «Ядро-9»",
+                        desc: "Индустриальная капсула с проводкой, урановой подсветкой и деталями механизмов.",
+                        price: "2 400 ₽",
+                        badge: "ONE OF A KIND",
+                        img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+                    }
+                ]
+            },
+            horror: {
+                badge: "CATALOGUE № 03 // ELDRITCH RELICS",
+                title: "Мрачные миры и биомеханика",
+                subtitle: "Коллекционный шок-арт, викторианский оккультизм, черепа и уникальные мистические реликвии.",
+                image: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+                code: "RITUAL // CAT. IV",
+                sceneTitle: "Abyssal Relic & Grimdark Altar",
+                sceneDesc: "Прикоснитесь к запретным артефактам викторианской готики.",
+                hotspots: [
+                    {
+                        top: "40%", left: "50%",
+                        title: "Оккультный амулет «Глаз Бездны»",
+                        desc: "Ручное литье, состаренное серебро, хрустальная линза с эффектом живого взгляда.",
+                        price: "2 900 ₽",
+                        badge: "OCCULT ARTIFACT",
+                        img: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"
+                    },
+                    {
+                        bottom: "35%", left: "30%",
+                        title: "Череп-реликвия в патине",
+                        desc: "Полимерная скульптура, ручная роспись сусальным золотом и имитация антикварных трещин.",
+                        price: "4 200 ₽",
+                        badge: "MUSEUM GRADE",
+                        img: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"
+                    }
+                ]
+            },
+            arcane: {
+                badge: "GRIMOIRE // ARCHIVE VOL. VII",
+                title: "Арканы и министерские архивы",
+                subtitle: "Старинные фолианты, колбы с зельями, алхимические артефакты в бархатном обрамлении латуни.",
+                image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop",
+                code: "SPELL_FORGE: MK-I",
+                sceneTitle: "Alchemical Chamber & Tomes",
+                sceneDesc: "Изучите секретные фолианты и артефакты закрытых кабинетов.",
+                hotspots: [
+                    {
+                        top: "36%", left: "44%",
+                        title: "Фолиант Древних Арканов",
+                        desc: "Ручной переплет из черной кожи, латунные уголки, состаренная бумага ручного литья с заклинаниями.",
+                        price: "4 500 ₽",
+                        badge: "GRIMOIRE ARCHIVE",
+                        img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop"
+                    },
+                    {
+                        bottom: "32%", right: "34%",
+                        title: "Флакон с эликсиром Бездны",
+                        desc: "Антикварное серебро, герметичная колба со светящимся изумрудным зельем и восковой печатью.",
+                        price: "2 100 ₽",
+                        badge: "POTION FLASK",
+                        img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop"
+                    }
+                ]
+            }
+        };
+
+        function setTheme(theme) {
+            stopAllAudios(); // Выключаем музыку при смене мира
+            document.documentElement.className = `theme-${theme}`;
+            
+            ['gothic', 'postap', 'horror', 'arcane'].forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if (!btn) return;
+                if (t === theme) {
+                    if (theme === 'gothic') {
+                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center space-x-1.5";
+                    } else if (theme === 'postap') {
+                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#D9531E]/40 bg-[#18110D] text-[#FF9933] shadow-md cursor-pointer flex items-center space-x-1.5";
+                    } else if (theme === 'horror') {
+                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#A82038]/40 bg-[#160B0E] text-[#A82038] shadow-md cursor-pointer flex items-center space-x-1.5";
+                    } else {
+                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#C5A059]/40 bg-[#050B08] text-[#10B981] shadow-md cursor-pointer flex items-center space-x-1.5";
+                    }
+                } else {
+                    btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-white/10 bg-black/40 text-[#8F8387] cursor-pointer flex items-center space-x-1.5";
+                }
+            });
+
+            const scene = scenes[theme];
+            if (!scene) return;
+
+            document.getElementById('badge-theme').innerText = scene.badge;
+            document.getElementById('hero-title').innerText = scene.title;
+            document.getElementById('hero-subtitle').innerText = scene.subtitle;
+            document.getElementById('scene-img').src = scene.image;
+            document.getElementById('scene-code').innerText = scene.code;
+            document.getElementById('scene-title').innerText = scene.sceneTitle;
+            document.getElementById('scene-desc').innerText = scene.sceneDesc;
+
+            const container = document.getElementById('hotspots-container');
+            container.innerHTML = "";
+            scene.hotspots.forEach(h => {
+                const btn = document.createElement('button');
+                btn.type = "button";
+                btn.className = "absolute z-30 w-5 h-5 rounded-full current-hotspot flex items-center justify-center cursor-pointer active:scale-95 transition-transform pointer-events-auto";
+                if (h.top) btn.style.top = h.top;
+                if (h.bottom) btn.style.bottom = h.bottom;
+                if (h.left) btn.style.left = h.left;
+                if (h.right) btn.style.right = h.right;
+
+                btn.onclick = () => openAuctionModal(h.title, h.desc, h.price, h.badge, h.images || h.img);
+
+                const inner = document.createElement('span');
+                inner.className = "w-1.5 h-1.5 bg-black rounded-full pointer-events-none";
+                btn.appendChild(inner);
+                container.appendChild(btn);
+            });
+        }
+
+        let currentLotImages = [];
+        let currentImgIndex = 0;
+        const angleLabels = ["АНФАС", "ПРОФИЛЬ", "БОК"];
+
+        function openAuctionModal(title, desc, price, badgeText, inputImgs) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-badge').innerText = badgeText;
+            
+            if (Array.isArray(inputImgs)) {
+                currentLotImages = inputImgs;
+            } else {
+                currentLotImages = [
+                    inputImgs, 
+                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", 
+                    "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+                ];
+            }
+            currentImgIndex = 0;
+            updateModalImageView();
+
+            const modal = document.getElementById('auction-modal');
+            modal.classList.add('is-open');
+        }
+
+        function updateModalImageView() {
+            const imgEl = document.getElementById('modal-img');
+            imgEl.src = currentLotImages[currentImgIndex];
+
+            const labelEl = document.getElementById('modal-angle-label');
+            if (labelEl) labelEl.innerText = angleLabels[currentImgIndex] || "РАКУРС";
+
+            const dotsContainer = document.getElementById('modal-dots');
+            if (dotsContainer) {
+                dotsContainer.innerHTML = "";
+                currentLotImages.forEach((_, idx) => {
+                    const dot = document.createElement('div');
+                    dot.className = `w-2 h-2 rounded-full transition-all ${idx === currentImgIndex ? 'bg-white w-5' : 'bg-white/40'}`;
+                    dotsContainer.appendChild(dot);
+                });
+            }
+        }
+
+        function prevModalImg(e) {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex - 1 + currentLotImages.length) % currentLotImages.length;
+            updateModalImageView();
+        }
+
+        function nextModalImg(e) {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex + 1) % currentLotImages.length;
+            updateModalImageView();
+        }
+
+        function openLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = currentLotImages[currentImgIndex];
+            lightbox.classList.add('is-open');
+        }
+
+        function closeLightbox(e) {
+            if (e) e.stopPropagation();
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('is-open');
+        }
+
+        function prevLightboxImg(e) {
+            if (e) e.stopPropagation();
+            currentImgIndex = (currentImgIndex - 1 + currentLotImages.length) % currentLotInstancesLength();
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = currentLotImages[currentImgIndex];
+            updateModalImageView();
+        }
+
+        function nextLightboxImg(e) {
+            if (e) e.stopPropagation();
+            currentImgIndex = (currentImgIndex + 1) % currentLotImages.length;
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = currentLotImages[currentImgIndex];
+            updateModalImageView();
+        }
+
+        function currentLotInstancesLength() {
+            return currentLotImages.length;
+        }
+
+        function openAuctionModal(title, desc, price, badgeText, imgSrc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-badge').innerText = badgeText;
+            
+            if (Array.isArray(imgSrc)) {
+                currentLotImages = imgSrc;
+            } else {
+                currentLotImages = [
+                    imgSrc || "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+                ];
+            }
+            currentImgIndex = 0;
+            updateModalImageView();
+
+            const modal = document.getElementById('auction-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('is-open');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('auction-modal');
+            modal.classList.remove('is-open');
+            modal.classList.add('hidden');
+        }
+
+        let gothicAudio = new Audio('gothic_fixed.mp3');
+        let postapAudio = new Audio('postap_fixed.mp3');
+        let horrorAudio = new Audio('horror_fixed.mp3');
+        let arcaneAudio = new Audio('arcane_fixed.mp3');
+
+        const allAudios = [gothicAudio, postapAudio, horrorAudio, arcaneAudio];
+
+        // Включаем зацикливание для всех дорожек
+        allAudios.forEach(audio => {
+            audio.loop = true;
+        });
+
+        function stopAllAudios() {
+            allAudios.forEach(audio => {
+                if (audio) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            });
+        }
+
+        function playSecretSound() {
+            const currentTheme = document.documentElement.className.replace('theme-', '');
+            
+            if (currentTheme === 'gothic') {
+                try {
+                    gothicAudio.currentTime = 0;
+                    gothicAudio.play().catch(e => console.log("Audio play blocked", e));
+                } catch(e) {
+                    console.log("Audio error", e);
+                }
+            } else if (currentTheme === 'postap') {
+                try {
+                    postapAudio.currentTime = 0;
+                    postapAudio.play().catch(e => console.log("Audio play blocked", e));
+                } catch(e) {
+                    console.log("Audio error", e);
+                }
+            } else if (currentTheme === 'horror') {
+                try {
+                    horrorAudio.currentTime = 0;
+                    horrorAudio.play().catch(e => console.log("Audio play blocked", e));
+                } catch(e) {
+                    console.log("Audio error", e);
+                }
+            } else if (currentTheme === 'arcane') {
+                try {
+                    arcaneAudio.currentTime = 0;
+                    arcaneAudio.play().catch(e => console.log("Audio play blocked", e));
+                } catch(e) {
+                    console.log("Audio error", e);
+                }
+            } else {
+                // Для остальных миров — синтез Web Audio API
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    const ctx = new AudioContext();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    
+                    if (currentTheme === 'postap') {
+                        // Индустриальный металлический скрежещущий гул
+                        osc.type = 'sawtooth';
+                        osc.frequency.setValueAtTime(80, ctx.currentTime);
+                        osc.frequency.setValueAtTime(120, ctx.currentTime + 0.1);
+                        osc.frequency.setValueAtTime(60, ctx.currentTime + 0.3);
+                        gain.gain.setValueAtTime(0.25, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.0);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 1.0);
+                    } else if (currentTheme === 'horror') {
+                        // Жуткий низкий скример / гул бездны
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(73.42, ctx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(146.83, ctx.currentTime + 0.8);
+                        gain.gain.setValueAtTime(0.35, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 1.5);
+                    } else if (currentTheme === 'arcane') {
+                        // Магический алхимический звон
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.5);
+                        osc.frequency.exponentialRampToValueAtTime(1174.66, ctx.currentTime + 1.2);
+                        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.6);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 1.6);
+                    }
+                } catch(e) {
+                    console.log("Web Audio error", e);
+                }
+            }
+
+            // Визуальный отклик логотипа
+            const logo = document.querySelector('.brand-logo');
+            logo.style.transform = 'scale(0.92)';
+            setTimeout(() => { logo.style.transform = 'scale(1);'; }, 150);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setTheme('gothic');
+        });
+    </script>
+</body>
+</html>
