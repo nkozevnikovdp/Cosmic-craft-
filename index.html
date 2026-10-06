@@ -205,11 +205,6 @@
         #auction-modal.is-open { display: flex !important; }
         #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
     </style>
-    <link rel="stylesheet" href="gothic_addon.css">
-    <link rel="stylesheet" href="gothic_addon.css">
-    <link rel="stylesheet" href="postap_addon.css">
-    <link rel="stylesheet" href="horror_addon.css">
-    <link rel="stylesheet" href="arcane_addon.css">
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
@@ -269,24 +264,11 @@
     <main class="px-4 max-w-lg mx-auto space-y-6">
         
         <div class="current-glass rounded-2xl overflow-hidden shadow-2xl relative">
-            <div id="vitrine-card" class="relative h-96 bg-black overflow-hidden flex items-center justify-center">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 pointer-events-none"></div>
+            <div class="relative h-96 bg-black overflow-hidden flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
                 
                 <img id="scene-img" src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" alt="Vitrine" class="w-full h-full object-cover opacity-75 filter contrast-125 transition-all duration-700">
                 
-                <!-- Готический туманный оверлей -->
-                <div class="gothic-fog-overlay z-15"></div>
-
-                <!-- Посткап оверлей ночного видения -->
-                <div class="nv-glow z-15"></div>
-                <div class="postap-nv-overlay z-16"></div>
-
-                <!-- Хоррор оверлей дрожания света -->
-                <div class="horror-flicker-overlay z-16"></div>
-
-                <!-- Контейнер для динамических магических искр (Arcane / HP Craft) -->
-                <div id="sparks-container" class="absolute inset-0 z-20 pointer-events-none overflow-hidden"></div>
-
                 <!-- Хотспоты -->
                 <div id="hotspots-container" class="absolute inset-0 z-25 pointer-events-none"></div>
 
@@ -318,29 +300,6 @@
                 <div class="current-glass p-3.5 rounded-xl border border-white/5">
                     <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">Фактурный хэндмейд</div>
                     <div class="text-[10px] font-mono tracking-wider text-[#8E8B85]">ПАТИНА И СБОРКА</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Календарь мероприятий / Хроники -->
-        <div class="current-glass rounded-2xl p-6">
-            <div class="flex items-center space-x-2 mb-3">
-                <span class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">CHRONICLES // CALENDAR</span>
-            </div>
-            <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mb-4">Ближайшие события</h3>
-            
-            <div class="space-y-3.5 text-xs">
-                <div class="flex items-start justify-between pb-3.5 border-b border-white/10">
-                    <span class="font-mono font-bold current-accent-text tracking-wider">12.10</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Открытие закрытого предзаказа на новую партию кастомных статуэток</span>
-                </div>
-                <div class="flex items-start justify-between pb-3.5 border-b border-white/10">
-                    <span class="font-mono font-bold current-accent-text tracking-wider">25.10</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Участие в осеннем маркете темного искусства (Dark Craft Fest)</span>
-                </div>
-                <div class="flex items-start justify-between">
-                    <span class="font-mono font-bold current-accent-text tracking-wider">01.11</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Ночной релиз лимитированной серии алхимических фолиантов</span>
                 </div>
             </div>
         </div>
@@ -426,34 +385,26 @@
                 badge: "CATALOGUE № 01 // GOTHIC CRYPT",
                 title: "Артефакты темной эстетики",
                 subtitle: "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
-                image: "gothic_altar.jpg",
-                code: "SCENE 01 // CRYPT ALTAR",
-                sceneTitle: "Gothic Altar & Occult Relics",
-                sceneDesc: "Коснитесь золотых меток для изучения лота. (Клик мимо метки пробудит туман)",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+                code: "SCENE 01 // EXPOSITION",
+                sceneTitle: "Crypt & Cyber-Goth Set",
+                sceneDesc: "Коснитесь золотых меток для изучения лота.",
                 hotspots: [
                     {
-                        top: "28%", left: "41%",
-                        title: "Черный кружевной чокер",
-                        desc: "Ювелирная фурнитура, черненый металл, искусственный хрусталь и филигранная ручная сборка в викторианском стиле.",
-                        price: "2 500 ₽",
-                        badge: "VICTORIAN CHOKER",
-                        images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                        top: "38%", left: "32%",
+                        title: "Коллекционная горгулья",
+                        desc: "Эксклюзивный арт-объект ручной работы. Полимерный скульпт, патинирование под античную бронзу.",
+                        price: "3 500 ₽",
+                        badge: "1 / 10 EXCLUSIVE",
+                        img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
                     },
                     {
-                        top: "48%", left: "70%",
-                        title: "Череп со светящимися рунами",
-                        desc: "Коллекционный арт-объект с инкрустацией, патиной под античное серебро и мягким мистическим свечением глазниц.",
-                        price: "6 200 ₽",
-                        badge: "OCCULT RELIC",
-                        images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
-                    },
-                    {
-                        top: "62%", left: "25%",
-                        title: "Фолиант с Пентаграммой",
-                        desc: "Кожаный переплет ручной работы, барельефный сигил, состаренная бумага для тайных записей.",
-                        price: "4 100 ₽",
-                        badge: "GRIMOIRE ARCHIVE",
-                        images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                        bottom: "35%", right: "38%",
+                        title: "Кожаный чокер с руной",
+                        desc: "Натуральная галантерейная кожа растительного дубления, латунное литье, ручное тиснение.",
+                        price: "1 200 ₽",
+                        badge: "HANDMADE ARCHIVE",
+                        img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
                     }
                 ]
             },
@@ -461,104 +412,80 @@
                 badge: "CATALOGUE № 02 // WASTELAND",
                 title: "Лут из пустошей и кастом",
                 subtitle: "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
-                image: "postap_ruins.jpg",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop",
                 code: "SECTOR 04 // OUTPOST_MK-IV",
                 sceneTitle: "Wasteland Survival Rig",
-                sceneDesc: "Изучите элементы защитного снаряжения и лут. (Клик мимо метки активирует прибор ночного видения)",
+                sceneDesc: "Изучите элементы защитного снаряжения и лут.",
                 hotspots: [
                     {
-                        top: "38%", left: "30%",
-                        title: "Армейский противогаз ГП-5",
-                        desc: "Кастомный постапокалиптический арт-объект в боевом везеринге, с ржавчиной, патиной и потертостями.",
-                        price: "3 200 ₽",
-                        badge: "WASTELAND GEAR",
-                        images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                        top: "42%", left: "45%",
+                        title: "Тактическая балаклава-сетка",
+                        desc: "Дистресс-трикотаж ручной работы, имитация радиационного износа и потертостей.",
+                        price: "1 800 ₽",
+                        badge: "LIMITED GEAR",
+                        img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
                     },
                     {
-                        top: "55%", left: "62%",
-                        title: "Ржавая кружка выживальщика",
-                        desc: "Эмалированная армейская кружка с имитацией радиоактивного износа, потеков ржавчины и копоти.",
-                        price: "1 400 ₽",
-                        badge: "OUTPOST LUG",
-                        images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
-                    },
-                    {
-                        top: "70%", left: "45%",
-                        title: "Обугленная книга «SURVIVE»",
-                        desc: "Арт-фолиант в обгорелом переплете с выжженными страницами и следами ядерного пепла.",
-                        price: "2 600 ₽",
-                        badge: "ARCHIVE RELIC",
-                        images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                        bottom: "30%", left: "28%",
+                        title: "Артефакт в колбе «Ядро-9»",
+                        desc: "Индустриальная капсула с проводкой, урановой подсветкой и деталями механизмов.",
+                        price: "2 400 ₽",
+                        badge: "ONE OF A KIND",
+                        img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
                     }
                 ]
             },
             horror: {
-                badge: "CATALOGUE № 03 // HORROR RELICS",
-                title: "Мрачные миры и мастерская",
-                subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
-                image: "horror_jason.jpg",
-                code: "RITUAL // HORROR.MK-I",
-                sceneTitle: "Jason Voorhees Custom Altar",
-                sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
+                badge: "CATALOGUE № 03 // ELDRITCH RELICS",
+                title: "Мрачные миры и биомеханика",
+                subtitle: "Коллекционный шок-арт, викторианский оккультизм, черепа и уникальные мистические реликвии.",
+                image: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+                code: "RITUAL // CAT. IV",
+                sceneTitle: "Abyssal Relic & Grimdark Altar",
+                sceneDesc: "Прикоснитесь к запретным артефактам викторианской готики.",
                 hotspots: [
                     {
-                        top: "18%", left: "50%",
-                        title: "Маска и образ Джейсона Вурхиза",
-                        desc: "Коллекционная статуэтка ручной работы. Прецизионный 3D-скульпт, детализированная хоккейная маска и фактурная одежда.",
-                        price: "8 500 ₽",
-                        badge: "MASTERWORK EXCLUSIVE",
-                        images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
-                    },
-                    {
-                        top: "45%", left: "36%",
-                        title: "Ржавое окровавленное мачете",
-                        desc: "Кастомное оружие с эффектом запекшейся крови, ржавчины и следов жестоких расправ в лагере у озера.",
+                        top: "40%", left: "50%",
+                        title: "Оккультный амулет «Глаз Бездны»",
+                        desc: "Ручное литье, состаренное серебро, хрустальная линза с эффектом живого взгляда.",
                         price: "2 900 ₽",
-                        badge: "BLOODY WEAPON",
-                        images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                        badge: "OCCULT ARTIFACT",
+                        img: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"
                     },
                     {
-                        top: "55%", left: "75%",
-                        title: "Черный кофр с эмблемой черепа",
-                        desc: "Коллекционный кейс с латунной фурнитурой и фирменным эмблематичным черепом ручной работы.",
-                        price: "3 800 ₽",
-                        badge: "LIMITED BOX",
-                        images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                        bottom: "35%", left: "30%",
+                        title: "Череп-реликвия в патине",
+                        desc: "Полимерная скульптура, ручная роспись сусальным золотом и имитация антикварных трещин.",
+                        price: "4 200 ₽",
+                        badge: "MUSEUM GRADE",
+                        img: "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"
                     }
                 ]
             },
             arcane: {
                 badge: "GRIMOIRE // ARCHIVE VOL. VII",
-                title: "Магические артефакты HP & Craft",
-                subtitle: "Коллекционный мерч в стилистике факультета Слизерин, алхимические фолианты и атмосферный реквизит.",
-                image: "hp_slytherin.jpg",
-                code: "SPELL_FORGE: SLITHERIN",
-                sceneTitle: "Slytherin Alchemical Chamber",
-                sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки пробудит магические искры)",
+                title: "Арканы и министерские архивы",
+                subtitle: "Старинные фолианты, колбы с зельями, алхимические артефакты в бархатном обрамлении латуни.",
+                image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop",
+                code: "SPELL_FORGE: MK-I",
+                sceneTitle: "Alchemical Chamber & Tomes",
+                sceneDesc: "Изучите секретные фолианты и артефакты закрытых кабинетов.",
                 hotspots: [
                     {
-                        top: "55%", left: "20%",
-                        title: "Кружка Слизерин (Кастом)",
-                        desc: "Массивная керамическая кружка с эмблемой змеи факультета, ручной росписью и эффектом старой алхимической глазури.",
-                        price: "3 400 ₽",
-                        badge: "SLITHERIN HOUSE",
-                        images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
-                    },
-                    {
-                        top: "30%", left: "50%",
-                        title: "Изумрудное перо и чернильница",
-                        desc: "Коллекционный набор для писем в готическом стиле. Натуральное перо в патине и стеклянная чернильница.",
-                        price: "2 100 ₽",
-                        badge: "SCRIBE SET",
-                        images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
-                    },
-                    {
-                        top: "65%", left: "72%",
-                        title: "Фолиант Древних Заклинаний",
-                        desc: "Кожаный переплет с барельефом, состаренная бумага ручного литья, алхимические формулы и рецепты зелий.",
-                        price: "4 800 ₽",
+                        top: "36%", left: "44%",
+                        title: "Фолиант Древних Арканов",
+                        desc: "Ручной переплет из черной кожи, латунные уголки, состаренная бумага ручного литья с заклинаниями.",
+                        price: "4 500 ₽",
                         badge: "GRIMOIRE ARCHIVE",
-                        images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                        img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop"
+                    },
+                    {
+                        bottom: "32%", right: "34%",
+                        title: "Флакон с эликсиром Бездны",
+                        desc: "Антикварное серебро, герметичная колба со светящимся изумрудным зельем и восковой печатью.",
+                        price: "2 100 ₽",
+                        badge: "POTION FLASK",
+                        img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop"
                     }
                 ]
             }
@@ -608,10 +535,7 @@
                 if (h.left) btn.style.left = h.left;
                 if (h.right) btn.style.right = h.right;
 
-                btn.onclick = (e) => {
-                    e.stopPropagation();
-                    openAuctionModal(h.title, h.desc, h.price, h.badge, h.images || h.img);
-                };
+                btn.onclick = () => openAuctionModal(h.title, h.desc, h.price, h.badge, h.images || h.img);
 
                 const inner = document.createElement('span');
                 inner.className = "w-1.5 h-1.5 bg-black rounded-full pointer-events-none";
@@ -844,79 +768,6 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             setTheme('gothic');
-
-            // Слушатель промаха по витрине (эффект тумана для Готики, ночное видение для Посткапа, дрожание для Хоррора, искры для Arcane/HP)
-            const vitrineCard = document.getElementById('vitrine-card');
-            if (vitrineCard) {
-                vitrineCard.onclick = function(e) {
-                    const currentTheme = document.documentElement.className.replace('theme-', '');
-                    
-                    if (currentTheme === 'gothic') {
-                        const imgEl = document.getElementById('scene-img');
-                        if (!imgEl || imgEl.classList.contains('gothic-fog-anim')) return;
-
-                        imgEl.style.animation = 'none';
-                        imgEl.offsetHeight;
-                        imgEl.style.animation = null;
-
-                        imgEl.classList.add('gothic-fog-anim');
-                        setTimeout(() => {
-                            imgEl.classList.remove('gothic-fog-anim');
-                        }, 1200);
-                    } else if (currentTheme === 'postap') {
-                        const imgEl = document.getElementById('scene-img');
-                        if (!imgEl || imgEl.classList.contains('postap-nv-anim')) return;
-
-                        imgEl.style.animation = 'none';
-                        imgEl.offsetHeight;
-                        imgEl.style.animation = null;
-
-                        imgEl.classList.add('postap-nv-anim');
-                        setTimeout(() => {
-                            imgEl.classList.remove('postap-nv-anim');
-                        }, 1400);
-                    } else if (currentTheme === 'horror') {
-                        const imgEl = document.getElementById('scene-img');
-                        if (!imgEl || imgEl.classList.contains('horror-flicker-anim')) return;
-
-                        imgEl.style.animation = 'none';
-                        imgEl.offsetHeight;
-                        imgEl.style.animation = null;
-
-                        imgEl.classList.add('horror-flicker-anim');
-                        setTimeout(() => {
-                            imgEl.classList.remove('horror-flicker-anim');
-                        }, 600);
-                    } else if (currentTheme === 'arcane') {
-                        // Взрыв мелких плавных изумрудных звезд-искр в месте клика
-                        const sparksContainer = document.getElementById('sparks-container');
-                        if (!sparksContainer) return;
-
-                        const rect = vitrineCard.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        for (let i = 0; i < 28; i++) {
-                            const spark = document.createElement('div');
-                            spark.className = 'magic-star-spark';
-                            spark.style.left = x + 'px';
-                            spark.style.top = y + 'px';
-
-                            const angle = Math.random() * Math.PI * 2;
-                            const distance = 35 + Math.random() * 80;
-                            const dx = Math.cos(angle) * distance;
-                            const dy = Math.sin(angle) * distance;
-
-                            spark.style.setProperty('--dx', dx + 'px');
-                            spark.style.setProperty('--dy', dy + 'px');
-                            spark.style.animationDuration = (1.2 + Math.random() * 0.8) + 's';
-
-                            sparksContainer.appendChild(spark);
-                            setTimeout(() => spark.remove(), 2000);
-                        }
-                    }
-                };
-            }
         });
     </script>
 </body>
