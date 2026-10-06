@@ -2,7 +2,7 @@
 <html lang="ru" class="theme-gothic">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cosmic Craft | Imperial Crimson & Dark Luxury</title>
     <!-- Tailwind CSS через CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -202,8 +202,10 @@
         body { transition: background-color 0.4s ease, color 0.4s ease; font-family: 'Inter', sans-serif; min-height: 100vh; }
         .current-glass { transition: background 0.4s ease, border-color 0.4s ease; }
 
-        #auction-modal.is-open { display: flex !important; }
-        #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
+        @media (max-width: 380px) {
+            .world-btn { font-size: 9px !important; padding-left: 2px !important; padding-right: 2px !important; }
+            .current-font-title { font-size: 1.5rem !important; }
+        }
     </style>
     <link rel="stylesheet" href="gothic_addon.css">
     <link rel="stylesheet" href="gothic_addon.css">
