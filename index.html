@@ -199,8 +199,8 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        body { transition: background-color 0.4s ease, color 0.4s ease; font-family: 'Inter', sans-serif; min-height: 100vh; }
-        .current-glass { transition: background 0.4s ease, border-color 0.4s ease; }
+        #auction-modal.is-open { display: flex !important; }
+        #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
 
         @media (max-width: 380px) {
             .world-btn { font-size: 9px !important; padding-left: 2px !important; padding-right: 2px !important; }
