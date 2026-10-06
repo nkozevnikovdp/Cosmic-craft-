@@ -134,12 +134,10 @@
         }
         html.theme-horror .current-font-title { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
 
-        /* Компактный стиль кнопок без обрезки текста (4 в ряд) */
+        /* Очищенный стиль кнопок для идеального центрирования без scaleX */
         .world-btn {
             font-family: 'Cinzel', 'Cormorant Garamond', serif;
-            letter-spacing: -0.02em;
-            transform: scaleX(0.92);
-            transform-origin: center;
+            letter-spacing: -0.01em;
         }
         html.theme-arcane {
             background-color: #050B08;
@@ -234,20 +232,20 @@
     <div class="sticky z-30 current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl py-2.5 px-3 shadow-2xl" id="switcher-bar" style="top: 79px;">
         <div class="grid grid-cols-4 gap-1 max-w-lg mx-auto">
             <!-- Готика -->
-            <button type="button" onclick="setTheme('gothic')" id="btn-gothic" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center">
-                <span class="w-full text-center whitespace-nowrap translate-x-[1.5px]">Готика</span>
+            <button type="button" onclick="setTheme('gothic')" id="btn-gothic" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center">
+                Готика
             </button>
             <!-- Постап -->
-            <button type="button" onclick="setTheme('postap')" id="btn-postap" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/60 text-[#7E848D] cursor-pointer flex items-center justify-center">
-                <span class="w-full text-center whitespace-nowrap">Постап</span>
+            <button type="button" onclick="setTheme('postap')" id="btn-postap" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/60 text-[#7E848D] cursor-pointer flex items-center justify-center">
+                Постап
             </button>
             <!-- Хоррор -->
-            <button type="button" onclick="setTheme('horror')" id="btn-horror" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#160B0E]/60 text-[#8F8387] cursor-pointer flex items-center justify-center">
-                <span class="w-full text-center whitespace-nowrap translate-x-[3px]">Хоррор</span>
+            <button type="button" onclick="setTheme('horror')" id="btn-horror" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#160B0E]/60 text-[#8F8387] cursor-pointer flex items-center justify-center">
+                Хоррор
             </button>
             <!-- HP Крафт -->
-            <button type="button" onclick="setTheme('arcane')" id="btn-arcane" class="world-btn py-2 px-0.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#050B08]/60 text-[#7F8A82] cursor-pointer flex items-center justify-center">
-                <span class="w-full text-center whitespace-nowrap translate-x-[-4.5px]">HP Крафт</span>
+            <button type="button" onclick="setTheme('arcane')" id="btn-arcane" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#050B08]/60 text-[#7F8A82] cursor-pointer flex items-center justify-center">
+                HP Крафт
             </button>
         </div>
     </div>
