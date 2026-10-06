@@ -1,0 +1,39 @@
+@keyframes nvFlash {
+    0% { filter: brightness(1) contrast(1) sepia(0); }
+    20% { filter: brightness(1.2) contrast(1.8) sepia(1) hue-rotate(60deg) saturate(3); }
+    40% { filter: brightness(0.9) contrast(2) sepia(0.8) hue-rotate(80deg) saturate(2.5); }
+    70% { filter: brightness(1.3) contrast(1.6) sepia(1) hue-rotate(70deg) saturate(3); }
+    100% { filter: brightness(1) contrast(1) sepia(0); }
+}
+
+.postap-nv-anim {
+    animation: nvFlash 1.4s ease-in-out forwards !important;
+}
+
+.postap-nv-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 6px 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    mix-blend-mode: overlay;
+}
+
+.postap-nv-anim ~ .postap-nv-overlay {
+    opacity: 1;
+}
+
+.nv-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(50, 255, 50, 0.25) 0%, rgba(0, 50, 0, 0.4) 70%, rgba(0, 10, 0, 0.8) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.postap-nv-anim ~ .nv-glow {
+    opacity: 1;
+}

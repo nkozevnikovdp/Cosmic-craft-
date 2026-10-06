@@ -1,0 +1,36 @@
+@keyframes horrorFlicker {
+    0% { opacity: 1; filter: brightness(1) contrast(1); }
+    15% { opacity: 0.1; filter: brightness(0.1) contrast(3) hue-rotate(-20deg); }
+    30% { opacity: 0.9; filter: brightness(1.5) contrast(1.5); }
+    45% { opacity: 0.2; filter: brightness(0.2) contrast(2.5); }
+    70% { opacity: 1; filter: brightness(1) contrast(1); }
+    85% { opacity: 0.3; filter: brightness(0.3) contrast(2); }
+    100% { opacity: 1; filter: brightness(1) contrast(1); }
+}
+
+@keyframes glitchShake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-8px, 6px); }
+    40% { transform: translate(8px, -6px); }
+    60% { transform: translate(-4px, -2px); }
+    80% { transform: translate(4px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+.horror-flicker-anim {
+    animation: horrorFlicker 0.6s steps(1, end) forwards, glitchShake 0.3s ease-in-out !important;
+}
+
+.horror-flicker-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(180, 20, 30, 0.25) 0%, rgba(10, 5, 8, 0.7) 70%, rgba(0, 0, 0, 0.95) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    mix-blend-mode: screen;
+}
+
+.horror-flicker-anim ~ .horror-flicker-overlay {
+    opacity: 1;
+}
