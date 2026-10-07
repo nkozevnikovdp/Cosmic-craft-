@@ -314,18 +314,18 @@
             </div>
             <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mb-4">Ближайшие события</h3>
             
-            <div class="space-y-3.5 text-xs">
-                <div class="flex items-start justify-between pb-3.5 border-b border-white/10">
+            <div class="space-y-2 text-xs">
+                <div onclick="openEventModal('Закрытый предзаказ', '12 Октября 2026', '18:00 (МСК)', 'Online // Telegram Channel')" class="group p-2.5 rounded-xl cursor-pointer transition-all border border-white/5 hover:border-[#B88E4B]/40 hover:bg-white/[0.02] flex items-start justify-between">
                     <span class="font-mono font-bold current-accent-text tracking-wider">12.10</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Открытие закрытого предзаказа на новую партию кастомных статуэток</span>
+                    <span class="text-[#B0AAA2] text-right font-light max-w-[230px] group-hover:text-white transition-colors">Открытие закрытого предзаказа на новую партию кастомных статуэток</span>
                 </div>
-                <div class="flex items-start justify-between pb-3.5 border-b border-white/10">
+                <div onclick="openEventModal('Dark Craft Fest', '25 Октября 2026', '12:00 — 20:00', 'г. Москва, Мастерская Cosmic Craft')" class="group p-2.5 rounded-xl cursor-pointer transition-all border border-white/5 hover:border-[#B88E4B]/40 hover:bg-white/[0.02] flex items-start justify-between">
                     <span class="font-mono font-bold current-accent-text tracking-wider">25.10</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Участие в осеннем маркете темного искусства (Dark Craft Fest)</span>
+                    <span class="text-[#B0AAA2] text-right font-light max-w-[230px] group-hover:text-white transition-colors">Участие в осеннем маркете темного искусства (Dark Craft Fest)</span>
                 </div>
-                <div class="flex items-start justify-between">
+                <div onclick="openEventModal('Ночной релиз фолиантов', '1 ноября 2026', '00:00 (МСК)', 'Online // Официальный релиз')" class="group p-2.5 rounded-xl cursor-pointer transition-all border border-white/5 hover:border-[#B88E4B]/40 hover:bg-white/[0.02] flex items-start justify-between">
                     <span class="font-mono font-bold current-accent-text tracking-wider">01.11</span>
-                    <span class="text-[#8E8B85] text-right font-light max-w-[240px]">Ночной релиз лимитированной серии алхимических фолиантов</span>
+                    <span class="text-[#B0AAA2] text-right font-light max-w-[230px] group-hover:text-white transition-colors">Ночной релиз лимитированной серии алхимических фолиантов</span>
                 </div>
             </div>
         </div>
@@ -874,5 +874,59 @@
             }
         });
     </script>
+
+    <!-- Компактная модалка событий -->
+    <div id="event-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeEventModalOnBg(event)">
+        <div class="current-glass w-full max-w-sm rounded-2xl p-6 border border-white/20 shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">CHRONICLES // EVENT</span>
+                    <h3 id="event-modal-title" class="current-font-title text-xl uppercase tracking-[0.1em] mt-1">Название события</h3>
+                </div>
+                <button type="button" onclick="closeEventModal()" class="text-[#B0AAA2] hover:text-white p-1 text-lg cursor-pointer">✕</button>
+            </div>
+            
+            <div class="space-y-3 pt-2 border-t border-white/10 text-xs font-light text-[#B0AAA2]">
+                <div class="flex justify-between items-center">
+                    <span class="font-mono uppercase text-[10px] tracking-wider text-white/50">ДАТА:</span>
+                    <span id="event-modal-date" class="font-mono font-bold text-white">12.10.2026</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="font-mono uppercase text-[10px] tracking-wider text-white/50">ВРЕМЯ:</span>
+                    <span id="event-modal-time" class="font-mono font-bold text-white">18:00</span>
+                </div>
+                <div class="flex justify-between items-start pt-1">
+                    <span class="font-mono uppercase text-[10px] tracking-wider text-white/50 shrink-0 mr-2">АДРЕС:</span>
+                    <span id="event-modal-address" class="text-right font-medium text-white">Москва</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openEventModal(title, date, time, address) {
+            document.getElementById('event-modal-title').innerText = title;
+            document.getElementById('event-modal-date').innerText = date;
+            document.getElementById('event-modal-time').innerText = time;
+            document.getElementById('event-modal-address').innerText = address;
+            
+            const modal = document.getElementById('event-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEventModal() {
+            const modal = document.getElementById('event-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        function closeEventModalOnBg(e) {
+            if (e.target.id === 'event-modal') {
+                closeEventModal();
+            }
+        }
+    </script>
+
 </body>
 </html>
