@@ -22,6 +22,11 @@
                         sans: ['Inter', 'sans-serif'],
                         industrial: ['Oswald', 'sans-serif'],
                         bebas: ['"Bebas Neue"', 'sans-serif']
+                    },
+                    zIndex: {
+                        '15': '15',
+                        '16': '16',
+                        '25': '25'
                     }
                 }
             }
@@ -419,7 +424,7 @@
             <p id="modal-desc" class="text-xs font-light text-[#8E8B85] mb-6 leading-relaxed">Описание артефакта в музейном стиле.</p>
             <div class="flex items-center justify-between pt-4 border-t border-[#B88E4B]/20">
                 <span id="modal-price" class="current-font-title text-2xl font-bold current-accent-text">0 ₽</span>
-                <a href="https://t.me/your_telegram" target="_blank" class="px-6 py-3 rounded-xl font-mono text-xs uppercase tracking-[0.2em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition">
+                <a id="modal-buy-btn" href="https://t.me/cosmiccraft21" target="_blank" class="px-6 py-3 rounded-xl font-mono text-xs uppercase tracking-[0.2em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition">
                     Приобрести в ТГ
                 </a>
             </div>
@@ -580,16 +585,16 @@
                 if (!btn) return;
                 if (t === theme) {
                     if (theme === 'gothic') {
-                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center space-x-1.5";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center";
                     } else if (theme === 'postap') {
-                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#D9531E]/40 bg-[#18110D] text-[#FF9933] shadow-md cursor-pointer flex items-center space-x-1.5";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#D9531E]/40 bg-[#18110D] text-[#FF9933] shadow-md cursor-pointer flex items-center justify-center";
                     } else if (theme === 'horror') {
-                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#A82038]/40 bg-[#160B0E] text-[#A82038] shadow-md cursor-pointer flex items-center space-x-1.5";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#A82038]/40 bg-[#160B0E] text-[#A82038] shadow-md cursor-pointer flex items-center justify-center";
                     } else {
-                        btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-[#C5A059]/40 bg-[#050B08] text-[#10B981] shadow-md cursor-pointer flex items-center space-x-1.5";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#C5A059]/40 bg-[#050B08] text-[#10B981] shadow-md cursor-pointer flex items-center justify-center";
                     }
                 } else {
-                    btn.className = "px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.15em] uppercase transition-all border border-white/10 bg-black/40 text-[#8F8387] cursor-pointer flex items-center space-x-1.5";
+                    btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/40 text-[#7E848D] cursor-pointer flex items-center justify-center";
                 }
             });
 
@@ -637,12 +642,25 @@
             document.getElementById('modal-price').innerText = price;
             document.getElementById('modal-badge').innerText = badgeText;
             
+            // Динамическая генерация ссылки для Telegram с предзаполненным сообщением
+            const buyBtn = document.getElementById('modal-buy-btn');
+            if (buyBtn) {
+                const tgText = encodeURIComponent(`Здравствуйте! Хочу приобрести / заказать: ${title} (${price})`);
+                buyBtn.href = `https://t.me/cosmiccraft21?text=${tgText}`;
+            }
+
             if (Array.isArray(inputImgs)) {
                 currentLotImages = inputImgs;
+            } else if (typeof inputImgs === 'string' && inputImgs.length > 0) {
+                currentLotImages = [
+                    inputImgs,
+                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+                ];
             } else {
                 currentLotImages = [
-                    inputImgs, 
-                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", 
+                    "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
                     "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
                 ];
             }
@@ -650,6 +668,7 @@
             updateModalImageView();
 
             const modal = document.getElementById('auction-modal');
+            modal.classList.remove('hidden');
             modal.classList.add('is-open');
         }
 
@@ -716,49 +735,32 @@
             return currentLotImages.length;
         }
 
-        function openAuctionModal(title, desc, price, badgeText, imgSrc) {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-desc').innerText = desc;
-            document.getElementById('modal-price').innerText = price;
-            document.getElementById('modal-badge').innerText = badgeText;
-            
-            if (Array.isArray(imgSrc)) {
-                currentLotImages = imgSrc;
-            } else {
-                currentLotImages = [
-                    imgSrc || "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
-                ];
-            }
-            currentImgIndex = 0;
-            updateModalImageView();
-
-            const modal = document.getElementById('auction-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('is-open');
-        }
-
         function closeModal() {
             const modal = document.getElementById('auction-modal');
             modal.classList.remove('is-open');
             modal.classList.add('hidden');
         }
 
-        let gothicAudio = new Audio('gothic_fixed.mp3');
-        let postapAudio = new Audio('postap_fixed.mp3');
-        let horrorAudio = new Audio('horror_fixed.mp3');
-        let arcaneAudio = new Audio('arcane_fixed.mp3');
+        let gothicAudio = null;
+        let postapAudio = null;
+        let horrorAudio = null;
+        let arcaneAudio = null;
 
-        const allAudios = [gothicAudio, postapAudio, horrorAudio, arcaneAudio];
+        function getAudio(theme) {
+            if (theme === 'gothic' && !gothicAudio) gothicAudio = new Audio('gothic_fixed.mp3');
+            if (theme === 'postap' && !postapAudio) postapAudio = new Audio('postap_fixed.mp3');
+            if (theme === 'horror' && !horrorAudio) horrorAudio = new Audio('horror_fixed.mp3');
+            if (theme === 'arcane' && !arcaneAudio) arcaneAudio = new Audio('arcane_fixed.mp3');
 
-        // Включаем зацикливание для всех дорожек
-        allAudios.forEach(audio => {
-            audio.loop = true;
-        });
+            if (theme === 'gothic') return gothicAudio;
+            if (theme === 'postap') return postapAudio;
+            if (theme === 'horror') return horrorAudio;
+            if (theme === 'arcane') return arcaneAudio;
+            return null;
+        }
 
         function stopAllAudios() {
-            allAudios.forEach(audio => {
+            [gothicAudio, postapAudio, horrorAudio, arcaneAudio].forEach(audio => {
                 if (audio) {
                     audio.pause();
                     audio.currentTime = 0;
@@ -768,85 +770,19 @@
 
         function playSecretSound() {
             const currentTheme = document.documentElement.className.replace('theme-', '');
-            
-            if (currentTheme === 'gothic') {
-                try {
-                    gothicAudio.currentTime = 0;
-                    gothicAudio.play().catch(e => console.log("Audio play blocked", e));
-                } catch(e) {
-                    console.log("Audio error", e);
-                }
-            } else if (currentTheme === 'postap') {
-                try {
-                    postapAudio.currentTime = 0;
-                    postapAudio.play().catch(e => console.log("Audio play blocked", e));
-                } catch(e) {
-                    console.log("Audio error", e);
-                }
-            } else if (currentTheme === 'horror') {
-                try {
-                    horrorAudio.currentTime = 0;
-                    horrorAudio.play().catch(e => console.log("Audio play blocked", e));
-                } catch(e) {
-                    console.log("Audio error", e);
-                }
-            } else if (currentTheme === 'arcane') {
-                try {
-                    arcaneAudio.currentTime = 0;
-                    arcaneAudio.play().catch(e => console.log("Audio play blocked", e));
-                } catch(e) {
-                    console.log("Audio error", e);
-                }
-            } else {
-                // Для остальных миров — синтез Web Audio API
-                try {
-                    const AudioContext = window.AudioContext || window.webkitAudioContext;
-                    const ctx = new AudioContext();
-                    const osc = ctx.createOscillator();
-                    const gain = ctx.createGain();
-                    
-                    osc.connect(gain);
-                    gain.connect(ctx.destination);
-                    
-                    if (currentTheme === 'postap') {
-                        // Индустриальный металлический скрежещущий гул
-                        osc.type = 'sawtooth';
-                        osc.frequency.setValueAtTime(80, ctx.currentTime);
-                        osc.frequency.setValueAtTime(120, ctx.currentTime + 0.1);
-                        osc.frequency.setValueAtTime(60, ctx.currentTime + 0.3);
-                        gain.gain.setValueAtTime(0.25, ctx.currentTime);
-                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.0);
-                        osc.start();
-                        osc.stop(ctx.currentTime + 1.0);
-                    } else if (currentTheme === 'horror') {
-                        // Жуткий низкий скример / гул бездны
-                        osc.type = 'triangle';
-                        osc.frequency.setValueAtTime(73.42, ctx.currentTime);
-                        osc.frequency.exponentialRampToValueAtTime(146.83, ctx.currentTime + 0.8);
-                        gain.gain.setValueAtTime(0.35, ctx.currentTime);
-                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
-                        osc.start();
-                        osc.stop(ctx.currentTime + 1.5);
-                    } else if (currentTheme === 'arcane') {
-                        // Магический алхимический звон
-                        osc.type = 'sine';
-                        osc.frequency.setValueAtTime(587.33, ctx.currentTime);
-                        osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.5);
-                        osc.frequency.exponentialRampToValueAtTime(1174.66, ctx.currentTime + 1.2);
-                        gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.6);
-                        osc.start();
-                        osc.stop(ctx.currentTime + 1.6);
-                    }
-                } catch(e) {
-                    console.log("Web Audio error", e);
-                }
+            const audio = getAudio(currentTheme);
+            if (audio) {
+                audio.loop = true;
+                audio.currentTime = 0;
+                audio.play().catch(e => console.log("Audio play blocked", e));
             }
 
             // Визуальный отклик логотипа
             const logo = document.querySelector('.brand-logo');
-            logo.style.transform = 'scale(0.92)';
-            setTimeout(() => { logo.style.transform = 'scale(1);'; }, 150);
+            if (logo) {
+                logo.style.transform = 'scale(0.92)';
+                setTimeout(() => { logo.style.transform = 'scale(1)'; }, 150);
+            }
         }
 
         window.addEventListener('DOMContentLoaded', () => {
