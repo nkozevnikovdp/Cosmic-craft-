@@ -219,7 +219,8 @@
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
     <!-- Верхняя премиальная шапка -->
-    <header class="sticky top-0 z-50 current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl px-4 py-3.5 flex justify-between items-center shadow-2xl" id="site-header">
+    <div class="sticky top-0 z-50 mx-2 sm:mx-4 mt-2 space-y-2">
+    <header class="current-glass border border-white/10 rounded-2xl px-4 py-3.5 flex justify-between items-center shadow-2xl" id="site-header">
         <div class="flex items-center space-x-2">
             <span class="brand-logo shimmer-logo text-base sm:text-lg font-black uppercase current-accent-text cursor-pointer select-none active:scale-95 transition-transform" onclick="playSecretSound()" title="Нажмите для звукового резонанса">COSMIC CRAFT</span>
         </div>
@@ -236,22 +237,22 @@
     </header>
 
     <!-- Переключатель миров -->
-    <div class="sticky z-30 current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl py-2.5 px-3 shadow-2xl" id="switcher-bar" style="top: 79px;">
+    <div class="current-glass border-b border-white/10 mx-2 sm:mx-4 mt-2 rounded-2xl py-2.5 px-3 shadow-2xl" id="switcher-bar">
         <div class="grid grid-cols-4 gap-1 max-w-lg mx-auto">
             <!-- Готика -->
-            <button type="button" onclick="setTheme('gothic')" id="btn-gothic" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center">
+            <button type="button" onclick="setTheme('gothic')" id="btn-gothic" class="world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center">
                 Готика
             </button>
             <!-- Постап -->
-            <button type="button" onclick="setTheme('postap')" id="btn-postap" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/60 text-[#7E848D] cursor-pointer flex items-center justify-center">
+            <button type="button" onclick="setTheme('postap')" id="btn-postap" class="world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/60 text-[#B0AAA2] cursor-pointer flex items-center justify-center">
                 Постап
             </button>
             <!-- Хоррор -->
-            <button type="button" onclick="setTheme('horror')" id="btn-horror" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#160B0E]/60 text-[#8F8387] cursor-pointer flex items-center justify-center">
+            <button type="button" onclick="setTheme('horror')" id="btn-horror" class="world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#160B0E]/60 text-[#B0AAA2] cursor-pointer flex items-center justify-center">
                 Хоррор
             </button>
             <!-- HP Крафт -->
-            <button type="button" onclick="setTheme('arcane')" id="btn-arcane" class="world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#050B08]/60 text-[#7F8A82] cursor-pointer flex items-center justify-center">
+            <button type="button" onclick="setTheme('arcane')" id="btn-arcane" class="world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#050B08]/60 text-[#7F8A82] cursor-pointer flex items-center justify-center">
                 HP Крафт
             </button>
         </div>
@@ -259,7 +260,7 @@
 
     <!-- Главный экран (Hero) -->
     <section class="px-4 pt-10 pb-6 text-center max-w-lg mx-auto">
-        <div class="inline-block px-3.5 py-1 rounded-full text-[10px] font-mono tracking-[0.25em] uppercase current-glass current-accent-text mb-4 border border-white/10" id="badge-theme">
+        <div class="inline-block px-3.5 py-1 rounded-full text-xs font-mono tracking-[0.25em] uppercase current-glass current-accent-text mb-4 border border-white/10" id="badge-theme">
             CATALOGUE № 01 // GOTHIC CRYPT
         </div>
         <h1 class="current-font-title text-3xl sm:text-4xl uppercase tracking-[0.15em] mb-3 leading-tight" id="hero-title">
@@ -280,20 +281,20 @@
                 <img id="scene-img" src="gothic_altar.jpg" alt="Vitrine" class="w-full h-full object-cover opacity-75 filter contrast-125 transition-all duration-700">
                 
                 <!-- Готический туманный оверлей -->
-                <div class="gothic-fog-overlay z-15"></div>
+                <div class="gothic-fog-overlay z-[15]"></div>
 
                 <!-- Посткап оверлей ночного видения -->
-                <div class="nv-glow z-15"></div>
-                <div class="postap-nv-overlay z-16"></div>
+                <div class="nv-glow z-[15]"></div>
+                <div class="postap-nv-overlay z-[16]"></div>
 
                 <!-- Хоррор оверлей дрожания света -->
-                <div class="horror-flicker-overlay z-16"></div>
+                <div class="horror-flicker-overlay z-[16]"></div>
 
                 <!-- Контейнер для динамических магических искр (Arcane / HP Craft) -->
                 <div id="sparks-container" class="absolute inset-0 z-20 pointer-events-none overflow-hidden"></div>
 
                 <!-- Хотспоты -->
-                <div id="hotspots-container" class="absolute inset-0 z-25 pointer-events-none"></div>
+                <div id="hotspots-container" class="absolute inset-0 z-[25] pointer-events-none"></div>
 
                 <!-- Музейная табличка -->
                 <div class="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
@@ -301,7 +302,7 @@
                         <span id="scene-code" class="text-[9px] font-mono uppercase tracking-[0.25em] current-accent-text">SCENE 01 // EXPOSITION</span>
                     </div>
                     <h3 id="scene-title" class="current-font-title text-xl uppercase tracking-[0.1em]">Crypt & Cyber-Goth Set</h3>
-                    <p id="scene-desc" class="text-[11px] font-light text-[#8E8B85]">Коснитесь меток для изучения лота.</p>
+                    <p id="scene-desc" class="text-xs font-light text-[#8E8B85]">Коснитесь меток для изучения лота.</p>
                 </div>
             </div>
         </div>
@@ -309,7 +310,7 @@
         <!-- Календарь мероприятий / Хроники -->
         <div class="current-glass rounded-2xl p-6">
             <div class="flex items-center space-x-2 mb-3">
-                <span class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">CHRONICLES // CALENDAR</span>
+                <span class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">CHRONICLES // CALENDAR</span>
             </div>
             <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mb-4">Ближайшие события</h3>
             
@@ -332,7 +333,7 @@
         <!-- Блок «Мастерская за кулисами» -->
         <div class="current-glass rounded-2xl p-6">
             <div class="flex items-center space-x-2 mb-3">
-                <span class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">PHILOSOPHY // CRAFT</span>
+                <span class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">PHILOSOPHY // CRAFT</span>
             </div>
             <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mb-2">Архитектура ручной работы</h3>
             <p class="text-xs font-light text-[#8E8B85] leading-relaxed mb-4">
@@ -341,11 +342,11 @@
             <div class="grid grid-cols-2 gap-3">
                 <div class="current-glass p-3.5 rounded-xl border border-white/5">
                     <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">3D Скульпт</div>
-                    <div class="text-[10px] font-mono tracking-wider text-[#8E8B85]">ПРЕЦИЗИОННАЯ ПЕЧАТЬ</div>
+                    <div class="text-xs font-mono tracking-wider text-[#8E8B85]">ПРЕЦИЗИОННАЯ ПЕЧАТЬ</div>
                 </div>
                 <div class="current-glass p-3.5 rounded-xl border border-white/5">
                     <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">Фактурный хэндмейд</div>
-                    <div class="text-[10px] font-mono tracking-wider text-[#8E8B85]">ПАТИНА И СБОРКА</div>
+                    <div class="text-xs font-mono tracking-wider text-[#8E8B85]">ПАТИНА И СБОРКА</div>
                 </div>
             </div>
         </div>
@@ -407,14 +408,14 @@
 
                 <!-- Индикатор ракурса (например, 1 / 3) и точки -->
                 <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center px-1">
-                    <span id="modal-angle-label" class="text-[10px] font-mono uppercase tracking-widest text-white/90 bg-black/60 px-2 py-0.5 rounded border border-white/10">АНФАС</span>
+                    <span id="modal-angle-label" class="text-xs font-mono uppercase tracking-widest text-white/90 bg-black/60 px-2 py-0.5 rounded border border-white/10">АНФАС</span>
                     <div id="modal-dots" class="flex space-x-1.5"></div>
                 </div>
             </div>
 
             <div class="flex justify-between items-start mb-4">
                 <div>
-                    <span id="modal-badge" class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">LOT DETAILS</span>
+                    <span id="modal-badge" class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">LOT DETAILS</span>
                     <h3 id="modal-title" class="current-font-title text-2xl uppercase tracking-[0.1em] mt-1">Название лота</h3>
                 </div>
                 <button type="button" onclick="closeModal()" class="text-[#8E8B85] hover:text-white p-2 text-xl cursor-pointer">
@@ -424,15 +425,15 @@
             <p id="modal-desc" class="text-xs font-light text-[#8E8B85] mb-6 leading-relaxed">Описание артефакта в музейном стиле.</p>
             <div class="pt-4 border-t border-[#B88E4B]/20 space-y-3">
                 <div class="flex items-center justify-between">
-                    <span class="text-[11px] font-mono uppercase tracking-wider text-[#8E8B85]">ЦЕНА ЛОТА</span>
+                    <span class="text-xs font-mono uppercase tracking-wider text-[#8E8B85]">ЦЕНА ЛОТА</span>
                     <span id="modal-price" class="current-font-title text-2xl font-bold current-accent-text">0 ₽</span>
                 </div>
                 <div class="grid grid-cols-2 gap-2.5">
-                    <a id="modal-vk-btn" href="https://vk.ru/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-3 rounded-xl font-mono text-[11px] uppercase tracking-[0.1em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
+                    <a id="modal-vk-btn" href="https://vk.ru/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-3 rounded-xl font-mono text-xs uppercase tracking-[0.1em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
                         <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 512 512"><path d="M447.01 113.56c3.42-11.41 0-19.8-16.27-19.8h-53.84c-13.68 0-20 7.21-23.47 15.17 0 0-27.42 66.45-66.27 109.34-12.56 12.56-18.29 16.53-25.13 16.53-3.43 0-8.3-3.97-8.3-15.31V113.56c0-13.68-3.98-19.8-15.42-19.8H187.3c-8.58 0-13.73 6.32-13.73 12.28 0 12.92 19.34 15.98 21.32 52.48v79.43c0 17.41-3.14 20.61-10 20.61-18.29 0-62.74-67.14-89.04-143.86-5.22-15.02-11.08-21.05-24.97-21.05H26.31c-15.24 0-18.3 7.21-18.3 15.17 0 14.19 18.29 84.44 85.2 177.53 44.66 62.17 107.6 95.84 165.04 95.84 34.28 0 38.53-7.71 38.53-21.05v-48.65c0-15.31 3.25-18.3 14.07-18.3 7.97 0 21.6 4.02 53.4 34.56 36.38 36.38 42.3 52.66 62.66 52.66h53.84c15.24 0 22.86-7.61 18.47-22.65-4.81-14.9-22.02-36.63-44.86-62.4-12.56-14.54-31.42-30.2-37.15-37.99-8.02-10.28-5.74-14.86 0-24.12 0 0 65.65-92.42 72.48-123.86z"/></path></svg>
                         <span>ВКонтакте</span>
                     </a>
-                    <a id="modal-buy-btn" href="https://t.me/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-3 rounded-xl font-mono text-[11px] uppercase tracking-[0.1em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
+                    <a id="modal-buy-btn" href="https://t.me/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-3 rounded-xl font-mono text-xs uppercase tracking-[0.1em] current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
                         <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 512 512"><path d="M470.334 39.847c-5.915-4.834-14.397-5.321-20.852-1.222L41.34 233.003c-7.391 4.671-10.22 13.987-6.524 21.602 3.696 7.616 12.35 11.238 20.366 8.784l99.389-30.29 252.122-167.31c4.542-3.013 10.669 1.624 7.234 5.922L204.604 316.36l-9.155 83.179c-1.127 10.237 5.999 15.651 11.536 19.866 5.538 4.215 12.029 2.502 16.486-.334l59.569-38.319 96.115 70.908c6.772 4.996 16.275 1.656 18.232-6.586L501.076 56.402c2.083-8.795-3.664-15.918-10.742-16.555z"/></path></svg>
                         <span>Telegram</span>
                     </a>
@@ -595,16 +596,16 @@
                 if (!btn) return;
                 if (t === theme) {
                     if (theme === 'gothic') {
-                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-[#B88E4B]/40 bg-[#121418] text-[#ECC880] shadow-md cursor-pointer flex items-center justify-center";
                     } else if (theme === 'postap') {
-                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#D9531E]/40 bg-[#18110D] text-[#FF9933] shadow-md cursor-pointer flex items-center justify-center";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-[#D9531E]/40 bg-[#18110D] text-[#FF9933] shadow-md cursor-pointer flex items-center justify-center";
                     } else if (theme === 'horror') {
-                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#A82038]/40 bg-[#160B0E] text-[#A82038] shadow-md cursor-pointer flex items-center justify-center";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-[#A82038]/40 bg-[#160B0E] text-[#A82038] shadow-md cursor-pointer flex items-center justify-center";
                     } else {
-                        btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-[#C5A059]/40 bg-[#050B08] text-[#10B981] shadow-md cursor-pointer flex items-center justify-center";
+                        btn.className = "world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-[#C5A059]/40 bg-[#050B08] text-[#10B981] shadow-md cursor-pointer flex items-center justify-center";
                     }
                 } else {
-                    btn.className = "world-btn py-2 px-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/40 text-[#7E848D] cursor-pointer flex items-center justify-center";
+                    btn.className = "world-btn py-2 px-1 rounded-lg text-xs sm:text-xs font-bold uppercase transition-all border border-white/10 bg-[#14171A]/40 text-[#B0AAA2] cursor-pointer flex items-center justify-center";
                 }
             });
 
@@ -741,9 +742,7 @@
             updateModalImageView();
         }
 
-        function currentLotInstancesLength() {
-            return currentLotImages.length;
-        }
+        
 
         function closeModal() {
             const modal = document.getElementById('auction-modal');
@@ -783,8 +782,11 @@
             const audio = getAudio(currentTheme);
             if (audio) {
                 audio.loop = true;
-                audio.currentTime = 0;
-                audio.play().catch(e => console.log("Audio play blocked", e));
+                if (!audio.paused) {
+                    audio.pause();
+                } else {
+                    audio.play().catch(e => console.log("Audio play blocked", e));
+                }
             }
 
             // Визуальный отклик логотипа
