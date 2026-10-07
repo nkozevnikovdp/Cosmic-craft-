@@ -219,8 +219,8 @@
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
     <!-- Верхняя премиальная шапка -->
-    <div class="sticky top-0 z-50 mx-2 sm:mx-4 mt-2 space-y-2">
-    <header class="current-glass border border-white/10 rounded-2xl px-4 py-3.5 flex justify-between items-center shadow-2xl" id="site-header">
+    <div class="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 pt-2 space-y-2 max-w-lg mx-auto">
+        <header class="current-glass border border-white/10 rounded-2xl px-4 py-3.5 flex justify-between items-center shadow-2xl" id="site-header">
         <div class="flex items-center space-x-2">
             <span class="brand-logo shimmer-logo text-base sm:text-lg font-black uppercase current-accent-text cursor-pointer select-none active:scale-95 transition-transform" onclick="playSecretSound()" title="Нажмите для звукового резонанса">COSMIC CRAFT</span>
         </div>
@@ -257,6 +257,9 @@
             </button>
         </div>
     </div>
+    </div>
+    <!-- Спейсер для фиксированной шапки -->
+    <div class="h-32 sm:h-36"></div>
 
     <!-- Главный экран (Hero) -->
     <section class="px-4 pt-10 pb-6 text-center max-w-lg mx-auto">
