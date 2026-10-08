@@ -7,7 +7,7 @@
 }
 
 .postap-nv-anim {
-    animation: nvFlash 1.4s ease-in-out forwards !important;
+    animation: nvFlash 0.4s ease-in-out forwards !important;
 }
 
 .postap-nv-overlay {

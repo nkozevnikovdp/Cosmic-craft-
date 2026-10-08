@@ -6,7 +6,7 @@
 }
 
 .gothic-fog-anim {
-    animation: fogSurge 1.2s ease-in-out forwards !important;
+    animation: fogSurge 0.4s ease-in-out forwards !important;
 }
 
 .gothic-fog-overlay {

@@ -842,7 +842,7 @@
                         imgEl.classList.add('gothic-fog-anim');
                         setTimeout(() => {
                             imgEl.classList.remove('gothic-fog-anim');
-                        }, 1200);
+                        }, 400);
                     } else if (currentTheme === 'postap') {
                         const imgEl = document.getElementById('scene-img');
                         if (!imgEl || imgEl.classList.contains('postap-nv-anim')) return;
@@ -854,7 +854,7 @@
                         imgEl.classList.add('postap-nv-anim');
                         setTimeout(() => {
                             imgEl.classList.remove('postap-nv-anim');
-                        }, 1400);
+                        }, 400);
                     } else if (currentTheme === 'horror') {
                         const imgEl = document.getElementById('scene-img');
                         if (!imgEl || imgEl.classList.contains('horror-flicker-anim')) return;
@@ -866,7 +866,7 @@
                         imgEl.classList.add('horror-flicker-anim');
                         setTimeout(() => {
                             imgEl.classList.remove('horror-flicker-anim');
-                        }, 600);
+                        }, 300);
                     } else if (currentTheme === 'arcane') {
                         // Взрыв мелких плавных изумрудных звезд-искр в месте клика
                         const sparksContainer = document.getElementById('sparks-container');
