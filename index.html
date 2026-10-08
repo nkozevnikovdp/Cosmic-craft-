@@ -210,6 +210,27 @@
 
         #auction-modal.is-open { display: flex !important; }
         #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
+    
+        /* Кастомный скроллбар в стиле Dark Luxury */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(184, 142, 75, 0.4);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(184, 142, 75, 0.8);
+        }
+        /* Для Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(184, 142, 75, 0.4) #090A0C;
+        }
+
     </style>
     <link rel="stylesheet" href="gothic_addon.css">
     <link rel="stylesheet" href="gothic_addon.css">
