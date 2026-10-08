@@ -900,6 +900,18 @@
         });
     </script>
 
+
+    <!-- Фирменный футер (Footer) -->
+    <footer class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-12">
+        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0 text-xs">
+            <span class="font-mono tracking-wider text-xs current-accent-text uppercase">2026 Cosmic Craft</span>
+            <button type="button" onclick="openContactsModal()" class="font-mono tracking-wider text-[#B0AAA2] hover:text-white transition-colors cursor-pointer border-b border-white/20 pb-0.5">
+                Контакты
+            </button>
+        </div>
+    </footer>
+
+
     <!-- Компактная модалка событий -->
     <div id="event-modal" class="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeEventModalOnBg(event)">
         <div class="current-glass w-full max-w-sm rounded-2xl p-6 border border-white/20 shadow-2xl relative" onclick="event.stopPropagation()">
@@ -951,7 +963,56 @@
                 closeEventModal();
             }
         }
+    
+        function openContactsModal() {
+            const modal = document.getElementById('contacts-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeContactsModal() {
+            const modal = document.getElementById('contacts-modal');
+            if (modal) {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function closeContactsModalOnBg(e) {
+            if (e.target.id === 'contacts-modal') {
+                closeContactsModal();
+            }
+        }
+
     </script>
+
+
+    <!-- Модалка контактов -->
+    <div id="contacts-modal" class="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeContactsModalOnBg(event)">
+        <div class="current-glass w-full max-w-sm rounded-2xl p-6 border border-white/20 shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">Cosmic Craft // SUPPORT</span>
+                    <h3 class="current-font-title text-xl uppercase tracking-[0.1em] mt-1">Контакты</h3>
+                </div>
+                <button type="button" onclick="closeContactsModal()" class="text-[#B0AAA2] hover:text-white p-1 text-lg cursor-pointer">✕</button>
+            </div>
+            
+            <div class="space-y-4 pt-2 border-t border-white/10 text-xs font-light text-[#B0AAA2] leading-relaxed">
+                <p>По всем вопросам и предложениям пишите нам в группу в Телеграм или ВКонтакте.</p>
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                    <a href="https://vk.ru/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl font-mono text-xs uppercase tracking-wider current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
+                        <span>ВКонтакте</span>
+                    </a>
+                    <a href="https://t.me/cosmiccraft21" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl font-mono text-xs uppercase tracking-wider current-accent-bg font-bold shadow-lg hover:opacity-95 transition text-center">
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
