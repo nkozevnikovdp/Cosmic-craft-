@@ -1033,8 +1033,7 @@
         function initIntroSplash() {
             const splash = document.getElementById('intro-splash');
             if (!splash) return;
-            // sessionStorage.getItem('intro_seen') закомментирован для тестов
-            if (false && sessionStorage.getItem('intro_seen')) {
+            if (sessionStorage.getItem('intro_seen')) {
                 splash.style.display = 'none';
                 return;
             }
