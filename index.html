@@ -260,6 +260,11 @@
     <link rel="stylesheet" href="postap_addon.css">
     <link rel="stylesheet" href="horror_addon.css">
     <link rel="stylesheet" href="arcane_addon.css">
+    <script>
+        if (sessionStorage.getItem('intro_seen')) {
+            document.write('<style>#intro-splash { display: none !important; }</style>');
+        }
+    </script>
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
