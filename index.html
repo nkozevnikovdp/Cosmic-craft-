@@ -206,7 +206,16 @@
         }
 
         body { transition: background-color 0.4s ease, color 0.4s ease; font-family: 'Inter', sans-serif; min-height: 100vh; }
-        .current-glass { transition: background 0.4s ease, border-color 0.4s ease; }
+        /* Легкий параллакс и глубокое стекло */
+        .current-glass {
+            transition: background 0.4s ease, border-color 0.4s ease, transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
+            will-change: transform;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .current-glass:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
 
         #auction-modal.is-open { display: flex !important; }
         #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
@@ -1147,6 +1156,39 @@
                 particlesContainer.appendChild(p);
             }
         }
+
+        // 3. Ультра-аккуратный параллакс для шапки, переключателя и блоков (еле уловимо)
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+            const headerEl = document.getElementById('site-header');
+            const switcherEl = document.getElementById('switcher-bar');
+
+            if (headerEl) {
+                headerEl.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            }
+            if (switcherEl) {
+                switcherEl.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+            }
+
+            const cards = document.querySelectorAll('.current-glass');
+            cards.forEach((card, idx) => {
+                if (card.id === 'site-header' || card.id === 'switcher-bar') return;
+                const factor = (idx % 2 === 0 ? 1 : -1) * 0.15;
+                card.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+            });
+        });
+
+        document.addEventListener('mouseleave', () => {
+            const headerEl = document.getElementById('site-header');
+            const switcherEl = document.getElementById('switcher-bar');
+            if (headerEl) headerEl.style.transform = 'translate(0px, 0px)';
+            if (switcherEl) switcherEl.style.transform = 'translate(0px, 0px)';
+            document.querySelectorAll('.current-glass').forEach(card => {
+                card.style.transform = 'translate(0px, 0px)';
+            });
+        });
 
     </script>
 
