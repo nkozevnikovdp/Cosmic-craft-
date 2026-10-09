@@ -254,6 +254,42 @@
         }
 
 
+    
+        /* Живые фоновые частицы (пыпел / искры / пылинки) */
+        .ambient-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ECC880;
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            box-shadow: 0 0 5px #ECC880;
+            animation: floatParticle linear infinite;
+            z-index: 1;
+        }
+        html.theme-gothic .ambient-particle { background: #ECC880; box-shadow: 0 0 6px #ECC880; }
+        html.theme-postap .ambient-particle { background: #FF9933; box-shadow: 0 0 6px #FF9933; }
+        html.theme-horror .ambient-particle { background: #E63946; box-shadow: 0 0 6px #E63946; }
+        html.theme-arcane .ambient-particle { background: #10B981; box-shadow: 0 0 6px #10B981; }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(105vh) translateX(0) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(var(--drift)) scale(1.2);
+                opacity: 0;
+            }
+        }
+
     </style>
     <link rel="stylesheet" href="gothic_addon.css">
     <link rel="stylesheet" href="gothic_addon.css">
@@ -267,6 +303,11 @@
     </script>
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
+
+    <!-- Живой фоновый слой: световой ореол за курсором и парящие частицы -->
+    <div id="cursor-glow" class="fixed pointer-events-none z-0 w-96 h-96 rounded-full blur-[100px] opacity-20 transition-all duration-300 -translate-x-1/2 -translate-y-1/2 current-accent-bg"></div>
+    <div id="ambient-particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
 
     <!-- Премиальный титульный интро-экран (Preloader) -->
     <div id="intro-splash" class="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#090A0C] cursor-pointer transition-opacity duration-500 overflow-hidden">
@@ -1065,6 +1106,47 @@
             });
         }
         window.addEventListener('DOMContentLoaded', initIntroSplash);
+
+    
+        // 1. Световой ореол за курсором
+        const cursorGlow = document.getElementById('cursor-glow');
+        if (cursorGlow) {
+            window.addEventListener('mousemove', (e) => {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            });
+            // Для тач-устройств по касанию
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    cursorGlow.style.left = e.touches[0].clientX + 'px';
+                    cursorGlow.style.top = e.touches[0].clientY + 'px';
+                }
+            });
+        }
+
+        // 2. Генератор парящих частиц (пылинки / пепел / искры)
+        const particlesContainer = document.getElementById('ambient-particles');
+        if (particlesContainer) {
+            const particleCount = 20;
+            for (let i = 0; i < particleCount; i++) {
+                const p = document.createElement('div');
+                p.className = 'ambient-particle';
+                p.style.left = Math.random() * 100 + 'vw';
+                // Рандомизируем начальное положение по всей высоте экрана, чтобы частицы сразу заполняли весь экран при загрузке
+                p.style.top = Math.random() * 100 + 'vh';
+                // Сделали полет более медленным и медитативным (от 14 до 26 секунд)
+                p.style.animationDuration = (14 + Math.random() * 12) + 's';
+                // Отрицательная задержка раскидывает фазы анимации, чтобы они летели сразу без заминки
+                p.style.animationDelay = '-' + (Math.random() * 20) + 's';
+                p.style.setProperty('--drift', (Math.random() * 100 - 50) + 'px');
+                
+                const size = '2px';
+                p.style.width = size;
+                p.style.height = size;
+                
+                particlesContainer.appendChild(p);
+            }
+        }
 
     </script>
 
