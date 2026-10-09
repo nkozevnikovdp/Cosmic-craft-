@@ -1159,23 +1159,23 @@
 
         // 3. Ультра-аккуратный параллакс для шапки, переключателя и блоков (еле уловимо)
         document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 10;
-            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            const x = (e.clientX / window.innerWidth - 0.5) * 4; // уменьшили диапазон смещения в 2.5 раза
+            const y = (e.clientY / window.innerHeight - 0.5) * 4;
 
             const headerEl = document.getElementById('site-header');
             const switcherEl = document.getElementById('switcher-bar');
 
             if (headerEl) {
-                headerEl.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                headerEl.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
             }
             if (switcherEl) {
-                switcherEl.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+                switcherEl.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             }
 
             const cards = document.querySelectorAll('.current-glass');
             cards.forEach((card, idx) => {
                 if (card.id === 'site-header' || card.id === 'switcher-bar') return;
-                const factor = (idx % 2 === 0 ? 1 : -1) * 0.15;
+                const factor = (idx % 2 === 0 ? 1 : -1) * 0.08;
                 card.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
             });
         });
