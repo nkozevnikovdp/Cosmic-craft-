@@ -73,10 +73,70 @@
             background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
             color: #090A0C;
         }
+        /* Музейные мини-маячки с мягкой аурой и расширенной зоной клика (Hit-Area) */
+        .current-hotspot {
+            width: 12px !important;
+            height: 12px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            position: relative;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        }
+        .current-hotspot::after {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            right: -14px;
+            bottom: -14px;
+        }
+        .current-hotspot:hover {
+            transform: scale(1.35);
+        }
+
         html.theme-gothic .current-hotspot {
-            background: radial-gradient(circle, #ECC880 0%, #B88E4B 60%, #7A5B28 100%);
-            box-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
-            animation: luxury-pulse 2s infinite;
+            background: #ECC880;
+            box-shadow: 0 0 12px rgba(236, 200, 128, 0.85), 0 0 30px rgba(184, 142, 75, 0.45);
+            animation: beacon-gothic 2.5s infinite;
+        }
+        @keyframes beacon-gothic {
+            0% { box-shadow: 0 0 8px rgba(236, 200, 128, 0.5), 0 0 16px rgba(184, 142, 75, 0.2); }
+            50% { box-shadow: 0 0 16px rgba(236, 200, 128, 1), 0 0 38px rgba(184, 142, 75, 0.6); }
+            100% { box-shadow: 0 0 8px rgba(236, 200, 128, 0.5), 0 0 16px rgba(184, 142, 75, 0.2); }
+        }
+
+        html.theme-postap .current-hotspot {
+            background: #FF9933;
+            box-shadow: 0 0 12px rgba(255, 153, 51, 0.85), 0 0 30px rgba(217, 83, 30, 0.45);
+            animation: beacon-postap 2.5s infinite;
+        }
+        @keyframes beacon-postap {
+            0% { box-shadow: 0 0 8px rgba(255, 153, 51, 0.5), 0 0 16px rgba(217, 83, 30, 0.2); }
+            50% { box-shadow: 0 0 16px rgba(255, 153, 51, 1), 0 0 38px rgba(217, 83, 30, 0.6); }
+            100% { box-shadow: 0 0 8px rgba(255, 153, 51, 0.5), 0 0 16px rgba(217, 83, 30, 0.2); }
+        }
+
+        html.theme-horror .current-hotspot {
+            background: #A82038;
+            box-shadow: 0 0 12px rgba(168, 32, 56, 0.85), 0 0 30px rgba(110, 14, 34, 0.45);
+            animation: beacon-horror 2.5s infinite;
+        }
+        @keyframes beacon-horror {
+            0% { box-shadow: 0 0 8px rgba(168, 32, 56, 0.5), 0 0 16px rgba(110, 14, 34, 0.2); }
+            50% { box-shadow: 0 0 16px rgba(168, 32, 56, 1), 0 0 38px rgba(110, 14, 34, 0.6); }
+            100% { box-shadow: 0 0 8px rgba(168, 32, 56, 0.5), 0 0 16px rgba(110, 14, 34, 0.2); }
+        }
+
+        html.theme-arcane .current-hotspot {
+            background: #10B981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.85), 0 0 30px rgba(5, 97, 67, 0.45);
+            animation: beacon-arcane 2.5s infinite;
+        }
+        @keyframes beacon-arcane {
+            0% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.5), 0 0 16px rgba(5, 97, 67, 0.2); }
+            50% { box-shadow: 0 0 16px rgba(16, 185, 129, 1), 0 0 38px rgba(5, 97, 67, 0.6); }
+            100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.5), 0 0 16px rgba(5, 97, 67, 0.2); }
         }
         html.theme-gothic .current-font-title { font-family: 'Cormorant Garamond', serif; }
 
@@ -532,11 +592,16 @@
     </div>
 
     <!-- Модальное окно -->
-    <div id="auction-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-end justify-center p-0 sm:p-4">
-        <div class="current-glass w-full max-w-md rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 border-t sm:border border-white/20 shadow-2xl modal-slide-up relative">
+    <div id="auction-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-end justify-center p-0 sm:p-4" onclick="closeModal()">
+        <div class="current-glass w-full max-w-md rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 border-t sm:border border-white/20 shadow-2xl modal-slide-up relative" onclick="event.stopPropagation()">
             
-            <div id="modal-img-container" class="mb-4 h-52 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 relative group">
-                <img id="modal-img" src="" alt="Artifact" class="w-full h-full object-cover filter contrast-110 transition-all duration-300">
+            <!-- Заметная премиальная кнопка закрытия (крестик) в правом верхнем углу модалки -->
+            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full current-glass flex items-center justify-center text-white text-lg cursor-pointer border border-white/20 hover:scale-105 transition shadow-lg">
+                ✕
+            </button>
+            
+            <div id="modal-img-container" class="mb-4 h-52 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 relative group select-none touch-pan-y" style="contain: layout size;">
+                <img id="modal-img" src="" alt="Artifact" class="w-full h-full object-cover filter contrast-110 transition-all duration-300 pointer-events-none">
                 
                 <!-- Градиент снизу -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
@@ -549,8 +614,8 @@
                     ›
                 </button>
 
-                <!-- Кнопка полноэкранного просмотра (Лупа) -->
-                <button type="button" onclick="openLightbox()" class="absolute top-3 right-3 bg-black/60 backdrop-blur-md border border-white/20 text-white rounded-lg p-2 opacity-80 hover:opacity-100 transition flex items-center space-x-1 cursor-pointer">
+                <!-- Кнопка полноэкранного просмотра (Лупа) в левом верхнем углу фото -->
+                <button type="button" onclick="openLightbox()" class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/20 text-white rounded-lg p-2 opacity-80 hover:opacity-100 transition flex items-center space-x-1 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </button>
 
@@ -566,9 +631,6 @@
                     <span id="modal-badge" class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text">LOT DETAILS</span>
                     <h3 id="modal-title" class="current-font-title text-2xl uppercase tracking-[0.1em] mt-1">Название лота</h3>
                 </div>
-                <button type="button" onclick="closeModal()" class="text-[#8E8B85] hover:text-white p-2 text-xl cursor-pointer">
-                    ✕
-                </button>
             </div>
             <p id="modal-desc" class="text-xs font-light text-[#8E8B85] mb-6 leading-relaxed">Описание артефакта в музейном стиле.</p>
             <div class="pt-4 border-t border-[#B88E4B]/20 space-y-3">
@@ -1142,7 +1204,45 @@
         window.addEventListener('DOMContentLoaded', initIntroSplash);
 
     
-        // 1. Световой ореол за курсором
+        // Поддержка свайпов для фото в модалке без расширения блока
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const modalImgContainer = document.getElementById('modal-img-container');
+            if (modalImgContainer) {
+                modalImgContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }, { passive: true });
+
+                modalImgContainer.addEventListener('touchmove', (e) => {
+                    const currentX = e.changedTouches[0].screenX;
+                    const currentY = e.changedTouches[0].screenY;
+                    if (Math.abs(currentX - touchStartX) > Math.abs(currentY - touchStartY)) {
+                        if (e.cancelable) e.preventDefault();
+                    }
+                }, { passive: false });
+
+                modalImgContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    const diffX = touchEndX - touchStartX;
+                    const diffY = touchEndY - touchStartY;
+                    const threshold = 35;
+
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+                        if (diffX < 0) {
+                            nextModalImg({ stopPropagation: () => {} });
+                        } else {
+                            prevModalImg({ stopPropagation: () => {} });
+                        }
+                    }
+                }, { passive: true });
+            }
+        });
         const cursorGlow = document.getElementById('cursor-glow');
         if (cursorGlow) {
             window.addEventListener('mousemove', (e) => {
