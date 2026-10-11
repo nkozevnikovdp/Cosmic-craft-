@@ -1007,7 +1007,40 @@
             }
         }
 
+        // Функция предварительной фоновой загрузки (Preload) всех изображений витрин и лотов в память браузера
+        function preloadAllImages() {
+            const imagesToPreload = [
+                "gothic_altar.jpg",
+                "postap_ruins.jpg",
+                "horror_jason.jpg",
+                "hp_slytherin.jpg"
+            ];
+
+            // Собираем также все картинки из хотспотов/лотов
+            if (typeof scenes !== 'undefined') {
+                Object.values(scenes).forEach(scene => {
+                    if (scene.image) imagesToPreload.push(scene.image);
+                    if (scene.hotspots) {
+                        scene.hotspots.forEach(h => {
+                            if (Array.isArray(h.images)) {
+                                h.images.forEach(img => imagesToPreload.push(img));
+                            } else if (typeof h.img === 'string') {
+                                imagesToPreload.push(h.img);
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Создаем скрытые объекты Image для мгновенного кеширования в браузере
+            imagesToPreload.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
+            preloadAllImages();
             setTheme('gothic');
 
             // Слушатель промаха по витрине (эффект тумана для Готики, ночное видение для Посткапа, дрожание для Хоррора, искры для Arcane/HP)
