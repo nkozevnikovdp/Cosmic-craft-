@@ -310,10 +310,10 @@
     </style>
 
     <!-- Подключение внешних аддонов (без дублей) -->
-    <link rel="stylesheet" href="gothic_addon.css">
-    <link rel="stylesheet" href="postap_addon.css">
-    <link rel="stylesheet" href="horror_addon.css">
-    <link rel="stylesheet" href="arcane_addon.css">
+    <link rel="stylesheet" href="gothic_addon.css?v=4">
+    <link rel="stylesheet" href="postap_addon.css?v=4">
+    <link rel="stylesheet" href="horror_addon.css?v=4">
+    <link rel="stylesheet" href="arcane_addon.css?v=4">
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
@@ -1097,9 +1097,8 @@
 
                     // Подсказка пользователю: подсвечиваем все хотспоты волной внимания
                     document.querySelectorAll('.current-hotspot').forEach(spot => {
-                        spot.classList.remove('hotspot-attention');
-                        void spot.offsetWidth; // перезапуск анимации
                         spot.classList.add('hotspot-attention');
+                        setTimeout(() => spot.classList.remove('hotspot-attention'), 550);
                     });
 
                     // 1. ГОТИКА: Призрачная волна тумана из точки клика
@@ -1120,7 +1119,7 @@
                     // 4. HP КРАФТ / АРКАН: Магическая печать + созвездие искр
                     else if (currentTheme === 'arcane') {
                         spawnRipple(sparksContainer, x, y, 'arcane-rune-ring');
-                        for (let i = 0; i < 22; i++) {
+                        for (let i = 0; i < 12; i++) {
                             const spark = document.createElement('div');
                             spark.className = 'magic-star-spark';
                             spark.style.left = x + 'px';
