@@ -1076,42 +1076,90 @@
             if (vitrineCard) {
                 vitrineCard.onclick = function(e) {
                     const imgEl = document.getElementById('scene-img');
-                    if (!imgEl) return;
+                    const sparksContainer = document.getElementById('sparks-container');
+                    if (!imgEl || !sparksContainer) return;
 
-                    if (currentTheme === 'gothic' && !imgEl.classList.contains('gothic-fog-anim')) {
-                        imgEl.classList.add('gothic-fog-anim');
-                        setTimeout(() => imgEl.classList.remove('gothic-fog-anim'), 400);
-                    } else if (currentTheme === 'postap' && !imgEl.classList.contains('postap-nv-anim')) {
-                        imgEl.classList.add('postap-nv-anim');
-                        setTimeout(() => imgEl.classList.remove('postap-nv-anim'), 400);
-                    } else if (currentTheme === 'horror' && !imgEl.classList.contains('horror-flicker-anim')) {
-                        imgEl.classList.add('horror-flicker-anim');
-                        setTimeout(() => imgEl.classList.remove('horror-flicker-anim'), 300);
-                    } else if (currentTheme === 'arcane') {
-                        const sparksContainer = document.getElementById('sparks-container');
-                        if (!sparksContainer) return;
+                    // Вычисляем точные координаты клика внутри витрины (в px и %)
+                    const rect = vitrineCard.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xPercent = Math.round((x / rect.width) * 100);
+                    const yPercent = Math.round((y / rect.height) * 100);
 
-                        const rect = vitrineCard.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
+                    // Передаем координаты клика в CSS-переменные витрины
+                    vitrineCard.style.setProperty('--click-x', xPercent + '%');
+                    vitrineCard.style.setProperty('--click-y', yPercent + '%');
 
-                        for (let i = 0; i < 24; i++) {
+                    // Тактильный отклик на смартфонах (легкая вибрация при промахе)
+                    if (navigator.vibrate) {
+                        navigator.vibrate(currentTheme === 'horror' ? [20, 40, 20] : 15);
+                    }
+
+                    // Подсказка пользователю: подсвечиваем все хотспоты волной внимания
+                    document.querySelectorAll('.current-hotspot').forEach(spot => {
+                        spot.classList.remove('hotspot-attention');
+                        void spot.offsetWidth; // перезапуск анимации
+                        spot.classList.add('hotspot-attention');
+                    });
+
+                    // 1. ГОТИКА: Призрачная волна тумана из точки клика
+                    if (currentTheme === 'gothic') {
+                        triggerSceneAnim(imgEl, 'gothic-fog-anim', 750);
+                        spawnRipple(sparksContainer, x, y, 'gothic-mist-ring');
+                    } 
+                    // 2. ПОСТАП: Тактический сонар + импульс ПНВ
+                    else if (currentTheme === 'postap') {
+                        triggerSceneAnim(imgEl, 'postap-nv-anim', 650);
+                        spawnRipple(sparksContainer, x, y, 'postap-sonar-ring');
+                    } 
+                    // 3. ХОРРОР: Аналоговый сбой (Glitch) + кровавая вспышка в точке клика
+                    else if (currentTheme === 'horror') {
+                        triggerSceneAnim(imgEl, 'horror-flicker-anim', 450);
+                        spawnRipple(sparksContainer, x, y, 'horror-blood-pulse');
+                    } 
+                    // 4. HP КРАФТ / АРКАН: Магическая печать + созвездие искр
+                    else if (currentTheme === 'arcane') {
+                        spawnRipple(sparksContainer, x, y, 'arcane-rune-ring');
+                        for (let i = 0; i < 22; i++) {
                             const spark = document.createElement('div');
                             spark.className = 'magic-star-spark';
                             spark.style.left = x + 'px';
                             spark.style.top = y + 'px';
 
                             const angle = Math.random() * Math.PI * 2;
-                            const distance = 35 + Math.random() * 80;
-                            spark.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
-                            spark.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
-                            spark.style.animationDuration = (1.1 + Math.random() * 0.7) + 's';
+                            const distance = 25 + Math.random() * 85;
+                            const dx = Math.cos(angle) * distance;
+                            const dy = Math.sin(angle) * distance - 20;
+
+                            spark.style.setProperty('--dx', dx + 'px');
+                            spark.style.setProperty('--dy', dy + 'px');
+                            spark.style.setProperty('--rot', Math.round(Math.random() * 260 - 130) + 'deg');
+                            spark.style.animationDuration = (0.9 + Math.random() * 0.7) + 's';
 
                             sparksContainer.appendChild(spark);
-                            setTimeout(() => spark.remove(), 1900);
+                            setTimeout(() => spark.remove(), 1700);
                         }
                     }
                 };
+            }
+
+            // Вспомогательная функция чистого перезапуска анимации на картинке
+            function triggerSceneAnim(el, className, duration) {
+                el.classList.remove(className);
+                void el.offsetWidth; // Принудительный reflow для мгновенного отклика при быстрых кликах
+                el.classList.add(className);
+                clearTimeout(el._animTimer);
+                el._animTimer = setTimeout(() => el.classList.remove(className), duration);
+            }
+
+            // Вспомогательная функция создания волны в точке клика
+            function spawnRipple(container, x, y, className) {
+                const ring = document.createElement('div');
+                ring.className = className;
+                ring.style.left = x + 'px';
+                ring.style.top = y + 'px';
+                container.appendChild(ring);
+                setTimeout(() => ring.remove(), 1000);
             }
 
             // Свайпы для лайтбокса
