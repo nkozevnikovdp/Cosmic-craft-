@@ -549,7 +549,7 @@
                 ✕
             </button>
             
-            <div id="modal-img-container" class="mb-4 h-56 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 relative group select-none touch-pan-y">
+            <div id="modal-img-container" onclick="openLightbox()" class="mb-4 h-56 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 relative group select-none touch-pan-y cursor-zoom-in" title="Нажмите для полноэкранного просмотра">
                 <img id="modal-img" src="" alt="Artifact" class="w-full h-full object-cover filter contrast-110 transition-all duration-300 pointer-events-none">
                 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
@@ -1020,10 +1020,10 @@
         // Аудио-система
         const audioCache = {};
         const audioFiles = {
-            gothic: 'gothic_fixed.mp3',
-            postap: 'postap_fixed.mp3',
-            horror: 'horror_fixed.mp3',
-            arcane: 'arcane_fixed.mp3'
+            gothic: 'gothic_fixed.mp3?v=5',
+            postap: 'postap_fixed.mp3?v=5',
+            horror: 'horror_fixed.mp3?v=5',
+            arcane: 'arcane_fixed.mp3?v=5'
         };
 
         function getAudio(theme) {
