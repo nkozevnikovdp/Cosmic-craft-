@@ -69,6 +69,14 @@
             animation: logo-shimmer 4s ease-in-out infinite;
         }
 
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo-spinning {
+            animation: logoSpin 12s linear infinite;
+        }
+
         body {
             transition: background-color 0.4s ease, color 0.4s ease;
             font-family: 'Inter', sans-serif;
@@ -340,8 +348,22 @@
     <div class="fixed top-0 left-0 right-0 z-50 pt-3 pb-2 px-4 sm:px-6 w-full backdrop-blur-xl bg-black/30 border-b border-white/10 shadow-2xl">
         <header class="max-w-3xl mx-auto flex justify-between items-center" id="site-header">
             <div class="flex items-center space-x-2">
-                <button type="button" onclick="playSecretSound()" class="brand-logo shimmer-logo text-base sm:text-lg font-black uppercase current-accent-text cursor-pointer select-none active:scale-95 transition-transform bg-transparent border-0 p-0" title="Нажмите для звукового резонанса">
-                    COSMIC CRAFT
+                <button type="button" onclick="playSecretSound()" class="group flex items-center space-x-2.5 bg-transparent border-0 p-0 cursor-pointer select-none text-left active:scale-95 transition-transform" title="Нажмите для звукового резонанса">
+                    <!-- Ювелирный символ: алхимический ромб / искра в тонкой рамке -->
+                    <div id="brand-symbol" class="w-7 h-7 rounded-md current-glass flex items-center justify-center border border-current/30 shrink-0 transition-transform duration-500 group-hover:scale-105">
+                        <svg class="w-3.5 h-3.5 current-accent-text transition-transform duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </div>
+                    <!-- Двухъярусная типографика -->
+                    <div class="flex flex-col justify-center">
+                        <span class="brand-logo shimmer-logo text-sm sm:text-base font-black uppercase current-accent-text leading-tight tracking-[0.22em]">
+                            COSMIC
+                        </span>
+                        <span class="font-mono text-[9px] uppercase tracking-[0.3em] text-[#B0AAA2] leading-none mt-[2px]">
+                            CRAFT // STUDIO
+                        </span>
+                    </div>
                 </button>
             </div>
             <div class="flex items-center space-x-2.5">
@@ -1022,13 +1044,20 @@
 
         function playSecretSound() {
             const audio = getAudio(currentTheme);
+            const symbolEl = document.getElementById('brand-symbol');
+            
             if (audio) {
                 audio.loop = true;
                 if (!audio.paused) {
                     audio.pause();
+                    if (symbolEl) symbolEl.classList.remove('logo-spinning');
                 } else {
-                    audio.play().catch(e => console.log("Audio play blocked", e));
+                    audio.play().then(() => {
+                        if (symbolEl) symbolEl.classList.add('logo-spinning');
+                    }).catch(e => console.log("Audio play blocked", e));
                 }
+            } else if (symbolEl) {
+                symbolEl.classList.toggle('logo-spinning');
             }
         }
 
