@@ -3,7 +3,7 @@ const scenes = {
         badge: "CATALOGUE № 01 // GOTHIC CRYPT",
         title: "Артефакты темной эстетики",
         subtitle: "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
-        image: "gothic_altar.jpg",
+        image: "assets/backgrounds/gothic_altar.jpg",
         code: "SCENE 01 // CRYPT ALTAR",
         sceneTitle: "Gothic Altar & Occult Relics",
         sceneDesc: "Коснитесь золотых меток для изучения лота. (Клик мимо метки пробудит туман)",
@@ -14,7 +14,7 @@ const scenes = {
                 desc: "Ювелирная фурнитура, черненый металл, искусственный хрусталь и филигранная ручная сборка в викторианском стиле.",
                 price: "2 500 ₽",
                 badge: "VICTORIAN CHOKER",
-                images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "48%", left: "70%",
@@ -22,7 +22,7 @@ const scenes = {
                 desc: "Коллекционный арт-объект с инкрустацией, патиной под античное серебро и мягким мистическим свечением глазниц.",
                 price: "6 200 ₽",
                 badge: "OCCULT RELIC",
-                images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "62%", left: "25%",
@@ -30,7 +30,7 @@ const scenes = {
                 desc: "Кожаный переплет ручной работы, барельефный сигил, состаренная бумага для тайных записей.",
                 price: "4 100 ₽",
                 badge: "GRIMOIRE ARCHIVE",
-                images: ["gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_altar.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
@@ -38,7 +38,7 @@ const scenes = {
         badge: "CATALOGUE № 02 // WASTELAND",
         title: "Лут из пустошей и кастом",
         subtitle: "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
-        image: "postap_ruins.jpg",
+        image: "assets/backgrounds/postap_ruins.jpg",
         code: "SECTOR 04 // OUTPOST_MK-IV",
         sceneTitle: "Wasteland Survival Rig",
         sceneDesc: "Изучите элементы защитного снаряжения и лут. (Клик мимо метки активирует ПНВ)",
@@ -49,7 +49,7 @@ const scenes = {
                 desc: "Кастомный постапокалиптический арт-объект в боевом везеринге, с ржавчиной, патиной и потертостями.",
                 price: "3 200 ₽",
                 badge: "WASTELAND GEAR",
-                images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "55%", left: "62%",
@@ -57,7 +57,7 @@ const scenes = {
                 desc: "Эмалированная армейская кружка с имитацией радиоактивного износа, потеков ржавчины и копоти.",
                 price: "1 400 ₽",
                 badge: "OUTPOST LUG",
-                images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "70%", left: "45%",
@@ -65,7 +65,7 @@ const scenes = {
                 desc: "Арт-фолиант в обгорелом переплете с выжженными страницами и следами ядерного пепла.",
                 price: "2 600 ₽",
                 badge: "ARCHIVE RELIC",
-                images: ["postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
@@ -73,7 +73,7 @@ const scenes = {
         badge: "CATALOGUE № 03 // HORROR RELICS",
         title: "Мрачные миры и мастерская",
         subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
-        image: "horror_jason.jpg",
+        image: "assets/backgrounds/horror_jason.jpg",
         code: "RITUAL // HORROR.MK-I",
         sceneTitle: "Jason Voorhees Custom Altar",
         sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
@@ -84,7 +84,7 @@ const scenes = {
                 desc: "Коллекционная статуэтка ручной работы. Прецизионный 3D-скульпт, детализированная хоккейная маска и фактурная одежда.",
                 price: "8 500 ₽",
                 badge: "MASTERWORK EXCLUSIVE",
-                images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "45%", left: "36%",
@@ -92,7 +92,7 @@ const scenes = {
                 desc: "Кастомное оружие с эффектом запекшейся крови, ржавчины и следов жестоких расправ в лагере у озера.",
                 price: "2 900 ₽",
                 badge: "BLOODY WEAPON",
-                images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "55%", left: "75%",
@@ -100,7 +100,7 @@ const scenes = {
                 desc: "Коллекционный кейс с латунной фурнитурой и фирменным эмблематичным черепом ручной работы.",
                 price: "3 800 ₽",
                 badge: "LIMITED BOX",
-                images: ["horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/horror_jason.jpg", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
@@ -108,7 +108,7 @@ const scenes = {
         badge: "GRIMOIRE // ARCHIVE VOL. VII",
         title: "Магические артефакты HP & Craft",
         subtitle: "Коллекционный мерч в стилистике факультета Слизерин, алхимические фолианты и атмосферный реквизит.",
-        image: "hp_slytherin.jpg",
+        image: "assets/backgrounds/hp_slytherin.jpg",
         code: "SPELL_FORGE: SLYTHERIN",
         sceneTitle: "Slytherin Alchemical Chamber",
         sceneDesc: "Коснитесь изумрудных меток для изучения лота. (Клик мимо метки пробудит магические искры)",
@@ -119,7 +119,7 @@ const scenes = {
                 desc: "Массивная керамическая кружка с барельефной эмблемой змеи факультета, ручной росписью и эффектом старой глазури.",
                 price: "3 400 ₽",
                 badge: "SLYTHERIN HOUSE",
-                images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "30%", left: "50%",
@@ -127,7 +127,7 @@ const scenes = {
                 desc: "Коллекционный набор для писем в готическом стиле. Натуральное перо в патине и стеклянная чернильница.",
                 price: "2 100 ₽",
                 badge: "SCRIBE SET",
-                images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "65%", left: "72%",
@@ -135,7 +135,7 @@ const scenes = {
                 desc: "Кожаный переплет с барельефом, состаренная бумага ручного литья, алхимические формулы и рецепты зелий.",
                 price: "4 800 ₽",
                 badge: "GRIMOIRE ARCHIVE",
-                images: ["hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     }

@@ -923,10 +923,10 @@
         // Аудио-система
         const audioCache = {};
         const audioFiles = {
-            gothic: 'gothic_fixed.mp3?v=5',
-            postap: 'postap_fixed.mp3?v=5',
-            horror: 'horror_fixed.mp3?v=5',
-            arcane: 'arcane_fixed.mp3?v=5'
+            gothic: 'assets/audio/gothic_fixed.mp3?v=5',
+            postap: 'assets/audio/postap_fixed.mp3?v=5',
+            horror: 'assets/audio/horror_fixed.mp3?v=5',
+            arcane: 'assets/audio/arcane_fixed.mp3?v=5'
         };
 
         function getAudio(theme) {
@@ -1041,8 +1041,9 @@
 
                     // Режим разметки (?edit=1)
                     if (isEditMode) {
-                        const currentImg = imgEl.getAttribute('src') || 'gothic_altar.jpg';
-                        const activeWorld = (document.documentElement.className.match(/theme-(\w+)/) || [,"gothic"])[1]; const snippet = `// Мир: ${activeWorld}\n{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${currentImg}"]\n},`;
+                        const currentImg = imgEl.getAttribute('src') || 'assets/backgrounds/gothic_altar.jpg';
+                        const activeWorld = (document.documentElement.className.match(/theme-(\w+)/) || [,"gothic"])[1]; 
+                        const snippet = `// Мир: ${activeWorld}\n{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${currentImg}"]\n},`;
                         if (navigator.clipboard && window.isSecureContext) {
                             navigator.clipboard.writeText(snippet).catch(() => {});
                         } else {
