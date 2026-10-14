@@ -310,10 +310,10 @@
     </style>
 
     <!-- Подключение внешних аддонов (без дублей) -->
-    <link rel="stylesheet" href="gothic_addon.css?v=4">
-    <link rel="stylesheet" href="postap_addon.css?v=4">
-    <link rel="stylesheet" href="horror_addon.css?v=4">
-    <link rel="stylesheet" href="arcane_addon.css?v=4">
+    <link rel="stylesheet" href="gothic_addon.css?v=6">
+    <link rel="stylesheet" href="postap_addon.css?v=6">
+    <link rel="stylesheet" href="horror_addon.css?v=6">
+    <link rel="stylesheet" href="arcane_addon.css?v=6">
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
@@ -1095,10 +1095,14 @@
                         navigator.vibrate(currentTheme === 'horror' ? [20, 40, 20] : 15);
                     }
 
-                    // Подсказка пользователю: подсвечиваем все хотспоты волной внимания
+                    // Подсказка пользователю: создаем независимые кольца внимания поверх хотспотов, не трогая сами элементы
                     document.querySelectorAll('.current-hotspot').forEach(spot => {
-                        spot.classList.add('hotspot-attention');
-                        setTimeout(() => spot.classList.remove('hotspot-attention'), 550);
+                        const ping = document.createElement('div');
+                        ping.className = 'hotspot-ping-ring';
+                        ping.style.left = spot.style.left;
+                        ping.style.top = spot.style.top;
+                        sparksContainer.appendChild(ping);
+                        setTimeout(() => ping.remove(), 550);
                     });
 
                     // 1. ГОТИКА: Призрачная волна тумана из точки клика
