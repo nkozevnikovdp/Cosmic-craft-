@@ -21,7 +21,7 @@
 
     <!-- Tailwind CSS через CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="catalog.js?v=1"></script>
+    <script src="catalog.js?v=2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Оставлены только реально используемые шрифты -->
@@ -706,8 +706,59 @@
                 if (h.top) btn.style.top = h.top;
                 if (h.left) btn.style.left = h.left;
 
+                // Режим Мастера: поддержка Drag & Drop для существующих точек
+                const isEditModeCheck = new URLSearchParams(window.location.search).get('edit') === '1';
+                if (isEditModeCheck) {
+                    btn.title = `[DRAG] Лот: ${h.title} (${h.top}, ${h.left})`;
+                    let isDragging = false;
+
+                    btn.onmousedown = (e) => {
+                        e.stopPropagation();
+                        isDragging = true;
+                        btn.style.zIndex = "100";
+                    };
+
+                    window.addEventListener('mousemove', (e) => {
+                        if (!isDragging) return;
+                        const vitrineCardEl = document.getElementById('vitrine-card');
+                        if (!vitrineCardEl) return;
+                        const r = vitrineCardEl.getBoundingClientRect();
+                        const x = Math.max(0, Math.min(e.clientX - r.left, r.width));
+                        const y = Math.max(0, Math.min(e.clientY - r.top, r.height));
+                        const xPct = Math.round((x / r.width) * 100);
+                        const yPct = Math.round((y / r.height) * 100);
+
+                        btn.style.left = xPct + '%';
+                        btn.style.top = yPct + '%';
+                        h.left = xPct + '%';
+                        h.top = yPct + '%';
+                    });
+
+                    window.addEventListener('mouseup', () => {
+                        if (isDragging) {
+                            isDragging = false;
+                            btn.style.zIndex = "30";
+                            const snippet = `// Обновленный хотспот [${index}]: ${h.title}\ntop: "${h.top}", left: "${h.left}",`;
+                            if (navigator.clipboard && window.isSecureContext) {
+                                navigator.clipboard.writeText(snippet).catch(() => {});
+                            }
+                            let toast = document.getElementById('edit-toast');
+                            if (!toast) {
+                                toast = document.createElement('div');
+                                toast.id = 'edit-toast';
+                                toast.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-amber-400/80 text-amber-300 px-4 py-2.5 rounded-xl font-mono text-xs shadow-2xl backdrop-blur-md transition-opacity duration-300';
+                                document.body.appendChild(toast);
+                            }
+                            toast.innerHTML = `📍 Перемещено! top: "${h.top}", left: "${h.left}" (скопировано)`;
+                            toast.style.opacity = '1';
+                            setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+                        }
+                    });
+                }
+
                 btn.onclick = (e) => {
                     e.stopPropagation();
+                    if (isEditModeCheck) return;
                     openAuctionModal(h.title, h.desc, h.price, h.badge, h.images);
                 };
 
@@ -968,8 +1019,8 @@
             if (isEditMode) {
                 // Плашка-индикатор сверху
                 const editBanner = document.createElement('div');
-                editBanner.className = 'fixed top-16 left-0 right-0 z-50 bg-amber-500/90 text-black text-center py-1.5 px-4 font-mono text-xs font-bold tracking-wider shadow-2xl backdrop-blur-md';
-                editBanner.innerHTML = '🛠 РЕЖИМ РАЗМЕТКИ: Кликните на предмет на витрине, чтобы скопировать координаты хотспота';
+                editBanner.className = 'fixed bottom-2 left-4 right-4 z-40 pointer-events-none rounded-full bg-amber-500/90 text-black text-center py-1.5 px-4 font-mono text-xs font-bold tracking-wider shadow-2xl backdrop-blur-md';
+                editBanner.innerHTML = '🛠 РЕЖИМ РАЗМЕТКИ (DRAG & DROP): Перетаскивайте точки мышкой или кликните в пустоту для создания нового хотспота';
                 document.body.prepend(editBanner);
             }
 
@@ -990,8 +1041,21 @@
 
                     // Режим разметки (?edit=1)
                     if (isEditMode) {
-                        const snippet = `{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${scenes[currentTheme].image}"]\n},`;
-                        navigator.clipboard.writeText(snippet).catch(() => {});
+                        const currentImg = imgEl.getAttribute('src') || 'gothic_altar.jpg';
+                        const activeWorld = (document.documentElement.className.match(/theme-(\w+)/) || [,"gothic"])[1]; const snippet = `// Мир: ${activeWorld}\n{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${currentImg}"]\n},`;
+                        if (navigator.clipboard && window.isSecureContext) {
+                            navigator.clipboard.writeText(snippet).catch(() => {});
+                        } else {
+                            const ta = document.createElement('textarea');
+                            ta.value = snippet;
+                            ta.style.position = 'fixed';
+                            ta.style.left = '-9999px';
+                            document.body.appendChild(ta);
+                            ta.focus();
+                            ta.select();
+                            try { document.execCommand('copy'); } catch (err) {}
+                            document.body.removeChild(ta);
+                        }
 
                         // Временный маркер на витрине
                         const marker = document.createElement('div');
@@ -1006,7 +1070,7 @@
                         if (!toast) {
                             toast = document.createElement('div');
                             toast.id = 'edit-toast';
-                            toast.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-amber-400/80 text-amber-300 px-4 py-2.5 rounded-xl font-mono text-xs shadow-2xl backdrop-blur-md transition-opacity duration-300';
+                            toast.className = 'fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-amber-400/80 text-amber-300 px-4 py-2.5 rounded-xl font-mono text-xs shadow-2xl backdrop-blur-md transition-opacity duration-300';
                             document.body.appendChild(toast);
                         }
                         toast.innerHTML = `✅ Скопировано! top: "${yPercent}%", left: "${xPercent}%"`;
