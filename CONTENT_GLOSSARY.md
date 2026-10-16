@@ -9,7 +9,7 @@
 * `/index.html` — основная верстка, стили, анимации, аудио-менеджер и логика интерфейса (модальные окна, прелоадер, эффекты витрины).
 * `/catalog.js` — внешний файл данных каталога. Содержит объект `scenes` (миры, сцены, хотспоты) и массив `calendarEvents` (расписание хроник).
 * `/assets/` — единое хранилище медиаассетов:
-  * `assets/backgrounds/` — фоновые изображения витрин (`gothic_custom.jpg`, `postap_ruins.jpg`, `horror_jason.jpg`, `hp_slytherin.jpg`).
+  * `assets/backgrounds/` — фоновые изображения витрин (`gothic_custom.jpg`, `postap_ruins.jpg`, `horror_custom.jpg`, `hp_slytherin.jpg`).
   * `assets/items/` — детальные фотографии и ракурсы артефактов и лотов.
   * `assets/audio/` — бесшовные фоновые аудио-циклы миров (`gothic_fixed.mp3`, `postap_fixed.mp3`, `horror_fixed.mp3`, `arcane_fixed.mp3`).
 

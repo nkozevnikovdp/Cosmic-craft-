@@ -73,34 +73,34 @@ const scenes = {
         badge: "CATALOGUE № 03 // HORROR RELICS",
         title: "Мрачные миры и мастерская",
         subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
-        image: "assets/backgrounds/horror_jason.jpg?v=20261016",
+        image: "assets/backgrounds/horror_custom.jpg?v=20261016",
         code: "RITUAL // HORROR.MK-I",
-        sceneTitle: "Jason Voorhees Custom Altar",
+        sceneTitle: "Silent Hill & RE Village Altar",
         sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
         hotspots: [
             {
-                top: "18%", left: "50%",
-                title: "Маска и образ Джейсона Вурхиза",
-                desc: "Коллекционная статуэтка ручной работы. Прецизионный 3D-скульпт, детализированная хоккейная маска и фактурная одежда.",
-                price: "8 500 ₽",
-                badge: "MASTERWORK EXCLUSIVE",
-                images: ["assets/backgrounds/horror_jason.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                top: "35%", left: "30%",
+                title: "Диорама Silent Hill (Хизер & Медсестра)",
+                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены и безликая медсестра с топором.",
+                price: "9 500 ₽",
+                badge: "SILENT HILL DIORAMA",
+                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "45%", left: "36%",
-                title: "Ржавое окровавленное мачете",
-                desc: "Кастомное оружие с эффектом запекшейся крови, ржавчины и следов жестоких расправ в лагере у озера.",
-                price: "2 900 ₽",
-                badge: "BLOODY WEAPON",
-                images: ["assets/backgrounds/horror_jason.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                top: "32%", left: "75%",
+                title: "Леди Альсина Димитреску и дочки",
+                desc: "Масштабная диорама Resident Evil Village: величественная Альсина с бокалом крови в окружении дочерей в капюшонах и винтажного подсвечника.",
+                price: "12 800 ₽",
+                badge: "RE VILLAGE MASTERWORK",
+                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "55%", left: "75%",
-                title: "Черный кофр с эмблемой черепа",
-                desc: "Коллекционный кейс с латунной фурнитурой и фирменным эмблематичным черепом ручной работы.",
-                price: "3 800 ₽",
-                badge: "LIMITED BOX",
-                images: ["assets/backgrounds/horror_jason.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                top: "72%", left: "42%",
+                title: "Готический подсвечник и алтарь",
+                desc: "Детализированный элемент декоративной подставки с готическими барельефами и мерцающими свечами.",
+                price: "3 600 ₽",
+                badge: "DARK ALTAR PROP",
+                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
