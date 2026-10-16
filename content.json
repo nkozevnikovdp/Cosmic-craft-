@@ -86,36 +86,38 @@
       ]
     },
     "horror": {
-      "badge": "CATALOGUE № 03 // PHANTOM LAB",
-      "title": "Оккультный хоррор и реликвии",
-      "subtitle": "Мрачные фолианты, биомеханика, артефакты из забытых лабораторий и мистических ритуалов.",
+      "badge": "CATALOGUE № 03 // HORROR RELICS",
+      "title": "Мрачные миры и мастерская",
+      "subtitle": "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
       "image": "assets/backgrounds/horror_custom.jpg?v=20261016",
-      "code": "SECTOR 13 // LAB_VAULT",
-      "sceneTitle": "Phantoms & Specimen Vault",
-      "sceneDesc": "Изучите биологические образцы и манускрипты. (Клик мимо метки вызовет помехи)",
+      "code": "RITUAL // HORROR.MK-I",
+      "sceneTitle": "Silent Hill & RE Village Altar",
+      "sceneDesc": "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
       "hotspots": [
         {
-          "top": "45%",
-          "left": "48%",
-          "title": "Книга теней в кожаном переплете",
-          "desc": "Фолиант с древними символами, ручной состаренной бумагой и металлическим замком-застежкой.",
-          "price": "5 400 ₽",
-          "badge": "NECRONOMICON",
+          "top": "35%",
+          "left": "30%",
+          "title": "Диорама Silent Hill (Хизер & Медсестра)",
+          "desc": "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены и безликая медсестра с топором.",
+          "price": "9 500 ₽",
+          "badge": "SILENT HILL DIORAMA",
           "images": [
             "assets/backgrounds/horror_custom.jpg?v=20261016",
-            "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
           ]
         },
         {
-          "top": "70%",
-          "left": "30%",
-          "title": "Колба с аномальным образцом",
-          "desc": "Интерьерный артефакт с неоновой подсветкой жидкости и биологическим мутантом внутри.",
-          "price": "4 100 ₽",
-          "badge": "SPECIMEN X",
+          "top": "32%",
+          "left": "75%",
+          "title": "Леди Альсина Димитреску и дочки",
+          "desc": "Масштабная диорама Resident Evil Village: величественная Альсина с бокалом крови в окружении дочерей в капюшонах и винтажного подсвечника.",
+          "price": "12 800 ₽",
+          "badge": "RE VILLAGE MASTERWORK",
           "images": [
             "assets/backgrounds/horror_custom.jpg?v=20261016",
-            "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=600&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"
           ]
         }
       ]
