@@ -93,14 +93,6 @@ const scenes = {
                 price: "12 800 ₽",
                 badge: "RE VILLAGE MASTERWORK",
                 images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
-            },
-            {
-                top: "72%", left: "42%",
-                title: "Готический подсвечник и алтарь",
-                desc: "Детализированный элемент декоративной подставки с готическими барельефами и мерцающими свечами.",
-                price: "3 600 ₽",
-                badge: "DARK ALTAR PROP",
-                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
