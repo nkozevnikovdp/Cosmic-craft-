@@ -24,8 +24,8 @@
     <script src="catalog.js?v=20261016"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Оптимизация шрифтов: только Cinzel, Inter, JetBrains Mono с display=swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Оставлены только реально используемые шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -33,11 +33,11 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        serif: ['Cinzel', 'serif'],
+                        serif: ['"Cormorant Garamond"', 'Cinzel', 'serif'],
                         display: ['Cinzel', 'serif'],
                         mono: ['"JetBrains Mono"', 'monospace'],
                         sans: ['Inter', 'sans-serif'],
-                        industrial: ['Cinzel', 'sans-serif']
+                        industrial: ['Oswald', 'sans-serif']
                     },
                     zIndex: {
                         '15': '15',
