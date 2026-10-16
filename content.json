@@ -1,0 +1,182 @@
+{
+  "scenes": {
+    "gothic": {
+      "badge": "CATALOGUE № 01 // GOTHIC CRYPT",
+      "title": "Артефакты темной эстетики",
+      "subtitle": "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
+      "image": "assets/backgrounds/gothic_custom.jpg?v=20261016",
+      "code": "SCENE 01 // CRYPT ALTAR",
+      "sceneTitle": "Gothic Altar & Occult Relics",
+      "sceneDesc": "Коснитесь золотых меток для изучения лота. (Клик мимо метки пробудит туман)",
+      "hotspots": [
+        {
+          "top": "42%",
+          "left": "32%",
+          "title": "Ритуальный череп с рунами",
+          "desc": "Коллекционный артефакт с внутренней подсветкой глазниц, кроваво-красными руническими символами и детальной ручной росписью.",
+          "price": "6 500 ₽",
+          "badge": "RITUAL SKULL",
+          "images": [
+            "assets/backgrounds/gothic_custom.jpg?v=20261016",
+            "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+          ]
+        },
+        {
+          "top": "45%",
+          "left": "68%",
+          "title": "Готический бюст «Madame Noir»",
+          "desc": "Коллекционный арт-объект в викторианском корсете с ручной росписью татуировок на шее и груди, бархатная текстура и музейное качество.",
+          "price": "8 900 ₽",
+          "badge": "GOTHIC BUST",
+          "images": [
+            "assets/backgrounds/gothic_custom.jpg?v=20261016",
+            "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+          ]
+        },
+        {
+          "top": "78%",
+          "left": "54%",
+          "title": "Химеры ночи (Пара котов)",
+          "desc": "Мистические фигурки готических котов ручной работы с крыльями и оккультными деталями. Лимитированная серия.",
+          "price": "3 200 ₽",
+          "badge": "MYSTIC FAMILIARS",
+          "images": [
+            "assets/backgrounds/gothic_custom.jpg?v=20261016",
+            "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"
+          ]
+        }
+      ]
+    },
+    "postap": {
+      "badge": "CATALOGUE № 02 // WASTELAND",
+      "title": "Лут из пустошей и кастом",
+      "subtitle": "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
+      "image": "assets/backgrounds/postap_ruins.jpg",
+      "code": "SECTOR 04 // OUTPOST_MK-IV",
+      "sceneTitle": "Wasteland Survival Rig",
+      "sceneDesc": "Изучите элементы защитного снаряжения и лут. (Клик мимо метки активирует ПНВ)",
+      "hotspots": [
+        {
+          "top": "38%",
+          "left": "30%",
+          "title": "Армейский противогаз ГП-5",
+          "desc": "Кастомный постапокалиптический арт-объект в боевом везеринге, с ржавчиной, патиной и потертостями.",
+          "price": "3 200 ₽",
+          "badge": "GASMASK RELIC",
+          "images": [
+            "assets/backgrounds/postap_ruins.jpg",
+            "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=600&auto=format&fit=crop"
+          ]
+        },
+        {
+          "top": "68%",
+          "left": "62%",
+          "title": "Тактическая фляга-контейнер",
+          "desc": "Антуражный элемент выживальщика с металлическим крепежом и следами радиационного контроля.",
+          "price": "2 400 ₽",
+          "badge": "SURVIVAL GEAR",
+          "images": [
+            "assets/backgrounds/postap_ruins.jpg",
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop"
+          ]
+        }
+      ]
+    },
+    "horror": {
+      "badge": "CATALOGUE № 03 // PHANTOM LAB",
+      "title": "Оккультный хоррор и реликвии",
+      "subtitle": "Мрачные фолианты, биомеханика, артефакты из забытых лабораторий и мистических ритуалов.",
+      "image": "assets/backgrounds/horror_custom.jpg?v=20261016",
+      "code": "SECTOR 13 // LAB_VAULT",
+      "sceneTitle": "Phantoms & Specimen Vault",
+      "sceneDesc": "Изучите биологические образцы и манускрипты. (Клик мимо метки вызовет помехи)",
+      "hotspots": [
+        {
+          "top": "45%",
+          "left": "48%",
+          "title": "Книга теней в кожаном переплете",
+          "desc": "Фолиант с древними символами, ручной состаренной бумагой и металлическим замком-застежкой.",
+          "price": "5 400 ₽",
+          "badge": "NECRONOMICON",
+          "images": [
+            "assets/backgrounds/horror_custom.jpg?v=20261016",
+            "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"
+          ]
+        },
+        {
+          "top": "70%",
+          "left": "30%",
+          "title": "Колба с аномальным образцом",
+          "desc": "Интерьерный артефакт с неоновой подсветкой жидкости и биологическим мутантом внутри.",
+          "price": "4 100 ₽",
+          "badge": "SPECIMEN X",
+          "images": [
+            "assets/backgrounds/horror_custom.jpg?v=20261016",
+            "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=600&auto=format&fit=crop"
+          ]
+        }
+      ]
+    },
+    "arcane": {
+      "badge": "CATALOGUE № 04 // SLYTHERIN VAULT",
+      "title": "Арканум и алхимия",
+      "subtitle": "Магические фолианты, зелья, алхимические колбы и артефакты из тайных комнат Хогвартса.",
+      "image": "assets/backgrounds/hp_slytherin.jpg",
+      "code": "VAULT 07 // ALCHEMY_CHAMBER",
+      "sceneTitle": "Slytherin Alchemical Chamber",
+      "sceneDesc": "Изучите артефакты факультета. (Клик мимо метки активирует руны)",
+      "hotspots": [
+        {
+          "top": "35%",
+          "left": "45%",
+          "title": "Зелье «Феликс Фелициус»",
+          "desc": "Колдовской эликсир в хрустальном флаконе с мерцающим золотым переливом и сургучной печатью.",
+          "price": "3 800 ₽",
+          "badge": "LIQUID LUCK",
+          "images": [
+            "assets/backgrounds/hp_slytherin.jpg",
+            "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"
+          ]
+        },
+        {
+          "top": "65%",
+          "left": "70%",
+          "title": "Кубок основателя факультета",
+          "desc": "Массивный серебряный кубок с изумрудной инкрустацией и змеиными барельефами.",
+          "price": "9 500 ₽",
+          "badge": "FOUNDER RELIC",
+          "images": [
+            "assets/backgrounds/hp_slytherin.jpg",
+            "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600&auto=format&fit=crop"
+          ]
+        }
+      ]
+    }
+  },
+  "calendarEvents": [
+    {
+      "shortDate": "20 ОКТ",
+      "fullDate": "20 октября 2026",
+      "time": "19:00 МСК",
+      "location": "Закрытый канал / Стрим",
+      "title": "Релиз новой линейки черепов «Gothic Altar Mk.II»"
+    },
+    {
+      "shortDate": "28 ОКТ",
+      "fullDate": "28 октября 2026",
+      "time": "20:00 МСК",
+      "location": "Мастерская Cosmic Craft",
+      "title": "Ночной стрим: Создание кастомных постапокалиптических масок"
+    },
+    {
+      "shortDate": "05 НОЯ",
+      "fullDate": "5 ноября 2026",
+      "time": "18:00 МСК",
+      "location": "Галерея артефактов",
+      "title": "Открытие выставки алхимических артефактов и фолиантов"
+    }
+  ]
+}
