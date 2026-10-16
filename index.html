@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Cosmic Craft | Мастерская темной эстетики">
     <meta property="og:description" content="Коллекционные статуэтки, готические аксессуары, хоррор-реликвии и фактурный хэндмейд.">
-    <meta property="og:image" content="gothic_altar.jpg">
+    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=2">
 
     <!-- Мгновенная проверка прелоадера без блокирующего document.write -->
     <script>
@@ -795,7 +795,7 @@
                 buyBtn.href = `https://t.me/cosmiccraft21?text=${tgText}`;
             }
 
-            currentLotImages = Array.isArray(inputImgs) && inputImgs.length > 0 ? inputImgs : ["gothic_altar.jpg"];
+            currentLotImages = Array.isArray(inputImgs) && inputImgs.length > 0 ? inputImgs : ["assets/backgrounds/gothic_custom.jpg?v=2"];
             currentImgIndex = 0;
 
             // Ленивая предзагрузка остальных ракурсов выбранного лота
@@ -966,7 +966,7 @@
 
         // Предзагрузка ТОЛЬКО главных сцен (4 фоновых изображения), чтобы не забивать мобильный канал
         function preloadSceneBackgrounds() {
-            ["gothic_altar.jpg", "postap_ruins.jpg", "horror_jason.jpg", "hp_slytherin.jpg"].forEach(src => {
+            ["assets/backgrounds/gothic_custom.jpg?v=2", "postap_ruins.jpg", "horror_jason.jpg", "hp_slytherin.jpg"].forEach(src => {
                 const img = new Image();
                 img.src = src;
             });
@@ -1041,7 +1041,7 @@
 
                     // Режим разметки (?edit=1)
                     if (isEditMode) {
-                        const currentImg = imgEl.getAttribute('src') || 'assets/backgrounds/gothic_altar.jpg';
+                        const currentImg = imgEl.getAttribute('src') || 'assets/backgrounds/gothic_custom.jpg?v=2';
                         const activeWorld = (document.documentElement.className.match(/theme-(\w+)/) || [,"gothic"])[1]; 
                         const snippet = `// Мир: ${activeWorld}\n{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${currentImg}"]\n},`;
                         if (navigator.clipboard && window.isSecureContext) {
