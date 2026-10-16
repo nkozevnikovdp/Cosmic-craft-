@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Cosmic Craft | Мастерская темной эстетики">
     <meta property="og:description" content="Коллекционные статуэтки, готические аксессуары, хоррор-реликвии и фактурный хэндмейд.">
-    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=3">
+    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=20261016">
 
     <!-- Мгновенная проверка прелоадера без блокирующего document.write -->
     <script>
@@ -795,7 +795,7 @@
                 buyBtn.href = `https://t.me/cosmiccraft21?text=${tgText}`;
             }
 
-            currentLotImages = Array.isArray(inputImgs) && inputImgs.length > 0 ? inputImgs : ["assets/backgrounds/gothic_custom.jpg?v=2"];
+            currentLotImages = Array.isArray(inputImgs) && inputImgs.length > 0 ? inputImgs : ["assets/backgrounds/gothic_custom.jpg?v=20261016"];
             currentImgIndex = 0;
 
             // Ленивая предзагрузка остальных ракурсов выбранного лота
@@ -1041,7 +1041,7 @@
 
                     // Режим разметки (?edit=1)
                     if (isEditMode) {
-                        const currentImg = imgEl.getAttribute('src') || 'assets/backgrounds/gothic_custom.jpg?v=2';
+                        const currentImg = imgEl.getAttribute('src') || 'assets/backgrounds/gothic_custom.jpg?v=20261016';
                         const activeWorld = (document.documentElement.className.match(/theme-(\w+)/) || [,"gothic"])[1]; 
                         const snippet = `// Мир: ${activeWorld}\n{\n    top: "${yPercent}%", left: "${xPercent}%",\n    title: "Новый артефакт",\n    desc: "Описание артефакта",\n    price: "0 ₽",\n    badge: "NEW LOT",\n    images: ["${currentImg}"]\n},`;
                         if (navigator.clipboard && window.isSecureContext) {
