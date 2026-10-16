@@ -3,7 +3,7 @@ const scenes = {
         badge: "CATALOGUE № 01 // GOTHIC CRYPT",
         title: "Артефакты темной эстетики",
         subtitle: "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
-        image: "assets/backgrounds/gothic_custom.jpg?v=3",
+        image: "assets/backgrounds/gothic_custom.jpg?v=20261016",
         code: "SCENE 01 // CRYPT ALTAR",
         sceneTitle: "Gothic Altar & Occult Relics",
         sceneDesc: "Коснитесь золотых меток для изучения лота. (Клик мимо метки пробудит туман)",
@@ -14,7 +14,7 @@ const scenes = {
                 desc: "Ювелирная фурнитура, черненый металл, искусственный хрусталь и филигранная ручная сборка в викторианском стиле.",
                 price: "2 500 ₽",
                 badge: "VICTORIAN CHOKER",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=3", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "48%", left: "70%",
@@ -22,7 +22,7 @@ const scenes = {
                 desc: "Коллекционный арт-объект с инкрустацией, патиной под античное серебро и мягким мистическим свечением глазниц.",
                 price: "6 200 ₽",
                 badge: "OCCULT RELIC",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=3", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "62%", left: "25%",
@@ -30,7 +30,7 @@ const scenes = {
                 desc: "Кожаный переплет ручной работы, барельефный сигил, состаренная бумага для тайных записей.",
                 price: "4 100 ₽",
                 badge: "GRIMOIRE ARCHIVE",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=3", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
