@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Cosmic Craft | Мастерская темной эстетики">
     <meta property="og:description" content="Коллекционные статуэтки, готические аксессуары, хоррор-реликвии и фактурный хэндмейд.">
-    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=2">
+    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=3">
 
     <!-- Мгновенная проверка прелоадера без блокирующего document.write -->
     <script>
@@ -424,7 +424,7 @@
             <div id="vitrine-card" class="relative aspect-[1/1] sm:aspect-[4/3] w-full bg-black overflow-hidden flex items-center justify-center cursor-crosshair select-none">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent z-10 pointer-events-none"></div>
                 
-                <img id="scene-img" src="gothic_altar.jpg" alt="Vitrine Exposition" class="w-full h-full object-cover opacity-80 filter contrast-125 transition-all duration-700">
+                <img id="scene-img" src="assets/backgrounds/gothic_custom.jpg?v=3" alt="Vitrine Exposition" class="w-full h-full object-cover opacity-80 filter contrast-125 transition-all duration-700">
                 
                 <!-- Сценические оверлеи -->
                 <div class="gothic-fog-overlay z-[15] pointer-events-none"></div>
@@ -966,7 +966,7 @@
 
         // Предзагрузка ТОЛЬКО главных сцен (4 фоновых изображения), чтобы не забивать мобильный канал
         function preloadSceneBackgrounds() {
-            ["assets/backgrounds/gothic_custom.jpg?v=2", "postap_ruins.jpg", "horror_jason.jpg", "hp_slytherin.jpg"].forEach(src => {
+            ["assets/backgrounds/gothic_custom.jpg?v=3", "postap_ruins.jpg", "horror_jason.jpg", "hp_slytherin.jpg"].forEach(src => {
                 const img = new Image();
                 img.src = src;
             });
