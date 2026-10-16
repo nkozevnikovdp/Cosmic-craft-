@@ -160,18 +160,18 @@
   },
   "calendarEvents": [
     {
+      "shortDate": "СБ-ВС",
+      "fullDate": "Суббота — Воскресенье",
+      "time": "10:00-21:00",
+      "location": "ТРЦ \"Гринвич\" (8 Марта 46) Ярмарка, 0 уровень",
+      "title": "Ярмарка в ТРЦ \"Гринвич\""
+    },
+    {
       "shortDate": "31 ОКТ",
       "fullDate": "31 октября 2026",
       "time": "19:00",
       "location": "Бар Гнозис (Первомайская 40)",
       "title": "Halloween with Unpleasant Scream"
-    },
-    {
-      "shortDate": "28 ОКТ",
-      "fullDate": "28 октября 2026",
-      "time": "20:00 МСК",
-      "location": "Мастерская Cosmic Craft",
-      "title": "Ночной стрим: Создание кастомных постапокалиптических масок"
     },
     {
       "shortDate": "05 НОЯ",
