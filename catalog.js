@@ -81,26 +81,34 @@ const scenes = {
             {
                 top: "40%", left: "7%",
                 title: "Диорама Silent Hill (Хизер)",
-                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены.",
+                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены и безликая медсестра с топором.",
                 price: "15 500 ₽",
                 badge: "SILENT HILL DIORAMA",
-                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: [
+                    "assets/items/heather/view1.jpg?v=20261017",
+                    "assets/items/heather/view2.jpg?v=20261017",
+                    "assets/items/heather/view3.jpg?v=20261017"
+                ]
             },
             {
                 top: "68%", left: "49%",
-                title: "Сенобит Анджелика",
-                desc: "Коллекционный арт-объект в темной эстетике ужасов и мистического ритуала.",
+                title: "Сенобит Анджелика: Культ боли",
+                desc: "Мрачная скульптурная композиция в эстетике темного фэнтези и оккультных ритуалов. Тончайшая детализация фактур.",
                 price: "10 000 ₽",
-                badge: "SENOBITE RELIC",
+                badge: "CENOBITE RELIC",
                 images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "70%", left: "95%",
+                top: "65%", left: "66%",
                 title: "Леди Альсина Димитреску",
-                desc: "Масштабная диорама Resident Evil Village: величественная Альсина Димитреску в элегантном образе.",
+                desc: "Премиальная художественная диорама в готической стилистике Resident Evil Village: аристократичное величие, бархатные текстуры и кровавый акцент.",
                 price: "19 500 ₽",
                 badge: "RE VILLAGE MASTERWORK",
-                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: [
+                    "assets/items/dimitrescu/view1.jpg?v=20261017",
+                    "assets/items/dimitrescu/view2.jpg?v=20261017",
+                    "assets/items/dimitrescu/view3.jpg?v=20261017"
+                ]
             }
         ]
     },
