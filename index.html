@@ -49,8 +49,274 @@
         }
     </script>
 
-    <!-- Внешний файл кастомных стилей темы -->
-    <link rel="stylesheet" href="main_custom.css?v=20261016">
+    <style>
+        /* Скрытие интро при повторном визите */
+        html.intro-seen #intro-splash {
+            display: none !important;
+        }
+
+        .brand-logo {
+            font-family: 'Cinzel', serif !important;
+            letter-spacing: 0.18em !important;
+            font-weight: 700 !important;
+            font-size: 1.2rem !important;
+        }
+
+        @keyframes logo-shimmer {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 0px rgba(236, 200, 128, 0)); }
+            50% { filter: brightness(1.25) drop-shadow(0 0 8px currentColor); }
+        }
+        .shimmer-logo {
+            animation: logo-shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo-spinning {
+            animation: logoSpin 12s linear infinite;
+        }
+
+        body {
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Базовый стиль стеклянных карточек */
+        .current-glass {
+            transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            backdrop-filter: blur(24px) saturate(140%);
+            -webkit-backdrop-filter: blur(24px) saturate(140%);
+            background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        }
+        .current-glass:hover {
+            transform: translateY(-1px);
+            background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.11) 0%, transparent 70%);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.82), inset 0 0 28px rgba(255, 255, 255, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        .world-btn {
+            font-family: 'Cinzel', 'Cormorant Garamond', serif;
+            letter-spacing: -0.01em;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .world-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Музейные мини-маячки с расширенной зоной клика (Hit-Area) */
+        .current-hotspot {
+            width: 14px !important;
+            height: 14px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(4px);
+            position: relative;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        }
+        .current-hotspot::after {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            right: -14px;
+            bottom: -14px;
+        }
+        .current-hotspot:hover {
+            transform: scale(1.35);
+        }
+
+        /* ================= ТЕМА 1: ГОТИКА ================= */
+        html.theme-gothic {
+            background-color: #090A0C;
+            background-image: radial-gradient(circle at 50% 15%, #181C25 0%, #090A0C 65%, #030405 100%);
+            color: #EAE6DF;
+        }
+        html.theme-gothic .current-glass {
+            background-color: rgba(18, 20, 24, 0.85);
+            border: 1px solid rgba(184, 142, 75, 0.3);
+        }
+        html.theme-gothic .current-accent-text, html.theme-gothic .tg-icon-color {
+            background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #ECC880;
+            color: #ECC880;
+        }
+        html.theme-gothic .current-accent-bg {
+            background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
+            color: #090A0C;
+        }
+        html.theme-gothic .current-hotspot {
+            background: radial-gradient(circle, #ECC880 0%, #B88E4B 60%, #7A5B28 100%);
+            box-shadow: 0 0 16px rgba(236, 200, 128, 0.85);
+            animation: luxury-pulse 2.2s infinite;
+        }
+        html.theme-gothic .current-font-title { font-family: 'Cormorant Garamond', serif; }
+
+        /* ================= ТЕМА 2: ПОСТАП ================= */
+        html.theme-postap {
+            background-color: #120C09;
+            background-image: radial-gradient(circle at 50% 15%, #2A1A12 0%, #120C09 65%, #070403 100%);
+            color: #D6C7B2;
+        }
+        html.theme-postap .current-glass {
+            background-color: rgba(24, 17, 13, 0.88);
+            border: 1px solid rgba(217, 119, 54, 0.35);
+        }
+        html.theme-postap .current-accent-text, html.theme-postap .tg-icon-color {
+            background: linear-gradient(135deg, #FF9933 0%, #D9531E 50%, #8C2303 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #FF9933;
+            color: #FF9933;
+        }
+        html.theme-postap .current-accent-bg {
+            background: linear-gradient(135deg, #FF9933 0%, #D9531E 50%, #8C2303 100%);
+            color: #120C09;
+        }
+        html.theme-postap .current-hotspot {
+            background: radial-gradient(circle, #FF9933 0%, #D9531E 60%, #8C2303 100%);
+            box-shadow: 0 0 18px rgba(217, 83, 30, 0.9);
+            animation: postap-pulse 2.2s infinite;
+        }
+        html.theme-postap .current-font-title { font-family: 'Oswald', sans-serif; letter-spacing: 0.1em; }
+
+        /* ================= ТЕМА 3: ХОРРОР ================= */
+        html.theme-horror {
+            background-color: #0A0608;
+            background-image: radial-gradient(circle at 50% 15%, #200E13 0%, #0A0608 65%, #040203 100%);
+            color: #EDE6E7;
+        }
+        html.theme-horror .current-glass {
+            background-color: rgba(22, 11, 14, 0.85);
+            border: 1px solid rgba(168, 32, 56, 0.3);
+        }
+        html.theme-horror .current-accent-text, html.theme-horror .tg-icon-color {
+            background: linear-gradient(135deg, #E63946 0%, #A82038 50%, #590818 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #E63946;
+            color: #E63946;
+        }
+        html.theme-horror .current-accent-bg {
+            background: linear-gradient(135deg, #A82038 0%, #6E0E22 50%, #3B0510 100%);
+            color: #EDE6E7;
+        }
+        html.theme-horror .current-hotspot {
+            background: radial-gradient(circle, #E63946 0%, #A82038 60%, #3B0510 100%);
+            box-shadow: 0 0 18px rgba(230, 57, 70, 0.85);
+            animation: horror-pulse 2.2s infinite;
+        }
+        html.theme-horror .current-font-title { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
+
+        /* ================= ТЕМА 4: АРКАН / HP CRAFT ================= */
+        html.theme-arcane {
+            background-color: #050B08;
+            background-image: radial-gradient(circle at 50% 15%, #0F261C 0%, #050B08 65%, #020403 100%);
+            color: #E8E4D9;
+        }
+        html.theme-arcane .current-glass {
+            background-color: rgba(8, 17, 13, 0.88);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        html.theme-arcane .current-accent-text, html.theme-arcane .tg-icon-color {
+            background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #056143 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            fill: #10B981;
+            color: #10B981;
+        }
+        html.theme-arcane .current-accent-bg {
+            background: linear-gradient(135deg, #10B981 0%, #056143 50%, #022C1E 100%);
+            color: #E8E4D9;
+        }
+        html.theme-arcane .current-hotspot {
+            background: radial-gradient(circle, #34D399 0%, #10B981 60%, #022C1E 100%);
+            box-shadow: 0 0 18px rgba(16, 185, 129, 0.8);
+            animation: arcane-pulse 2.2s infinite;
+        }
+        html.theme-arcane .current-font-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        /* Пульсация маячков */
+        @keyframes luxury-pulse {
+            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 200, 128, 0.7); }
+            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(184, 142, 75, 0); }
+        }
+        @keyframes postap-pulse {
+            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.7); }
+            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(217, 83, 30, 0); }
+        }
+        @keyframes horror-pulse {
+            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
+            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(168, 32, 56, 0); }
+        }
+        @keyframes arcane-pulse {
+            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(5, 97, 67, 0); }
+        }
+
+        #auction-modal.is-open { display: flex !important; }
+        #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
+
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(184, 142, 75, 0.4); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(184, 142, 75, 0.8); }
+        * { scrollbar-width: thin; scrollbar-color: rgba(184, 142, 75, 0.4) #090A0C; }
+
+        /* Интро-анимации */
+        @keyframes introZoom {
+            0% { transform: scale(0.94); filter: blur(4px); opacity: 0; }
+            100% { transform: scale(1); filter: blur(0); opacity: 1; }
+        }
+        .intro-zoom {
+            animation: introZoom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .intro-title {
+            background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(236, 200, 128, 0.2));
+        }
+
+        /* Живые фоновые частицы */
+        .ambient-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: floatParticle linear infinite;
+            z-index: 1;
+        }
+        html.theme-gothic .ambient-particle { background: #ECC880; box-shadow: 0 0 6px #ECC880; }
+        html.theme-postap .ambient-particle { background: #FF9933; box-shadow: 0 0 6px #FF9933; }
+        html.theme-horror .ambient-particle { background: #E63946; box-shadow: 0 0 6px #E63946; }
+        html.theme-arcane .ambient-particle { background: #10B981; box-shadow: 0 0 6px #10B981; }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(105vh) translateX(0) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) translateX(var(--drift)) scale(1.2); opacity: 0; }
+        }
+
+        /* Отключение тяжелого свечения за курсором на тач-устройствах */
+        @media (hover: none) and (pointer: coarse) {
+            #cursor-glow { display: none !important; }
+        }
+    </style>
 
     <!-- Подключение внешних аддонов (без дублей) -->
     <link rel="stylesheet" href="gothic_addon.css?v=6">
