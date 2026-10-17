@@ -75,22 +75,30 @@ const scenes = {
         subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
         image: "assets/backgrounds/horror_custom.jpg?v=20261016",
         code: "RITUAL // HORROR.MK-I",
-        sceneTitle: "Silent Hill & RE Village Altar",
+        sceneTitle: "Horror Relics & Dioramas",
         sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
         hotspots: [
             {
-                top: "35%", left: "30%",
-                title: "Диорама Silent Hill (Хизер & Медсестра)",
-                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены и безликая медсестра с топором.",
-                price: "9 500 ₽",
+                top: "40%", left: "7%",
+                title: "Диорама Silent Hill (Хизер)",
+                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены.",
+                price: "15 500 ₽",
                 badge: "SILENT HILL DIORAMA",
-                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "32%", left: "75%",
-                title: "Леди Альсина Димитреску и дочки",
-                desc: "Масштабная диорама Resident Evil Village: величественная Альсина с бокалом крови в окружении дочерей в капюшонах и винтажного подсвечника.",
-                price: "12 800 ₽",
+                top: "68%", left: "49%",
+                title: "Сенобит Анджелика",
+                desc: "Коллекционный арт-объект в темной эстетике ужасов и мистического ритуала.",
+                price: "10 000 ₽",
+                badge: "SENOBITE RELIC",
+                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+            },
+            {
+                top: "70%", left: "95%",
+                title: "Леди Альсина Димитреску",
+                desc: "Масштабная диорама Resident Evil Village: величественная Альсина Димитреску в элегантном образе.",
+                price: "19 500 ₽",
                 badge: "RE VILLAGE MASTERWORK",
                 images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
@@ -107,27 +115,19 @@ const scenes = {
         hotspots: [
             {
                 top: "55%", left: "20%",
-                title: "Кружка Слизерин (Кастом)",
-                desc: "Массивная керамическая кружка с барельефной эмблемой змеи факультета, ручной росписью и эффектом старой глазури.",
-                price: "3 400 ₽",
-                badge: "SLYTHERIN HOUSE",
-                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                title: "Эликсир памяти",
+                desc: "Стеклянный флакон со светящейся субстанцией и пробкой ручной работы.",
+                price: "2 800 ₽",
+                badge: "POTION VIAL",
+                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "30%", left: "50%",
-                title: "Изумрудное перо и чернильница",
-                desc: "Коллекционный набор для писем в готическом стиле. Натуральное перо в патине и стеклянная чернильница.",
-                price: "2 100 ₽",
-                badge: "SCRIBE SET",
-                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
-            },
-            {
-                top: "65%", left: "72%",
-                title: "Фолиант Древних Заклинаний",
-                desc: "Кожаный переплет с барельефом, состаренная бумага ручного литья, алхимические формулы и рецепты зелий.",
-                price: "4 800 ₽",
-                badge: "GRIMOIRE ARCHIVE",
-                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                top: "40%", left: "80%",
+                title: "Магический фолиант заклинаний",
+                desc: "Книга в старинном переплете с ручной росписью и символикой факультета.",
+                price: "4 500 ₽",
+                badge: "SPELLBOOK",
+                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     }
@@ -135,24 +135,24 @@ const scenes = {
 
 const calendarEvents = [
     {
-        shortDate: "31.10",
-        title: "Halloween with Unpleasant Scream",
-        fullDate: "31 Октября 2026",
+        shortDate: "СБ-ВС",
+        fullDate: "Суббота — Воскресенье",
+        time: "10:00-21:00",
+        location: "ТРЦ Гринвич (8 Марта 46) Ярмарка, 0 уровень",
+        title: "Ярмарка в ТРЦ Гринвич"
+    },
+    {
+        shortDate: "31 ОКТ",
+        fullDate: "31 октября 2026",
         time: "19:00",
-        location: "Бар Гнозис (Первомайская, 40)"
+        location: "Бар Гнозис (Первомайская 40)",
+        title: "Halloween with Unpleasant Scream"
     },
     {
-        shortDate: "Сб-Вс",
-        title: "ТРЦ «Гринвич» (Ярмарка)",
-        fullDate: "Каждую Субботу и Воскресенье",
-        time: "10:00 - 21:00",
-        location: "ТРЦ Гринвич (8 Марта, 46), 0 Уровень, Ярмарка"
-    },
-    {
-        shortDate: "01.11",
-        title: "Ночной релиз лимитированной серии алхимических фолиантов",
-        fullDate: "1 ноября 2026",
-        time: "00:00 (МСК)",
-        location: "Online // Официальный релиз"
+        shortDate: "05 НОЯ",
+        fullDate: "5 ноября 2026",
+        time: "18:00 МСК",
+        location: "Галерея артефактов",
+        title: "Открытие выставки алхимических артефактов и фолиантов"
     }
 ];
