@@ -26,6 +26,14 @@
             animation: slowSpin 40s linear infinite;
         }
 
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .logo-spinning {
+            animation: logoSpin 12s linear infinite !important;
+        }
+
         body {
             transition: background-color 0.4s ease, color 0.4s ease;
             font-family: 'Inter', sans-serif;
