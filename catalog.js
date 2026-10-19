@@ -96,7 +96,11 @@ const scenes = {
                 desc: "Мрачная скульптурная композиция в эстетике темного фэнтези и оккультных ритуалов. Тончайшая детализация фактур.",
                 price: "10 000 ₽",
                 badge: "CENOBITE RELIC",
-                images: ["assets/backgrounds/horror_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: [
+                    "assets/items/cenobite/view1.jpg?v=20261019",
+                    "assets/items/cenobite/view2.jpg?v=20261019",
+                    "assets/items/cenobite/view3.jpg?v=20261019"
+                ]
             },
             {
                 top: "65%", left: "66%",
