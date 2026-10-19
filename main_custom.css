@@ -18,12 +18,12 @@
             animation: logo-shimmer 4s ease-in-out infinite;
         }
 
-        @keyframes logoSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
-        .logo-spinning {
-            animation: logoSpin 12s linear infinite;
+        .animate-spin-slow {
+            animation: slowSpin 40s linear infinite;
         }
 
         body {
@@ -92,7 +92,6 @@
             background: linear-gradient(135deg, #ECC880 0%, #B88E4B 50%, #7A5B28 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            fill: #ECC880;
             color: #ECC880;
         }
         html.theme-gothic .current-accent-bg {
@@ -120,7 +119,6 @@
             background: linear-gradient(135deg, #FF9933 0%, #D9531E 50%, #8C2303 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            fill: #FF9933;
             color: #FF9933;
         }
         html.theme-postap .current-accent-bg {
@@ -148,7 +146,6 @@
             background: linear-gradient(135deg, #E63946 0%, #A82038 50%, #590818 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            fill: #E63946;
             color: #E63946;
         }
         html.theme-horror .current-accent-bg {
@@ -176,7 +173,6 @@
             background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #056143 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            fill: #10B981;
             color: #10B981;
         }
         html.theme-arcane .current-accent-bg {

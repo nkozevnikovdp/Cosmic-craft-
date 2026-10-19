@@ -66,6 +66,27 @@
 
     <!-- Премиальный титульный интро-экран (Preloader) -->
     <div id="intro-splash" class="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#090A0C] cursor-pointer transition-opacity duration-500 overflow-hidden">
+        <!-- Фоновый водяной знак: сакральная геометрия -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04] p-4">
+            <svg class="w-[260px] h-[260px] sm:w-[380px] sm:h-[380px] text-[#ECC880] animate-spin-slow" viewBox="0 0 500 500" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="250" cy="250" r="220" fill="none" />
+                <polygon points="250,30 440,140 440,360 250,470 60,360 60,140" fill="none" />
+                <polygon points="250,70 440,385 60,385" fill="none" />
+                <polygon points="250,430 60,115 440,115" fill="none" />
+                <circle cx="250" cy="285" r="55" fill="none" />
+                <circle cx="250" cy="155" r="45" fill="none" />
+                <circle cx="60" cy="140" r="16" fill="none" />
+                <circle cx="440" cy="140" r="16" fill="none" />
+                <circle cx="250" cy="30" r="16" fill="none" />
+                <circle cx="60" cy="360" r="16" fill="none" />
+                <circle cx="440" cy="360" r="16" fill="none" />
+                <circle cx="250" cy="470" r="16" fill="none" />
+                <circle cx="250" cy="385" r="6" fill="none" stroke="currentColor" stroke-width="8" />
+                <circle cx="155" cy="225" r="6" fill="none" stroke="currentColor" stroke-width="8" />
+                <circle cx="345" cy="225" r="6" fill="none" stroke="currentColor" stroke-width="8" />
+            </svg>
+        </div>
+
         <div class="absolute top-6 left-6 w-6 h-6 border-t border-l border-[#ECC880]/40 transition-all duration-700 intro-corner"></div>
         <div class="absolute top-6 right-6 w-6 h-6 border-t border-r border-[#ECC880]/40 transition-all duration-700 intro-corner"></div>
         <div class="absolute bottom-6 left-6 w-6 h-6 border-b border-l border-[#ECC880]/40 transition-all duration-700 intro-corner"></div>
@@ -84,14 +105,32 @@
         <header class="max-w-3xl mx-auto flex justify-between items-center" id="site-header">
             <div class="flex items-center space-x-2">
                 <button type="button" onclick="playSecretSound()" class="group flex items-center space-x-2.5 bg-transparent border-0 p-0 cursor-pointer select-none text-left active:scale-95 transition-transform" title="Нажмите для звукового резонанса">
-                    <!-- Ювелирный символ: контурная звезда без заливки (только линии) -->
+                    <!-- Ювелирный символ: Сакральная геометрия (чистый контур без заливки) -->
                     <div id="brand-symbol" class="w-7 h-7 rounded-md current-glass flex items-center justify-center border border-current/30 shrink-0 transition-transform duration-500 group-hover:scale-105">
-                        <svg class="w-4 h-4 current-accent-text transition-transform duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z" />
-                            <line x1="12" y1="2" x2="12" y2="22" />
-                            <line x1="2" y1="12" x2="22" y2="12" />
-                            <line x1="5.5" y1="5.5" x2="18.5" y2="18.5" />
-                            <line x1="5.5" y1="18.5" x2="18.5" y2="5.5" />
+                        <svg class="w-4 h-4 current-accent-text transition-transform duration-700" viewBox="0 0 500 500" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Внешний круг -->
+                            <circle cx="250" cy="250" r="220" fill="none" />
+                            <!-- Вписанный шестиугольник -->
+                            <polygon points="250,30 440,140 440,360 250,470 60,360 60,140" fill="none" />
+                            <!-- Большой треугольник вверх -->
+                            <polygon points="250,70 440,385 60,385" fill="none" />
+                            <!-- Большой треугольник вниз -->
+                            <polygon points="250,430 60,115 440,115" fill="none" />
+                            <!-- Внутренний центральный круг -->
+                            <circle cx="250" cy="285" r="55" fill="none" />
+                            <!-- Верхний вспомогательный круг -->
+                            <circle cx="250" cy="155" r="45" fill="none" />
+                            <!-- Малые угловые окружности -->
+                            <circle cx="60" cy="140" r="16" fill="none" />
+                            <circle cx="440" cy="140" r="16" fill="none" />
+                            <circle cx="250" cy="30" r="16" fill="none" />
+                            <circle cx="60" cy="360" r="16" fill="none" />
+                            <circle cx="440" cy="360" r="16" fill="none" />
+                            <circle cx="250" cy="470" r="16" fill="none" />
+                            <!-- Центры и узлы (тоже контурные или с явным fill="none") -->
+                            <circle cx="250" cy="385" r="6" fill="none" stroke="currentColor" stroke-width="12" />
+                            <circle cx="155" cy="225" r="6" fill="none" stroke="currentColor" stroke-width="12" />
+                            <circle cx="345" cy="225" r="6" fill="none" stroke="currentColor" stroke-width="12" />
                         </svg>
                     </div>
                     <!-- Двухъярусная типографика -->
@@ -732,7 +771,7 @@
                 }, 500);
             };
 
-            const autoTimer = setTimeout(hideSplash, 1300);
+            const autoTimer = setTimeout(hideSplash, 2000);
             splash.addEventListener('click', () => {
                 clearTimeout(autoTimer);
                 hideSplash();
