@@ -21,7 +21,7 @@
 
     <!-- Tailwind CSS через CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="catalog.js?v=20261016"></script>
+    <script src="catalog.js?v=20261019_sold"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Оставлены только реально используемые шрифты -->
@@ -293,8 +293,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
                 </button>
 
-                <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center px-1">
-                    <span id="modal-angle-label" class="text-[11px] font-mono uppercase tracking-widest text-white/90 bg-black/60 px-2 py-0.5 rounded border border-white/10">АНФАС</span>
+                <div class="absolute bottom-3 right-3 flex justify-end items-center px-1">
                     <div id="modal-dots" class="flex space-x-1.5"></div>
                 </div>
             </div>
@@ -493,7 +492,7 @@
                 btn.onclick = (e) => {
                     e.stopPropagation();
                     if (isEditModeCheck) return;
-                    openAuctionModal(h.title, h.desc, h.price, h.badge, h.images);
+                    openAuctionModal(h.title, h.desc, h.price, h.badge, h.images, h.status);
                 };
 
                 const inner = document.createElement('span');
@@ -504,24 +503,35 @@
                 // Карточка быстрого доступа под витриной
                 const card = document.createElement('button');
                 card.type = "button";
-                card.className = "current-glass p-3 rounded-xl border border-white/10 text-left flex sm:flex-col justify-between items-center sm:items-start gap-3 cursor-pointer hover:border-white/25 transition group";
-                card.onclick = () => openAuctionModal(h.title, h.desc, h.price, h.badge, h.images);
+                const isSold = h.status === 'sold';
+                card.className = `current-glass p-3 rounded-xl border ${isSold ? 'border-amber-500/30 opacity-75 grayscale-[30%]' : 'border-white/10 hover:border-white/25'} text-left flex sm:flex-col justify-between items-center sm:items-start gap-3 cursor-pointer transition group`;
+                card.onclick = () => openAuctionModal(h.title, h.desc, h.price, h.badge, h.images, h.status);
                 card.innerHTML = `
                     <div class="w-full">
-                        <div class="text-[9px] font-mono uppercase tracking-widest text-[#A39E93] mb-0.5">ЛОТ 0${index + 1}</div>
+                        <div class="text-[9px] font-mono uppercase tracking-widest ${isSold ? 'text-amber-400 font-bold' : 'text-[#A39E93]'} mb-0.5">${isSold ? '★ В ЧАСТНОЙ КОЛЛЕКЦИИ' : `ЛОТ 0${index + 1}`}</div>
                         <div class="text-xs font-medium text-white group-hover:underline line-clamp-1 sm:line-clamp-2 leading-snug">${h.title}</div>
                     </div>
-                    <div class="font-mono text-xs font-bold current-accent-text shrink-0 sm:mt-2">${h.price}</div>
+                    <div class="font-mono text-xs font-bold ${isSold ? 'text-amber-400' : 'current-accent-text'} shrink-0 sm:mt-2">${h.price}</div>
                 `;
                 lotsGrid.appendChild(card);
             });
         }
 
-        function openAuctionModal(title, desc, price, badgeText, inputImgs) {
+        function openAuctionModal(title, desc, price, badgeText, inputImgs, status) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-desc').innerText = desc;
             document.getElementById('modal-price').innerText = price;
-            document.getElementById('modal-badge').innerText = badgeText;
+            
+            const badgeEl = document.getElementById('modal-badge');
+            if (badgeEl) {
+                if (status === 'sold') {
+                    badgeEl.innerText = "★ В ЧАСТНОЙ КОЛЛЕКЦИИ (ПРОДАНО)";
+                    badgeEl.className = "text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold";
+                } else {
+                    badgeEl.innerText = badgeText || 'LOT DETAILS';
+                    badgeEl.className = "text-xs font-mono uppercase tracking-[0.25em] current-accent-text";
+                }
+            }
             
             const buyBtn = document.getElementById('modal-buy-btn');
             if (buyBtn) {
@@ -549,9 +559,6 @@
         function updateModalImageView() {
             const imgEl = document.getElementById('modal-img');
             imgEl.src = currentLotImages[currentImgIndex];
-
-            const labelEl = document.getElementById('modal-angle-label');
-            if (labelEl) labelEl.innerText = angleLabels[currentImgIndex] || `ФОТО ${currentImgIndex + 1}`;
 
             const dotsContainer = document.getElementById('modal-dots');
             if (dotsContainer) {

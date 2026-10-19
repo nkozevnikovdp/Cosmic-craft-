@@ -102,8 +102,9 @@ const scenes = {
                 top: "65%", left: "66%",
                 title: "Леди Альсина Димитреску",
                 desc: "Премиальная художественная диорама в готической стилистике Resident Evil Village: аристократичное величие, бархатные текстуры и кровавый акцент.",
-                price: "19 500 ₽",
-                badge: "RE VILLAGE MASTERWORK",
+                price: "ПРОДАНО",
+                badge: "ARCHIVED // PRIVATE COLLECTION",
+                status: "sold",
                 images: [
                     "assets/items/dimitrescu/view1.jpg?v=20261017",
                     "assets/items/dimitrescu/view2.jpg?v=20261017",
