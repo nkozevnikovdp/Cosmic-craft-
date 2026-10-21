@@ -53,10 +53,10 @@
     <link rel="stylesheet" href="main_custom.css?v=20261016">
 
     <!-- Подключение внешних аддонов (без дублей) -->
-    <link rel="stylesheet" href="gothic_addon.css?v=6">
-    <link rel="stylesheet" href="postap_addon.css?v=6">
-    <link rel="stylesheet" href="horror_addon.css?v=6">
-    <link rel="stylesheet" href="arcane_addon.css?v=6">
+    <link rel="stylesheet" href="gothic_addon.css?v=7">
+    <link rel="stylesheet" href="postap_addon.css?v=7">
+    <link rel="stylesheet" href="horror_addon.css?v=7">
+    <link rel="stylesheet" href="arcane_addon.css?v=7">
 </head>
 <body class="pb-24 antialiased selection:bg-[#B88E4B] selection:text-black">
 
@@ -976,7 +976,7 @@
             // Генератор фоновых частиц
             const particlesContainer = document.getElementById('ambient-particles');
             if (particlesContainer) {
-                for (let i = 0; i < 18; i++) {
+                for (let i = 0; i < 45; i++) {
                     const p = document.createElement('div');
                     p.className = 'ambient-particle';
                     p.style.left = Math.random() * 100 + 'vw';
@@ -997,6 +997,72 @@
                         cursorGlow.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
                     });
                 }, { passive: true });
+            }
+
+            // === МЕХАНИКА 10 ПРОМАХОВ: «ШТОРМ ИСКР» (Во всех мирах) ===
+            let worldMissCount = 0;
+            const sceneImgEl = document.getElementById('scene-img');
+            const ambientParticlesContainer = document.getElementById('ambient-particles');
+
+            if (sceneImgEl && ambientParticlesContainer) {
+                sceneImgEl.addEventListener('click', (e) => {
+                    // Клик по самой картинке витрины считаем промахом во всех мирах
+                    worldMissCount++;
+                    console.log(`[Storm Miss] Theme: ${currentTheme}, Count: ${worldMissCount}/10`);
+
+                    if (worldMissCount >= 10) {
+                        const stormClass = `${currentTheme}-spark-storm`;
+                        ambientParticlesContainer.classList.add(stormClass);
+
+                        const vitrineCardEl = document.getElementById('vitrine-card');
+                        const sparksContainer = document.getElementById('sparks-container');
+
+                        if (vitrineCardEl && sparksContainer) {
+                            const rect = vitrineCardEl.getBoundingClientRect();
+                            const clickX = e.clientX - rect.left;
+                            const clickY = e.clientY - rect.top;
+
+                            // Цвет искры под текущий мир
+                            const sparkColors = {
+                                gothic: '#ECC880',
+                                postap: '#FF9933',
+                                horror: '#E63946',
+                                arcane: '#10B981'
+                            };
+                            const sparkColor = sparkColors[currentTheme] || '#ECC880';
+
+                            for (let i = 0; i < 30; i++) {
+                                const spark = document.createElement('div');
+                                spark.className = 'absolute w-2 h-2 rounded-full pointer-events-none animate-ping';
+                                spark.style.backgroundColor = sparkColor;
+                                spark.style.left = clickX + 'px';
+                                spark.style.top = clickY + 'px';
+                                spark.style.boxShadow = `0 0 12px ${sparkColor}`;
+                                
+                                const angle = Math.random() * Math.PI * 2;
+                                const speed = 50 + Math.random() * 150;
+                                const tx = Math.cos(angle) * speed;
+                                const ty = Math.sin(angle) * speed;
+                                
+                                spark.style.transition = 'transform 0.8s cubic-bezier(0.1, 1, 0.3, 1), opacity 0.8s ease';
+                                sparksContainer.appendChild(spark);
+
+                                requestAnimationFrame(() => {
+                                    spark.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(1.8)`;
+                                    spark.style.opacity = '0';
+                                });
+
+                                setTimeout(() => spark.remove(), 900);
+                            }
+                        }
+
+                        setTimeout(() => {
+                            ambientParticlesContainer.classList.remove(stormClass);
+                        }, 3000);
+
+                        worldMissCount = 0;
+                    }
+                });
             }
         });
     </script>

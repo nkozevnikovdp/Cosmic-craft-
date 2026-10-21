@@ -1,3 +1,12 @@
+/* === ШТОРМ ЧАСТИЦ (Во всех мирах при 10 промахах) === */
+.arcane-spark-storm .ambient-particle {
+    animation-duration: 4.5s !important;
+    transform: scale(5.5);
+    background: #10B981 !important;
+    box-shadow: 0 0 28px #10B981, 0 0 55px #059669, 0 0 80px rgba(16, 185, 129, 0.9) !important;
+    z-index: 50 !important;
+}
+
 .magic-star-spark {
     position: absolute;
     width: 10px;
