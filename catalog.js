@@ -120,27 +120,35 @@ const scenes = {
     arcane: {
         badge: "GRIMOIRE // ARCHIVE VOL. VII",
         title: "Магические артефакты HP & Craft",
-        subtitle: "Коллекционный мерч в стилистике факультета Слизерин, алхимические фолианты и атмосферный реквизит.",
-        image: "assets/backgrounds/hp_slytherin.jpg",
-        code: "SPELL_FORGE: SLYTHERIN",
-        sceneTitle: "Slytherin Alchemical Chamber",
+        subtitle: "Коллекционный мерч в стилистике магических вселенных, алхимические фолианты и атмосферный реквизит.",
+        image: "assets/backgrounds/hp_slytherin.jpg?v=20261025",
+        code: "SPELL_FORGE: WIZARDRY",
+        sceneTitle: "Magical Artifacts & Relics",
         sceneDesc: "Коснитесь изумрудных меток для изучения лота. (Клик мимо метки пробудит магические искры)",
         hotspots: [
             {
-                top: "55%", left: "20%",
-                title: "Эликсир памяти",
-                desc: "Стеклянный флакон со светящейся субстанцией и пробкой ручной работы.",
-                price: "2 800 ₽",
-                badge: "POTION VIAL",
-                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
+                top: "49%", left: "20%",
+                title: "Фоукс (Fawkes)",
+                desc: "Коллекционная фигурка феникса Фоукса ручной работы с детализированным оперением и магической аурой.",
+                price: "5 500 ₽",
+                badge: "FAWKES THE PHOENIX",
+                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
             },
             {
-                top: "40%", left: "80%",
-                title: "Магический фолиант заклинаний",
-                desc: "Книга в старинном переплете с ручной росписью и символикой факультета.",
-                price: "4 500 ₽",
-                badge: "SPELLBOOK",
-                images: ["assets/backgrounds/hp_slytherin.jpg", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
+                top: "66%", left: "62%",
+                title: "Дневник Тома Марволо Риддла (T. M. Riddle's Diary)",
+                desc: "Коллекционный артефакт в старинном переплете с символикой и атмосферой темных искусств.",
+                price: "3 500 ₽",
+                badge: "RIDDLE'S DIARY",
+                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
+            },
+            {
+                top: "28%", left: "68%",
+                title: "Сушёная голова",
+                desc: "Мистический и колоритный реквизит ручной работы для любителей необычной алхимии и магии.",
+                price: "1 800 ₽",
+                badge: "SHRUNKEN HEAD",
+                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     }
