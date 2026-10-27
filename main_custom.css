@@ -76,14 +76,36 @@
         box-shadow: 0 16px 45px rgba(0, 0, 0, 0.82), inset 0 0 28px rgba(255, 255, 255, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.3);
     }
 
-        .world-btn {
-            font-family: 'Cinzel', 'Cormorant Garamond', serif;
-            letter-spacing: -0.01em;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .world-btn:hover {
-            transform: translateY(-1px);
-        }
+    /* Увеличенный внутренний padding для карточек лотов под витриной */
+    #lots-grid > button {
+        padding: 1.1rem !important;
+    }
+
+    .world-btn {
+        font-family: 'Cinzel', 'Cormorant Garamond', serif;
+        letter-spacing: -0.01em;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .world-btn:hover {
+        transform: translateY(-1px);
+    }
+
+    /* Активная кнопка темы с тонкой акцентной обводкой и свечением */
+    .world-btn.active-world {
+        background-color: rgba(255, 255, 255, 0.12) !important;
+        box-shadow: 0 0 20px rgba(236, 200, 128, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid currentColor !important;
+    }
+
+    /* Неактивные кнопки приглушены сильнее */
+    .world-btn.inactive-world {
+        color: #787268 !important;
+        opacity: 0.75;
+    }
+    .world-btn.inactive-world:hover {
+        color: #FFFFFF !important;
+        opacity: 1;
+    }
 
         /* Музейные мини-маячки с расширенной зоной клика (Hit-Area) */
         .current-hotspot {

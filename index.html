@@ -229,7 +229,7 @@
                         <span id="scene-code" class="text-[10px] font-mono uppercase tracking-[0.25em] current-accent-text">SCENE 01 // EXPOSITION</span>
                     </div>
                     <h2 id="scene-title" class="current-font-title text-xl uppercase tracking-[0.1em]">Crypt & Cyber-Goth Set</h2>
-                    <p id="scene-desc" class="text-xs font-light text-[#B0AAA2]">Коснитесь меток на витрине или выберите лот ниже.</p>
+                    <!-- Описание сцены удалено по требованию дизайна -->
                 </div>
             </div>
         </div>
@@ -299,8 +299,14 @@
     </main>
 
     <!-- Фирменный футер -->
-    <footer class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-12">
-        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0 text-xs">
+    <footer class="max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-12">
+        <!-- Тонкая декоративная линия / орнамент -->
+        <div class="w-full flex items-center justify-center mb-6 opacity-40">
+            <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-current to-transparent current-accent-text"></div>
+            <div class="mx-4 text-[10px] font-mono tracking-widest current-accent-text">✦ ✦ ✦</div>
+            <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-current to-transparent current-accent-text"></div>
+        </div>
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0 text-xs">
             <span class="font-mono tracking-wider text-xs current-accent-text uppercase">© 2026 Cosmic Craft</span>
             <button type="button" onclick="openContactsModal()" class="font-mono tracking-wider text-[#B0AAA2] hover:text-white transition-colors cursor-pointer border-b border-white/20 pb-0.5">
                 Контакты и доставка
@@ -457,9 +463,9 @@
                 const btn = document.getElementById(`btn-${t}`);
                 if (!btn) return;
                 if (t === theme) {
-                    btn.className = `world-btn flex-1 py-2 px-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-white/10 ${activeColors[theme]} shadow-sm cursor-pointer flex items-center justify-center`;
+                    btn.className = `world-btn active-world flex-1 py-2 px-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${activeColors[theme]} cursor-pointer flex items-center justify-center`;
                 } else {
-                    btn.className = "world-btn flex-1 py-2 px-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#B0AAA2] hover:text-white cursor-pointer flex items-center justify-center";
+                    btn.className = "world-btn inactive-world flex-1 py-2 px-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center";
                 }
             });
 
@@ -469,10 +475,19 @@
             document.getElementById('badge-theme').innerText = scene.badge;
             document.getElementById('hero-title').innerText = scene.title;
             document.getElementById('hero-subtitle').innerText = scene.subtitle;
-            document.getElementById('scene-img').src = scene.image;
             document.getElementById('scene-code').innerText = scene.code;
             document.getElementById('scene-title').innerText = scene.sceneTitle;
-            document.getElementById('scene-desc').innerText = scene.sceneDesc;
+            
+            // Плавный crossfade (0.4s) для смены фонового изображения сцены
+            const sceneImg = document.getElementById('scene-img');
+            if (sceneImg) {
+                sceneImg.style.transition = 'opacity 0.4s ease-in-out';
+                sceneImg.style.opacity = '0';
+                setTimeout(() => {
+                    sceneImg.src = scene.image;
+                    sceneImg.style.opacity = '0.8';
+                }, 200);
+            }
 
             // 1. Рендер хотспотов на витрине
             const container = document.getElementById('hotspots-container');
