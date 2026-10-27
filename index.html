@@ -6,11 +6,19 @@
     <title>Cosmic Craft | Артефакты темной эстетики и кастом ручной работы</title>
     <meta name="description" content="Мастерская Cosmic Craft: коллекционные статуэтки, готические аксессуары, постапокалиптический крафт и фактурный хэндмейд в музейном исполнении.">
     
-    <!-- OpenGraph для красивых превью в Telegram и ВКонтакте -->
+    <!-- Favicon & Open Graph (Без Twitter) -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#090A0C">
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Cosmic Craft | Мастерская темной эстетики">
-    <meta property="og:description" content="Коллекционные статуэтки, готические аксессуары, хоррор-реликвии и фактурный хэндмейд.">
-    <meta property="og:image" content="assets/backgrounds/gothic_custom.jpg?v=20261016">
+    <meta property="og:site_name" content="Cosmic Craft">
+    <meta property="og:title" content="Cosmic Craft | Артефакты темной эстетики">
+    <meta property="og:description" content="Коллекционные статуэтки, готические аксессуары, хоррор-реликвии и фактурный хэндмейд в музейном исполнении.">
+    <meta property="og:image" content="https://nkozevnikovdp.github.io/Cosmic-craft-/assets/backgrounds/gothic_custom.jpg?v=20261027">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://nkozevnikovdp.github.io/Cosmic-craft-/">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Мгновенная проверка прелоадера без блокирующего document.write -->
     <script>
@@ -24,8 +32,14 @@
     <script src="catalog.js?v=20261025_hp"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Оставлены только реально используемые шрифты -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Предзагрузка основных фонов миров для мгновенного переключения -->
+    <link rel="preload" as="image" href="assets/backgrounds/gothic_custom.jpg?v=20261016">
+    <link rel="preload" as="image" href="assets/backgrounds/postap_ruins.jpg">
+    <link rel="preload" as="image" href="assets/backgrounds/horror_custom.jpg?v=20261016">
+    <link rel="preload" as="image" href="assets/backgrounds/hp_slytherin.jpg?v=20261025">
     
     <script>
         tailwind.config = {
