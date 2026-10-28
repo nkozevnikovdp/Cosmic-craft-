@@ -34,23 +34,35 @@
             animation: logoSpin 12s linear infinite !important;
         }
 
-        body {
-            transition: background-color 0.4s ease, color 0.4s ease;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+        /* Этап 3: Безопасное дыхание фона (только смещение position, без scale и рывков) */
+        @keyframes bgBreathing {
+            0%, 100% { background-position: 50% 15%; }
+            50% { background-position: 50% 18%; }
+        }
+
+        html.theme-gothic, html.theme-postap, html.theme-horror, html.theme-arcane {
+            animation: bgBreathing var(--breath-slow) var(--breath-ease) infinite;
+            will-change: background-position;
         }
 
     /* Holographic mouse-tracking specular highlight for glass cards */
+    /* Этап 4: Idle-жизнь карточек и элементов в покое (тихое дыхание тени и микро-масштаб) */
+    @keyframes idleBreath {
+        0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.25); }
+        50% { transform: translateY(-0.5px) scale(1.003); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.78), inset 0 0 28px rgba(255, 255, 255, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
+    }
+
     .current-glass {
         position: relative;
         overflow: hidden;
         isolation: isolate;
         transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform;
+        will-change: transform, box-shadow;
         backdrop-filter: blur(24px) saturate(140%);
         -webkit-backdrop-filter: blur(24px) saturate(140%);
         background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        animation: idleBreath 12s ease-in-out infinite;
     }
     .current-glass::before {
         content: '';
@@ -151,8 +163,9 @@
         }
         html.theme-gothic .current-hotspot {
             background: radial-gradient(circle, #ECC880 0%, #B88E4B 60%, #7A5B28 100%);
-            box-shadow: 0 0 16px rgba(236, 200, 128, 0.85);
-            animation: luxury-pulse 2.2s infinite;
+            box-shadow: 0 0 16px rgba(236, 200, 128, 0.7);
+            --hotspot-anim: luxury-pulse;
+            animation: luxury-pulse var(--breath-soft, 5.5s) ease-in-out infinite;
         }
         html.theme-gothic .current-font-title { font-family: 'Cormorant Garamond', serif; }
 
@@ -178,8 +191,9 @@
         }
         html.theme-postap .current-hotspot {
             background: radial-gradient(circle, #FF9933 0%, #D9531E 60%, #8C2303 100%);
-            box-shadow: 0 0 18px rgba(217, 83, 30, 0.9);
-            animation: postap-pulse 2.2s infinite;
+            box-shadow: 0 0 18px rgba(217, 83, 30, 0.75);
+            --hotspot-anim: postap-pulse;
+            animation: postap-pulse var(--breath-soft, 5.5s) ease-in-out infinite;
         }
         html.theme-postap .current-font-title { font-family: 'Oswald', sans-serif; letter-spacing: 0.1em; }
 
@@ -205,8 +219,9 @@
         }
         html.theme-horror .current-hotspot {
             background: radial-gradient(circle, #E63946 0%, #A82038 60%, #3B0510 100%);
-            box-shadow: 0 0 18px rgba(230, 57, 70, 0.85);
-            animation: horror-pulse 2.2s infinite;
+            box-shadow: 0 0 18px rgba(230, 57, 70, 0.75);
+            --hotspot-anim: horror-pulse;
+            animation: horror-pulse var(--breath-soft, 5.5s) ease-in-out infinite;
         }
         html.theme-horror .current-font-title { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
 
@@ -232,8 +247,9 @@
         }
         html.theme-arcane .current-hotspot {
             background: radial-gradient(circle, #34D399 0%, #10B981 60%, #022C1E 100%);
-            box-shadow: 0 0 18px rgba(16, 185, 129, 0.8);
-            animation: arcane-pulse 2.2s infinite;
+            box-shadow: 0 0 18px rgba(16, 185, 129, 0.75);
+            --hotspot-anim: arcane-pulse;
+            animation: arcane-pulse var(--breath-soft, 5.5s) ease-in-out infinite;
         }
         html.theme-arcane .current-font-title {
             font-family: 'Cinzel', serif;
@@ -241,22 +257,22 @@
             text-transform: uppercase;
         }
 
-        /* Пульсация маячков */
+        /* Этап 1: Мягкое дыхание маячков (5.5s вместо 2.2s, без сдвигов центра) */
         @keyframes luxury-pulse {
-            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 200, 128, 0.7); }
-            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(184, 142, 75, 0); }
+            0%, 100% { transform: translate(-50%, -50%) scale(0.96); box-shadow: 0 0 0 0 rgba(236, 200, 128, 0.4); }
+            50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 0 5px rgba(184, 142, 75, 0); }
         }
         @keyframes postap-pulse {
-            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.7); }
-            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(217, 83, 30, 0); }
+            0%, 100% { transform: translate(-50%, -50%) scale(0.96); box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.4); }
+            50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 0 5px rgba(217, 83, 30, 0); }
         }
         @keyframes horror-pulse {
-            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
-            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(168, 32, 56, 0); }
+            0%, 100% { transform: translate(-50%, -50%) scale(0.96); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
+            50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 0 5px rgba(168, 32, 56, 0); }
         }
         @keyframes arcane-pulse {
-            0%, 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.12); box-shadow: 0 0 0 9px rgba(5, 97, 67, 0); }
+            0%, 100% { transform: translate(-50%, -50%) scale(0.96); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 0 5px rgba(5, 97, 67, 0); }
         }
 
         #auction-modal.is-open { display: flex !important; }
@@ -335,7 +351,10 @@ body::before {
 }
 
 .current-hotspot {
-    animation: elite-radar 3.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    animation-name: var(--hotspot-anim, luxury-pulse);
+    animation-duration: 5.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 /* 3. Enhanced Foil Shimmer for Typography */

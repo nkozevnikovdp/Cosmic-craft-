@@ -506,6 +506,8 @@
                 btn.className = "absolute z-30 rounded-full current-hotspot flex items-center justify-center cursor-pointer active:scale-95 transition-transform pointer-events-auto -translate-x-1/2 -translate-y-1/2";
                 if (h.top) btn.style.top = h.top;
                 if (h.left) btn.style.left = h.left;
+                // Этап 2: Органический сдвиг фазы дыхания каждого маячка
+                btn.style.animationDelay = `${(index * 1.4)}s`;
 
                 // Режим Мастера: поддержка Drag & Drop для существующих точек
                 const isEditModeCheck = new URLSearchParams(window.location.search).get('edit') === '1';
