@@ -1,3 +1,11 @@
+:root {
+            --breath-slow: 22s;
+            --breath-medium: 8s;
+            --breath-soft: 5.5s;
+            --breath-ease: ease-in-out;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         /* Скрытие интро при повторном визите */
         html.intro-seen #intro-splash {
             display: none !important;
@@ -42,14 +50,12 @@
 
         html.theme-gothic, html.theme-postap, html.theme-horror, html.theme-arcane {
             animation: bgBreathing var(--breath-slow) var(--breath-ease) infinite;
-            will-change: background-position;
         }
 
     /* Holographic mouse-tracking specular highlight for glass cards */
-    /* Этап 4: Idle-жизнь карточек и элементов в покое (тихое дыхание тени и микро-масштаб, цикл 6с) */
     @keyframes idleBreath {
-        0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.25); }
-        50% { transform: translateY(-0.5px) scale(1.003); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.78), inset 0 0 28px rgba(255, 255, 255, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.3); }
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-0.5px) scale(1.004); }
     }
 
     .current-glass {
@@ -57,12 +63,14 @@
         overflow: hidden;
         isolation: isolate;
         transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform, box-shadow;
         backdrop-filter: blur(24px) saturate(140%);
         -webkit-backdrop-filter: blur(24px) saturate(140%);
         background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-        animation: idleBreath 6s ease-in-out infinite;
+    }
+
+    #lots-grid > button.current-glass {
+        animation: idleBreath 7s ease-in-out infinite;
     }
     .current-glass::before {
         content: '';
@@ -369,4 +377,27 @@ body::before {
 
 @keyframes foil-shine {
     to { background-position: 200% center; }
+}
+
+/* Оптимизация производительности: Пауза тяжелых анимаций при скролле */
+html.is-scrolling .ambient-particle,
+html.is-scrolling .current-hotspot,
+html.is-scrolling #lots-grid > button.current-glass,
+html.is-scrolling .shimmer-logo {
+    animation-play-state: paused !important;
+}
+
+html.is-scrolling.theme-gothic,
+html.is-scrolling.theme-postap,
+html.is-scrolling.theme-horror,
+html.is-scrolling.theme-arcane {
+    animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -64,7 +64,7 @@
     </script>
 
     <!-- Внешний файл кастомных стилей темы -->
-    <link rel="stylesheet" href="main_custom.css?v=20261016">
+    <link rel="stylesheet" href="main_custom.css?v=20261028_perf">
 
     <!-- Подключение внешних аддонов (без дублей) -->
     <link rel="stylesheet" href="gothic_addon.css?v=7">
@@ -1004,12 +1004,15 @@
                 }, { passive: true });
             }
 
-            // Генератор фоновых частиц
+            // Генератор фоновых частиц (оптимизировано: 28 частиц, динамический размер)
             const particlesContainer = document.getElementById('ambient-particles');
             if (particlesContainer) {
-                for (let i = 0; i < 45; i++) {
+                for (let i = 0; i < 28; i++) {
                     const p = document.createElement('div');
                     p.className = 'ambient-particle';
+                    const size = (1 + Math.random() * 1.5).toFixed(1);
+                    p.style.width = size + 'px';
+                    p.style.height = size + 'px';
                     p.style.left = Math.random() * 100 + 'vw';
                     p.style.top = Math.random() * 100 + 'vh';
                     p.style.animationDuration = (14 + Math.random() * 12) + 's';
@@ -1018,6 +1021,16 @@
                     particlesContainer.appendChild(p);
                 }
             }
+
+            // Пауза тяжелых анимаций при скролле (is-scrolling)
+            let scrollPauseTimer;
+            window.addEventListener('scroll', () => {
+                document.documentElement.classList.add('is-scrolling');
+                clearTimeout(scrollPauseTimer);
+                scrollPauseTimer = setTimeout(() => {
+                    document.documentElement.classList.remove('is-scrolling');
+                }, 140);
+            }, { passive: true });
 
             // Этап 5: Реакция на присутствие — плавный параллакс витрины и глубокий отклик света
             const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
