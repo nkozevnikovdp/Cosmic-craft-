@@ -1019,13 +1019,25 @@
                 }
             }
 
-            // Оптимизированное движение курсора (только для устройств с мышью)
+            // Этап 5: Реакция на присутствие — плавный параллакс витрины и глубокий отклик света
             const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
             const cursorGlow = document.getElementById('cursor-glow');
-            if (isFinePointer && cursorGlow) {
+            const vitrineCardEl = document.getElementById('vitrine-card');
+
+            if (isFinePointer) {
                 window.addEventListener('mousemove', (e) => {
                     requestAnimationFrame(() => {
-                        cursorGlow.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+                        if (cursorGlow) {
+                            cursorGlow.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+                        }
+                        // Микро-параллакс витрины (2-4px от центра экрана)
+                        if (vitrineCardEl) {
+                            const centerX = window.innerWidth / 2;
+                            const centerY = window.innerHeight / 2;
+                            const moveX = (e.clientX - centerX) / centerX * 3; // до 3px
+                            const moveY = (e.clientY - centerY) / centerY * 3; // до 3px
+                            vitrineCardEl.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+                        }
                     });
                 }, { passive: true });
             }
