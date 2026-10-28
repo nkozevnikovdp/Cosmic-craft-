@@ -3,7 +3,7 @@ const scenes = {
         badge: "CATALOGUE № 01 // GOTHIC CRYPT",
         title: "Артефакты темной эстетики",
         subtitle: "Коллекционные статуэтки, готические аксессуары и фактурный хэндмейд в музейном исполнении.",
-        image: "assets/backgrounds/gothic_custom.jpg?v=20261016",
+        image: "assets/backgrounds/gothic_custom.webp?v=20261028",
         code: "SCENE 01 // CRYPT ALTAR",
         sceneTitle: "Gothic Altar & Occult Relics",
         sceneDesc: "Коснитесь золотых меток для изучения лота. (Клик мимо метки пробудит туман)",
@@ -14,7 +14,7 @@ const scenes = {
                 desc: "Коллекционный артефакт с внутренней подсветкой глазниц, кроваво-красными руническими символами и детальной ручной росписью.",
                 price: "6 500 ₽",
                 badge: "RITUAL SKULL",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "45%", left: "68%",
@@ -22,7 +22,7 @@ const scenes = {
                 desc: "Коллекционный арт-объект в викторианском корсете с ручной росписью татуировок на шее и груди, бархатная текстура и музейное качество.",
                 price: "8 900 ₽",
                 badge: "GOTHIC BUST",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "78%", left: "54%",
@@ -30,7 +30,7 @@ const scenes = {
                 desc: "Мистические фигурки готических котов ручной работы с крыльями и оккультными деталями. Лимитированная серия.",
                 price: "3 200 ₽",
                 badge: "MYSTIC FAMILIARS",
-                images: ["assets/backgrounds/gothic_custom.jpg?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
@@ -38,7 +38,7 @@ const scenes = {
         badge: "CATALOGUE № 02 // WASTELAND",
         title: "Лут из пустошей и кастом",
         subtitle: "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
-        image: "assets/backgrounds/postap_ruins.jpg",
+        image: "assets/backgrounds/postap_ruins.webp?v=20261028",
         code: "SECTOR 04 // OUTPOST_MK-IV",
         sceneTitle: "Wasteland Survival Rig",
         sceneDesc: "Изучите элементы защитного снаряжения и лут. (Клик мимо метки активирует ПНВ)",
@@ -49,7 +49,7 @@ const scenes = {
                 desc: "Кастомный постапокалиптический арт-объект в боевом везеринге, с ржавчиной, патиной и потертостями.",
                 price: "3 200 ₽",
                 badge: "WASTELAND GEAR",
-                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "55%", left: "62%",
@@ -57,7 +57,7 @@ const scenes = {
                 desc: "Эмалированная армейская кружка с имитацией радиоактивного износа, потеков ржавчины и копоти.",
                 price: "1 400 ₽",
                 badge: "OUTPOST LUG",
-                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "70%", left: "45%",
@@ -65,7 +65,7 @@ const scenes = {
                 desc: "Арт-фолиант в обгорелом переплете с выжженными страницами и следами ядерного пепла.",
                 price: "2 600 ₽",
                 badge: "ARCHIVE RELIC",
-                images: ["assets/backgrounds/postap_ruins.jpg", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     },
@@ -73,7 +73,7 @@ const scenes = {
         badge: "CATALOGUE № 03 // HORROR RELICS",
         title: "Мрачные миры и мастерская",
         subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
-        image: "assets/backgrounds/horror_custom.jpg?v=20261016",
+        image: "assets/backgrounds/horror_custom.webp?v=20261028",
         code: "RITUAL // HORROR.MK-I",
         sceneTitle: "Horror Relics & Dioramas",
         sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
@@ -85,9 +85,9 @@ const scenes = {
                 price: "15 500 ₽",
                 badge: "SILENT HILL DIORAMA",
                 images: [
-                    "assets/items/heather/view1.jpg?v=20261017",
-                    "assets/items/heather/view2.jpg?v=20261017",
-                    "assets/items/heather/view3.jpg?v=20261017"
+                    "assets/items/heather/view1.webp?v=20261017",
+                    "assets/items/heather/view2.webp?v=20261017",
+                    "assets/items/heather/view3.webp?v=20261017"
                 ]
             },
             {
@@ -97,9 +97,9 @@ const scenes = {
                 price: "10 000 ₽",
                 badge: "CENOBITE RELIC",
                 images: [
-                    "assets/items/cenobite/view1.jpg?v=20261019",
-                    "assets/items/cenobite/view2.jpg?v=20261019",
-                    "assets/items/cenobite/view3.jpg?v=20261019"
+                    "assets/items/cenobite/view1.webp?v=20261019",
+                    "assets/items/cenobite/view2.webp?v=20261019",
+                    "assets/items/cenobite/view3.webp?v=20261019"
                 ]
             },
             {
@@ -110,9 +110,9 @@ const scenes = {
                 badge: "ARCHIVED // PRIVATE COLLECTION",
                 status: "sold",
                 images: [
-                    "assets/items/dimitrescu/view1.jpg?v=20261017",
-                    "assets/items/dimitrescu/view2.jpg?v=20261017",
-                    "assets/items/dimitrescu/view3.jpg?v=20261017"
+                    "assets/items/dimitrescu/view1.webp?v=20261017",
+                    "assets/items/dimitrescu/view2.webp?v=20261017",
+                    "assets/items/dimitrescu/view3.webp?v=20261017"
                 ]
             }
         ]
@@ -121,7 +121,7 @@ const scenes = {
         badge: "GRIMOIRE // ARCHIVE VOL. VII",
         title: "Магические артефакты HP & Craft",
         subtitle: "Коллекционный мерч в стилистике магических вселенных, алхимические фолианты и атмосферный реквизит.",
-        image: "assets/backgrounds/hp_slytherin.jpg?v=20261025",
+        image: "assets/backgrounds/hp_slytherin.webp?v=20261028",
         code: "SPELL_FORGE: WIZARDRY",
         sceneTitle: "Magical Artifacts & Relics",
         sceneDesc: "Коснитесь изумрудных меток для изучения лота. (Клик мимо метки пробудит магические искры)",
@@ -132,7 +132,7 @@ const scenes = {
                 desc: "Коллекционная фигурка феникса Фоукса ручной работы с детализированным оперением и магической аурой.",
                 price: "5 500 ₽",
                 badge: "FAWKES THE PHOENIX",
-                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "66%", left: "62%",
@@ -140,7 +140,7 @@ const scenes = {
                 desc: "Коллекционный артефакт в старинном переплете с символикой и атмосферой темных искусств.",
                 price: "3 500 ₽",
                 badge: "RIDDLE'S DIARY",
-                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
             },
             {
                 top: "28%", left: "68%",
@@ -148,7 +148,7 @@ const scenes = {
                 desc: "Мистический и колоритный реквизит ручной работы для любителей необычной алхимии и магии.",
                 price: "1 800 ₽",
                 badge: "SHRUNKEN HEAD",
-                images: ["assets/backgrounds/hp_slytherin.jpg?v=20261025", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
             }
         ]
     }
