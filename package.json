@@ -1,0 +1,11 @@
+{
+  "name": "cosmic-craft",
+  "private": true,
+  "scripts": {
+    "css": "tailwindcss -i ./input.css -o ./output.css --minify",
+    "watch": "tailwindcss -i ./input.css -o ./output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
