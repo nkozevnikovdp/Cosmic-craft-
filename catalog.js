@@ -36,36 +36,21 @@ const scenes = {
     },
     postap: {
         badge: "CATALOGUE № 02 // WASTELAND",
-        title: "Лут из пустошей и кастом",
-        subtitle: "Статуэтки в боевом везеринге, грубая стропа, железо и брутальные артефакты эпохи апокалипсиса.",
-        image: "assets/backgrounds/postap_ruins.webp?v=20261028",
-        code: "SECTOR 04 // OUTPOST_MK-IV",
-        sceneTitle: "Wasteland Survival Rig",
-        sceneDesc: "Изучите элементы защитного снаряжения и лут. (Клик мимо метки активирует ПНВ)",
+        title: "Постапокалипсис",
+        subtitle: "Сектор 04: Зона отчуждения (В разработке)",
+        image: "assets/backgrounds/skoro.jpg",
+        code: "SECTOR 04 // CLASSIFIED",
+        sceneTitle: "Wasteland Survival Rig (Coming Soon)",
+        sceneDesc: "Сектор готовится к открытию. Скоро в эфире.",
         hotspots: [
             {
-                top: "38%", left: "30%",
-                title: "Армейский противогаз ГП-5",
-                desc: "Кастомный постапокалиптический арт-объект в боевом везеринге, с ржавчиной, патиной и потертостями.",
-                price: "3 200 ₽",
-                badge: "WASTELAND GEAR",
-                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
-            },
-            {
-                top: "55%", left: "62%",
-                title: "Ржавая кружка выживальщика",
-                desc: "Эмалированная армейская кружка с имитацией радиоактивного износа, потеков ржавчины и копоти.",
-                price: "1 400 ₽",
-                badge: "OUTPOST LUG",
-                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
-            },
-            {
-                top: "70%", left: "45%",
-                title: "Обугленная книга «SURVIVE»",
-                desc: "Арт-фолиант в обгорелом переплете с выжженными страницами и следами ядерного пепла.",
-                price: "2 600 ₽",
-                badge: "ARCHIVE RELIC",
-                images: ["assets/backgrounds/postap_ruins.webp", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop"]
+                top: "50%", left: "50%",
+                title: "Сектор в разработке",
+                desc: "Экспозиция постапокалиптических реликвий и сталкерского крафта готовится к открытию. Скоро в эфире.",
+                price: "Скоро",
+                badge: "CLASSIFIED",
+                status: "coming_soon",
+                images: ["assets/backgrounds/skoro.jpg"]
             }
         ]
     },

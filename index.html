@@ -10,6 +10,69 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta name="theme-color" content="#090A0C">
 
+    <!-- JSON-LD Микроразметка (CraftStore, WebSite & Product Offer) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CraftStore",
+          "@id": "https://nkozevnikovdp.github.io/Cosmic-craft-/#organization",
+          "name": "Cosmic Craft",
+          "url": "https://nkozevnikovdp.github.io/Cosmic-craft-/",
+          "logo": "https://nkozevnikovdp.github.io/Cosmic-craft-/favicon.svg",
+          "image": "https://nkozevnikovdp.github.io/Cosmic-craft-/assets/backgrounds/gothic_custom.jpg?v=20261027",
+          "description": "Мастерская Cosmic Craft: коллекционные статуэтки, готические аксессуары, постапокалиптический крафт и фактурный хэндмейд в музейном исполнении.",
+          "priceRange": "₽₽",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Екатеринбург",
+            "addressCountry": "RU"
+          },
+          "sameAs": [
+            "https://t.me/nkozevnikovdp"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nkozevnikovdp.github.io/Cosmic-craft-/#website",
+          "url": "https://nkozevnikovdp.github.io/Cosmic-craft-/",
+          "name": "Cosmic Craft | Артефакты темной эстетики",
+          "publisher": {
+            "@id": "https://nkozevnikovdp.github.io/Cosmic-craft-/#organization"
+          },
+          "inLanguage": "ru-RU"
+        },
+        {
+          "@type": "Product",
+          "@id": "https://nkozevnikovdp.github.io/Cosmic-craft-/#product",
+          "name": "Коллекционные артефакты и скульптуры ручной работы Cosmic Craft",
+          "image": [
+            "https://nkozevnikovdp.github.io/Cosmic-craft-/assets/backgrounds/gothic_custom.jpg?v=20261027"
+          ],
+          "description": "Авторские коллекционные статуэтки, готические аксессуары и артефакты ручной работы от мастерской Cosmic Craft.",
+          "sku": "CC-GOTHIC-01",
+          "brand": {
+            "@type": "Brand",
+            "name": "Cosmic Craft"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://nkozevnikovdp.github.io/Cosmic-craft-/",
+            "priceCurrency": "RUB",
+            "price": "3500",
+            "priceValidUntil": "2027-12-31",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@id": "https://nkozevnikovdp.github.io/Cosmic-craft-/#organization"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cosmic Craft">
     <meta property="og:title" content="Cosmic Craft | Артефакты темной эстетики">
@@ -27,8 +90,8 @@
         }
     </script>
 
-    <!-- Tailwind CSS через CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (Local Production Build) -->
+    <link rel="stylesheet" href="output.css?v=20261029">
     <script src="catalog.js?v=20261025_hp"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
