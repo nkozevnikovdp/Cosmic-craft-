@@ -284,7 +284,7 @@
         }
 
         #auction-modal.is-open { display: flex !important; }
-        #lightbox-modal.is-open { display: flex !important; flex-direction: column !important; z-index: 100 !important; }
+        #lightbox-modal.is-open { display: flex !important; z-index: 100 !important; }
 
         /* Кастомный скроллбар */
         ::-webkit-scrollbar { width: 6px; }
