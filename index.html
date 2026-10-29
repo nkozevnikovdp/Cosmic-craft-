@@ -358,18 +358,18 @@
     </footer>
 
     <!-- Полноэкранный просмотрщик (Лайтбокс) -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-4 sm:p-12 select-none" onclick="closeLightbox()">
-        <button type="button" onclick="closeLightbox(event)" aria-label="Закрыть" class="absolute top-6 right-6 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-2 sm:p-6 select-none" onclick="closeLightbox()" style="position: fixed; inset: 0; z-index: 100;">
+        <button type="button" onclick="closeLightbox(event)" aria-label="Закрыть" class="absolute top-6 right-6 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 110;">
             ✕
         </button>
-        <button type="button" onclick="prevLightboxImg(event)" aria-label="Предыдущее фото" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+        <button type="button" onclick="prevLightboxImg(event)" aria-label="Предыдущее фото" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); z-index: 110;">
             ‹
         </button>
-        <button type="button" onclick="nextLightboxImg(event)" aria-label="Следующее фото" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl">
+        <button type="button" onclick="nextLightboxImg(event)" aria-label="Следующее фото" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 rounded-full current-glass flex items-center justify-center text-white text-2xl cursor-pointer border border-white/20 hover:scale-105 transition shadow-2xl" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 110;">
             ›
         </button>
-        <div class="relative max-w-[92vw] max-h-[88vh] flex items-center justify-center" onclick="event.stopPropagation()">
-            <img id="lightbox-img" src="" alt="Artifact Zoom" class="max-w-[92vw] max-h-[88vh] object-contain rounded-xl shadow-2xl border border-white/10 transition-transform duration-200">
+        <div class="relative w-full h-full flex items-center justify-center p-4 sm:p-12" onclick="event.stopPropagation()" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            <img id="lightbox-img" src="" alt="Artifact Zoom" class="max-w-[92vw] max-h-[88vh] object-contain rounded-xl shadow-2xl border border-white/10 transition-transform duration-200" style="max-width: 92vw; max-height: 88vh; object-fit: contain;">
         </div>
     </div>
 
