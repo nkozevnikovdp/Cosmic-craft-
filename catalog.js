@@ -14,7 +14,7 @@ const scenes = {
                 desc: "Коллекционный артефакт с внутренней подсветкой глазниц, кроваво-красными руническими символами и детальной ручной росписью.",
                 price: "6 500 ₽",
                 badge: "RITUAL SKULL",
-                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016"]
             },
             {
                 top: "45%", left: "68%",
@@ -22,7 +22,7 @@ const scenes = {
                 desc: "Коллекционный арт-объект в викторианском корсете с ручной росписью татуировок на шее и груди, бархатная текстура и музейное качество.",
                 price: "8 900 ₽",
                 badge: "GOTHIC BUST",
-                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016"]
             },
             {
                 top: "78%", left: "54%",
@@ -30,7 +30,7 @@ const scenes = {
                 desc: "Мистические фигурки готических котов ручной работы с крыльями и оккультными деталями. Лимитированная серия.",
                 price: "3 200 ₽",
                 badge: "MYSTIC FAMILIARS",
-                images: ["assets/backgrounds/gothic_custom.webp?v=20261016", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop", "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop"]
+                images: ["assets/backgrounds/gothic_custom.webp?v=20261016"]
             }
         ]
     },
