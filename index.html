@@ -251,7 +251,7 @@
     <main class="px-4 max-w-lg mx-auto space-y-6">
         
         <!-- Интерактивная витрина с фиксированным соотношением сторон (чтобы точки-маячки не сбивались) -->
-        <div class="current-glass rounded-2xl overflow-hidden shadow-2xl relative">
+        <div class="static-glass rounded-2xl overflow-hidden shadow-2xl relative">
             <div id="vitrine-card" class="relative aspect-[1/1] sm:aspect-[4/3] w-full bg-black overflow-hidden flex items-center justify-center cursor-crosshair select-none">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent z-10 pointer-events-none"></div>
                 
@@ -376,7 +376,7 @@
 
     <!-- Модальное окно карточки товара -->
     <div id="auction-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-end sm:items-center justify-center p-0 sm:p-4" onclick="closeModal()">
-        <div class="current-glass w-full max-w-md rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 border-t sm:border border-white/20 shadow-2xl relative" onclick="event.stopPropagation()">
+        <div class="static-glass w-full max-w-md rounded-t-3xl sm:rounded-2xl p-6 sm:p-8 border-t sm:border border-white/20 shadow-2xl relative" onclick="event.stopPropagation()">
             
             <div class="flex justify-between items-start mb-3">
                 <div>
