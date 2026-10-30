@@ -37,20 +37,20 @@ const scenes = {
     postap: {
         badge: "CATALOGUE № 02 // WASTELAND",
         title: "Постапокалипсис",
-        subtitle: "Сектор 04: Зона отчуждения (В разработке)",
-        image: "assets/backgrounds/skoro.jpg",
-        code: "SECTOR 04 // CLASSIFIED",
-        sceneTitle: "Wasteland Survival Rig (Coming Soon)",
-        sceneDesc: "Сектор готовится к открытию. Скоро в эфире.",
+        subtitle: "Сектор 33: Зона отчуждения (В разработке)",
+        image: "assets/backgrounds/sector33.webp?v=20261030",
+        code: "SECTOR 33 // CLASSIFIED",
+        sceneTitle: "Sector 33: Wasteland Survival Rig",
+        sceneDesc: "Постапокалиптический сектор 33 готовится к открытию экспозиции. Скоро в эфире.",
         hotspots: [
             {
                 top: "50%", left: "50%",
-                title: "Сектор в разработке",
+                title: "Сектор 33 в разработке",
                 desc: "Экспозиция постапокалиптических реликвий и сталкерского крафта готовится к открытию. Скоро в эфире.",
                 price: "Скоро",
-                badge: "CLASSIFIED",
+                badge: "SECTOR 33",
                 status: "coming_soon",
-                images: ["assets/backgrounds/skoro.jpg"]
+                images: ["assets/backgrounds/sector33.webp?v=20261030"]
             }
         ]
     },
@@ -58,46 +58,53 @@ const scenes = {
         badge: "CATALOGUE № 03 // HORROR RELICS",
         title: "Мрачные миры и мастерская",
         subtitle: "Коллекционные статуэтки, хоррор-арт и мрачные реликвии ручной работы в музейном исполнении.",
-        image: "assets/backgrounds/horror_custom.webp?v=20261028",
+        image: "assets/backgrounds/horror_custom.webp?v=20261030",
         code: "RITUAL // HORROR.MK-I",
         sceneTitle: "Horror Relics & Dioramas",
         sceneDesc: "Коснитесь зловещих меток для изучения лота. (Клик мимо метки вызовет сбой света)",
         hotspots: [
             {
-                top: "40%", left: "7%",
-                title: "Диорама Silent Hill (Хизер)",
-                desc: "Коллекционная диорама ручной работы: Хизер Мейсон с дробовиком на фоне разрушенной стены и безликая медсестра с топором.",
-                price: "15 500 ₽",
-                badge: "SILENT HILL DIORAMA",
+                top: "68%", left: "15%",
+                title: "Ксеноморф / Xenomorph & Facehugger",
+                desc: "Коллекционная биомеханическая статуэтка ксеноморфа и лицехвата в мрачной эстетике Чужого. Музейное качество детализации.",
+                price: "7 500 ₽",
+                badge: "XENOMORPH RELIC",
                 images: [
-                    "assets/items/heather/view1.webp?v=20261017",
-                    "assets/items/heather/view2.webp?v=20261017",
-                    "assets/items/heather/view3.webp?v=20261017"
+                    "assets/items/xenomorph/view1.webp?v=20261030",
+                    "assets/items/xenomorph/view2.webp?v=20261030"
                 ]
             },
             {
-                top: "68%", left: "49%",
-                title: "Сенобит Анджелика: Культ боли",
-                desc: "Мрачная скульптурная композиция в эстетике темного фэнтези и оккультных ритуалов. Тончайшая детализация фактур.",
+                top: "76%", left: "38%",
+                title: "Дзен-Ксеноморф / Alien Zen Meditation",
+                desc: "Ироничная и детализированная арт-фигурка: ксеноморф в позе медитации дзен. Сочетание космического ужаса и абсолютного спокойствия.",
+                price: "2 000 ₽",
+                badge: "ZEN XENOMORPH",
+                images: [
+                    "assets/items/alien_zen/view1.webp?v=20261030",
+                    "assets/items/alien_zen/view2.webp?v=20261030"
+                ]
+            },
+            {
+                top: "51%", left: "52%",
+                title: "Сенобит Жрица / Hellraiser Priestess Cenobite",
+                desc: "Мрачная скульптурная композиция жрицы сенобитов в эстетике темного фэнтези и оккультных ритуалов из Вселенной Восставшего из ада.",
                 price: "10 000 ₽",
-                badge: "CENOBITE RELIC",
+                badge: "CENOBITE PRIESTESS",
                 images: [
-                    "assets/items/cenobite/view1.webp?v=20261019",
-                    "assets/items/cenobite/view2.webp?v=20261019",
-                    "assets/items/cenobite/view3.webp?v=20261019"
+                    "assets/items/cenobite/view1.webp?v=20261030",
+                    "assets/items/cenobite/view2.webp?v=20261030"
                 ]
             },
             {
-                top: "65%", left: "66%",
-                title: "Леди Альсина Димитреску",
-                desc: "Премиальная художественная диорама в готической стилистике Resident Evil Village: аристократичное величие, бархатные текстуры и кровавый акцент.",
-                price: "ПРОДАНО",
-                badge: "ARCHIVED // PRIVATE COLLECTION",
-                status: "sold",
+                top: "67%", left: "69%",
+                title: "Пинхед / Pinhead Bust (Hellraiser)",
+                desc: "Премиальный коллекционный бюст лидера сенобитов Пинхеда. Знаковые модификации лица, гвозди и темный кожаный текстурный костюм.",
+                price: "8 500 ₽",
+                badge: "PINHEAD BUST",
                 images: [
-                    "assets/items/dimitrescu/view1.webp?v=20261017",
-                    "assets/items/dimitrescu/view2.webp?v=20261017",
-                    "assets/items/dimitrescu/view3.webp?v=20261017"
+                    "assets/items/pinhead/view1.webp?v=20261030",
+                    "assets/items/pinhead/view2.webp?v=20261030"
                 ]
             }
         ]
@@ -106,34 +113,54 @@ const scenes = {
         badge: "GRIMOIRE // ARCHIVE VOL. VII",
         title: "Магические артефакты HP & Craft",
         subtitle: "Коллекционный мерч в стилистике магических вселенных, алхимические фолианты и атмосферный реквизит.",
-        image: "assets/backgrounds/hp_slytherin.webp?v=20261028",
+        image: "assets/backgrounds/hp_kraft.webp?v=20261030",
         code: "SPELL_FORGE: WIZARDRY",
         sceneTitle: "Magical Artifacts & Relics",
         sceneDesc: "Коснитесь изумрудных меток для изучения лота. (Клик мимо метки пробудит магические искры)",
         hotspots: [
             {
-                top: "49%", left: "20%",
-                title: "Фоукс (Fawkes)",
+                top: "42%", left: "70%",
+                title: "Феникс Фоукс / Fawkes the Phoenix",
                 desc: "Коллекционная фигурка феникса Фоукса ручной работы с детализированным оперением и магической аурой.",
                 price: "5 500 ₽",
                 badge: "FAWKES THE PHOENIX",
-                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"]
+                images: [
+                    "assets/items/fawkes/view1.webp?v=20261030",
+                    "assets/items/fawkes/view2.webp?v=20261030"
+                ]
             },
             {
-                top: "66%", left: "62%",
-                title: "Дневник Тома Марволо Риддла (T. M. Riddle's Diary)",
-                desc: "Коллекционный артефакт в старинном переплете с символикой и атмосферой темных искусств.",
-                price: "3 500 ₽",
-                badge: "RIDDLE'S DIARY",
-                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=600&auto=format&fit=crop"]
-            },
-            {
-                top: "28%", left: "68%",
-                title: "Сушёная голова",
-                desc: "Мистический и колоритный реквизит ручной работы для любителей необычной алхимии и магии.",
+                top: "20%", left: "36%",
+                title: "Сушёная голова / Shrunken Head",
+                desc: "Мистический и колоритный реквизит ручной работы для любителей необычной алхимии, магии и Ночного Рыцаря.",
                 price: "1 800 ₽",
                 badge: "SHRUNKEN HEAD",
-                images: ["assets/backgrounds/hp_slytherin.webp?v=20261025", "https://images.unsplash.com/photo-1514539079130-25950c84af65?q=80&w=600&auto=format&fit=crop"]
+                images: [
+                    "assets/items/shrunken_head/view1.webp?v=20261030",
+                    "assets/items/shrunken_head/view2.webp?v=20261030"
+                ]
+            },
+            {
+                top: "70%", left: "73%",
+                title: "Дневник Тома Реддла с клыком василиска",
+                desc: "Коллекционный артефакт в старинном переплете с символикой и пронзенный клыком василиска — крестраж Темного Лорда.",
+                price: "3 500 ₽",
+                badge: "TOM RIDDLE'S DIARY",
+                images: [
+                    "assets/items/tom_riddle/view1.webp?v=20261030",
+                    "assets/items/tom_riddle/view2.webp?v=20261030"
+                ]
+            },
+            {
+                top: "56%", left: "17%",
+                title: "Исчезательный шкаф / Vanishing Cabinet",
+                desc: "Миниатюрная копия легендарного магического шкафа из Хогвартса и Горбин и Бэркес с точной детализацией.",
+                price: "2 500 ₽",
+                badge: "VANISHING CABINET",
+                images: [
+                    "assets/items/vanishing/view1.webp?v=20261030",
+                    "assets/items/vanishing/view2.webp?v=20261030"
+                ]
             }
         ]
     }

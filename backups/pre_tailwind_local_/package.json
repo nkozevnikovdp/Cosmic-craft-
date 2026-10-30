@@ -1,0 +1,26 @@
+{
+  "name": "cosmic-craft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "catalog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkozevnikovdp/Cosmic-craft-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkozevnikovdp/Cosmic-craft-/issues"
+  },
+  "homepage": "https://github.com/nkozevnikovdp/Cosmic-craft-#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.3"
+  }
+}
