@@ -948,15 +948,20 @@
                         navigator.vibrate(currentTheme === 'horror' ? [20, 40, 20] : 15);
                     }
 
-                    // Подсказка пользователю: создаем независимые кольца внимания поверх хотспотов, не трогая сами элементы
-                    document.querySelectorAll('.current-hotspot').forEach(spot => {
-                        const ping = document.createElement('div');
-                        ping.className = 'hotspot-ping-ring';
-                        ping.style.left = spot.style.left;
-                        ping.style.top = spot.style.top;
-                        sparksContainer.appendChild(ping);
-                        setTimeout(() => ping.remove(), 550);
-                    });
+                    // Подсказка пользователю: создаем синхронные кольца внимания для ВСЕХ активных хотспотов сцены
+                    if (scenes[currentTheme] && scenes[currentTheme].hotspots) {
+                        scenes[currentTheme].hotspots.forEach((h, index) => {
+                            setTimeout(() => {
+                                const ping = document.createElement('div');
+                                ping.className = 'hotspot-ping-ring';
+                                ping.style.left = h.left;
+                                ping.style.top = h.top;
+                                ping.style.transform = 'translate(-50%, -50%)';
+                                sparksContainer.appendChild(ping);
+                                setTimeout(() => ping.remove(), 600);
+                            }, index * 75);
+                        });
+                    }
 
                     // 1. ГОТИКА: Призрачная волна тумана из точки клика
                     if (currentTheme === 'gothic') {
