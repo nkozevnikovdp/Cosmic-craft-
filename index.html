@@ -524,15 +524,26 @@
             document.getElementById('scene-code').innerText = scene.code;
             document.getElementById('scene-title').innerText = scene.sceneTitle;
             
-            // Плавный crossfade (0.4s) для смены фонового изображения сцены
+            // Безупречно плавный кросс-фейд без шлейфов и рывков
             const sceneImg = document.getElementById('scene-img');
             if (sceneImg) {
-                sceneImg.style.transition = 'opacity 0.4s ease-in-out';
+                sceneImg.style.transition = 'opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
                 sceneImg.style.opacity = '0';
-                setTimeout(() => {
+                
+                const imgLoader = new Image();
+                imgLoader.src = scene.image;
+                const applyNewImage = () => {
                     sceneImg.src = scene.image;
-                    sceneImg.style.opacity = '0.8';
-                }, 200);
+                    requestAnimationFrame(() => {
+                        sceneImg.style.opacity = '0.85';
+                    });
+                };
+                if (imgLoader.complete) {
+                    applyNewImage();
+                } else {
+                    imgLoader.onload = applyNewImage;
+                    imgLoader.onerror = applyNewImage;
+                }
             }
 
             // 1. Рендер хотспотов на витрине
