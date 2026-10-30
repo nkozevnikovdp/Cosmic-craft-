@@ -948,14 +948,21 @@
                         navigator.vibrate(currentTheme === 'horror' ? [20, 40, 20] : 15);
                     }
 
-                    // Подсказка пользователю: создаем синхронные кольца внимания для ВСЕХ активных хотспотов сцены
-                    if (scenes[currentTheme] && scenes[currentTheme].hotspots) {
-                        scenes[currentTheme].hotspots.forEach((h, index) => {
+                    // Подсказка пользователю: создаем синхронные кольца внимания для ВСЕХ активных хотспотов на сцене по точным пиксельным координатам
+                    const hotspotEls = document.querySelectorAll('.current-hotspot');
+                    const vitrineCardEl = document.getElementById('vitrine-card');
+                    if (hotspotEls.length > 0 && vitrineCardEl) {
+                        const vRect = vitrineCardEl.getBoundingClientRect();
+                        hotspotEls.forEach((spot, index) => {
+                            const sRect = spot.getBoundingClientRect();
+                            const cx = sRect.left + sRect.width / 2 - vRect.left;
+                            const cy = sRect.top + sRect.height / 2 - vRect.top;
+
                             setTimeout(() => {
                                 const ping = document.createElement('div');
                                 ping.className = 'hotspot-ping-ring';
-                                ping.style.left = h.left;
-                                ping.style.top = h.top;
+                                ping.style.left = cx + 'px';
+                                ping.style.top = cy + 'px';
                                 ping.style.transform = 'translate(-50%, -50%)';
                                 sparksContainer.appendChild(ping);
                                 setTimeout(() => ping.remove(), 600);
