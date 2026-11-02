@@ -311,8 +311,8 @@
                 Никакого потокового литья. Каждый артефакт создается с вниманием к текстуре, весу и деталям, объединяя цифровую точность и теплоту ручного труда.
             </p>
             <div class="grid grid-cols-2 gap-3">
-                <div class="current-glass p-3.5 rounded-xl border border-white/5">
-                    <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1">3D Скульпт</div>
+                <div onclick="openLabModal()" class="current-glass p-3.5 rounded-xl border border-white/5 cursor-pointer hover:border-[#ECC880]/40 transition group">
+                    <div class="text-xs font-serif uppercase tracking-wider current-accent-text mb-1 group-hover:underline">3D Скульпт ↗</div>
                     <div class="text-[11px] font-mono tracking-wider text-[#A39E93]">ПРЕЦИЗИОННАЯ ПЕЧАТЬ</div>
                 </div>
                 <div class="current-glass p-3.5 rounded-xl border border-white/5">
@@ -1191,6 +1191,54 @@
             }
         });
     </script>
+
+    <!-- LAB SPECS MODAL (Dark Luxury) -->
+    <div id="lab-specs-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLabModal(event)">
+        <div class="current-glass max-w-lg w-full rounded-2xl p-6 border border-white/10 relative shadow-2xl bg-[#090A0C]/95 overflow-visible" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <div class="text-xs font-mono uppercase tracking-[0.25em] current-accent-text mb-1">COSMIC CRAFT // LABORATORY</div>
+                    <h3 class="current-font-title text-xl uppercase tracking-[0.1em]">АНАТОМИЯ КРАФТА</h3>
+                </div>
+                <button type="button" onclick="closeLabModal()" aria-label="Закрыть" class="w-9 h-9 rounded-full current-glass flex items-center justify-center text-white text-lg cursor-pointer border border-white/20 hover:scale-105 transition shadow-lg shrink-0">✕</button>
+            </div>
+            
+            <div class="space-y-3 text-xs font-light text-[#B0AAA2] leading-relaxed">
+                <p class="text-white font-medium">Никакой штамповки — только точный союз цифры и материи.</p>
+                
+                <div class="p-3 rounded-xl current-glass border border-white/5">
+                    <span class="current-accent-text font-mono font-bold uppercase">Деталь и Органикой:</span> 
+                    Фотополимерные принтеры Anycubic P1 передают микротекстуры и сложнейшую геометрию с микронной точностью.
+                </div>
+                
+                <div class="p-3 rounded-xl current-glass border border-white/5">
+                    <span class="current-accent-text font-mono font-bold uppercase">Конструктив:</span> 
+                    Скоростные принтеры Bambu Lab P1P обеспечивают базам и деталям монолитную прочность.
+                </div>
+                
+                <div class="p-3 rounded-xl current-glass border border-white/5">
+                    <span class="current-accent-text font-mono font-bold uppercase">Ручной реквием:</span> 
+                    Каждое изделие проходит глубокую УФ-сушку, ювелирную зачистку, шлифовку и ручную художественную покраску.
+                </div>
+                
+                <div class="pt-2 text-[11px] font-mono tracking-wider text-[#A39E93] border-t border-white/10">
+                    Стандарты лаборатории: ручная калибровка перед каждым запуском и бескомпромиссные инженерные решения.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function openLabModal() {
+        const m = document.getElementById('lab-specs-modal');
+        if (m) { m.classList.remove('hidden'); m.classList.add('flex'); }
+    }
+    function closeLabModal(e) {
+        const m = document.getElementById('lab-specs-modal');
+        if (m) { m.classList.remove('flex'); m.classList.add('hidden'); }
+    }
+    </script>
+    
 </body>
 </html>
 
