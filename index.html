@@ -1250,60 +1250,7 @@
         </div>
     </div>
     
-    <script>
-    function openLabModal() {
-        const m = document.getElementById('lab-specs-modal');
-        if (m) { m.classList.remove('hidden'); m.classList.add('flex'); }
-    }
-    function closeLabModal(e) {
-        if (e && e.target && e.target !== e.currentTarget) return;
-        const m = document.getElementById('lab-specs-modal');
-        if (m) { m.classList.remove('flex'); m.classList.add('hidden'); }
-    }
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -20px 0px',
-                threshold: 0.05
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-revealed');
-                    } else {
-                        // При выходе из видимости удаляем класс, чтобы эффект мог срабатывать повторно при скролле обратно вверх
-                        entry.target.classList.remove('is-revealed');
-                    }
-                });
-            }, observerOptions);
-
-            window.scrollObserver = observer;
-
-            // Находим главные контейнеры и блоки для кинематографического появления
-            const targets = document.querySelectorAll('section, .current-glass, footer, h2, h3');
-            targets.forEach((el, index) => {
-                // Исключаем элементы внутри сплеш-экрана или модалок, чтобы не ломать логику
-                if (!el.closest('#intro-splash') && !el.closest('#auction-modal') && !el.closest('#lab-specs-modal')) {
-                    el.classList.add('reveal-on-scroll');
-                    observer.observe(el);
-                }
-            });
-
-            // Запускаем первичное сканирование после загрузки
-            setTimeout(() => {
-                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        el.classList.add('is-revealed');
-                    }
-                });
-            }, 100);
-        });
-    </script>
+    <script src="app.js?v=20261103"></script>
     
 </body>
 </html>
