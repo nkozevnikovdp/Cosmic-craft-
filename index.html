@@ -111,6 +111,23 @@
     <!-- Внешний файл кастомных стилей темы -->
     <link rel="stylesheet" href="main_custom.css?v=20261028_perf">
 
+    <style>
+        /* Smooth Scroll & Reveal on Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
     <!-- Подключение внешних аддонов (без дублей) -->
     <link rel="stylesheet" href="gothic_addon.css?v=7">
     <link rel="stylesheet" href="postap_addon.css?v=7">
@@ -641,7 +658,11 @@
                     </div>
                     <div class="font-mono text-xs font-bold ${isSold ? 'text-amber-400' : 'current-accent-text'} shrink-0 sm:mt-2">${h.price}</div>
                 `;
+                card.classList.add('reveal-on-scroll');
                 lotsGrid.appendChild(card);
+                if (window.scrollObserver) {
+                    window.scrollObserver.observe(card);
+                }
             });
         }
 
@@ -1235,9 +1256,53 @@
         if (m) { m.classList.remove('hidden'); m.classList.add('flex'); }
     }
     function closeLabModal(e) {
+        if (e && e.target && e.target !== e.currentTarget) return;
         const m = document.getElementById('lab-specs-modal');
         if (m) { m.classList.remove('flex'); m.classList.add('hidden'); }
     }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -20px 0px',
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    } else {
+                        // При выходе из видимости удаляем класс, чтобы эффект мог срабатывать повторно при скролле обратно вверх
+                        entry.target.classList.remove('is-revealed');
+                    }
+                });
+            }, observerOptions);
+
+            window.scrollObserver = observer;
+
+            // Находим главные контейнеры и блоки для кинематографического появления
+            const targets = document.querySelectorAll('section, .current-glass, footer, h2, h3');
+            targets.forEach((el, index) => {
+                // Исключаем элементы внутри сплеш-экрана или модалок, чтобы не ломать логику
+                if (!el.closest('#intro-splash') && !el.closest('#auction-modal') && !el.closest('#lab-specs-modal')) {
+                    el.classList.add('reveal-on-scroll');
+                    observer.observe(el);
+                }
+            });
+
+            // Запускаем первичное сканирование после загрузки
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-revealed');
+                    }
+                });
+            }, 100);
+        });
     </script>
     
 </body>
