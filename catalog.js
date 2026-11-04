@@ -12,7 +12,7 @@ const scenes = {
                 top: "42%", left: "32%",
                 title: "Ритуальный череп с рунами",
                 desc: "Коллекционный артефакт с внутренней подсветкой глазниц, кроваво-красными руническими символами и детальной ручной росписью.",
-                price: "6 500 ₽",
+                price: "10 000 ₽",
                 badge: "RITUAL SKULL",
                 images: ["assets/backgrounds/gothic_custom.webp?v=20261016"]
             },
@@ -20,7 +20,7 @@ const scenes = {
                 top: "45%", left: "68%",
                 title: "Готический бюст «Madame Noir»",
                 desc: "Коллекционный арт-объект в викторианском корсете с ручной росписью татуировок на шее и груди, бархатная текстура и музейное качество.",
-                price: "8 900 ₽",
+                price: "В частной коллекции",
                 badge: "GOTHIC BUST",
                 images: ["assets/backgrounds/gothic_custom.webp?v=20261016"]
             },
